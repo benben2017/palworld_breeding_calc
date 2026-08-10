@@ -130,3 +130,11 @@ body {
   background: var(--border);
   border-radius: 10px;
 }
+
+/* Pal 头像加载失败回退：首字母 */
+.fallback-letter::after {
+  content: attr(data-fallback);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-primary);
+}

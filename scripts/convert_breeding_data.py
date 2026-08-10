@@ -34,6 +34,7 @@ def load_pals():
             "key": key,
             "name": p.get("Name", internal),
             "internalName": internal,
+            "imageUrl": f"/assets/pals/{key}.png",
             "breedingValue": p.get("BreedingPower", 0),
             "hp": p.get("Hp", 0),
             "attack": p.get("Attack", 0),
@@ -147,6 +148,27 @@ def main():
         json.dump(reverse, f, ensure_ascii=False, separators=(",", ":"))
     rev_size = os.path.getsize(os.path.join(OUT_DIR, "reverse-index.json"))
     print(f"[OK] reverse-index.json ({rev_size/1024/1024:.2f} MB raw)")
+
+    # public/data/version.json — 数据版本徽章（PRD §5/§10：版本元数据）
+    import hashlib
+    with open(BREEDING_PATH, "rb") as f:
+        src_hash = hashlib.sha256(f.read()).hexdigest()[:12]
+    version = {
+        "gameVersion": "1.0",
+        "datasetVersion": "v26",
+        "source": "tylercamp/palcalc",
+        "sourceCommit": "be2ec7a95c52",
+        "pairs": len(forward),
+        "pals": len(pals),
+        "sourceHash": src_hash,
+        "generatedAt": __import__("datetime").datetime.now().strftime("%Y-%m-%d"),
+    }
+    with open(os.path.join(OUT_DIR, "version.json"), "w", encoding="utf-8") as f:
+        json.dump(version, f, ensure_ascii=False, separators=(",", ":"))
+    # 同时输出到 src/data 供组件构建期内联（Footer 徽章）
+    with open(os.path.join(SRC_DATA_DIR, "version.json"), "w", encoding="utf-8") as f:
+        json.dump(version, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"[OK] version.json (v26 · {version['pairs']} pairs · {version['generatedAt']})")
 
     # 校验: 每个 Pal 至少有 1 条记录 (或标记不可育种)
     no_record = [p["key"] for p in pals if p["key"] not in reverse]

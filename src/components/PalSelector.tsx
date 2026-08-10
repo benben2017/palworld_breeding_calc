@@ -124,8 +124,19 @@ export default function PalSelector({ pals, label, placeholder, value, onChange,
                     i === highlight ? 'bg-primary/10 text-primary' : 'text-onSurface hover:bg-surface-elevated',
                   ].join(' ')}
                 >
-                  <span className="font-medium">{p.name}</span>
-                  <span className="text-xs text-onSurface/40">BV {p.breedingValue}</span>
+                  <span className="flex items-center gap-3 min-w-0">
+                    <img
+                      src={p.imageUrl}
+                      alt=""
+                      loading="lazy"
+                      className="w-8 h-8 rounded-full object-cover bg-surface-elevated shrink-0"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                    <span className="font-medium truncate">{p.name}</span>
+                  </span>
+                  <span className="text-xs text-onSurface/40 shrink-0">BV {p.breedingValue}</span>
                 </li>
               ))
             )}

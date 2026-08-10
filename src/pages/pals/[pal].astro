@@ -26,7 +26,6 @@ const robots = isTop50 ? 'index,follow' : 'noindex,follow';
 const combos: string[] = reverseIndex[pal.key as keyof typeof reverseIndex] ?? [];
 const workEntries = Object.entries(pal.workSuitability || {}).filter(([, lv]) => lv > 0);
 
-const firstLetter = pal.name.charAt(0).toUpperCase();
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -79,7 +78,13 @@ const jsonLd = JSON.stringify({
           <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
             <div class="relative shrink-0">
               <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary bg-surface-elevated flex items-center justify-center overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.2)]">
-                <span class="text-5xl font-black text-primary/50">{firstLetter}</span>
+                <img
+                  src={pal.imageUrl}
+                  alt={`${pal.name} portrait`}
+                  width={160}
+                  height={160}
+                  class="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div class="flex-grow w-full">

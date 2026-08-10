@@ -59,7 +59,19 @@ export default function PalsList({ pals }: Props) {
         class="bg-surface border border-border rounded-xl p-4 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,212,255,0.1)] transition-all flex flex-col items-center text-center"
       >
         <div class="w-20 h-20 rounded-full bg-surface-elevated mb-4 border border-border overflow-hidden flex items-center justify-center">
-          <span class="text-2xl font-black text-primary/70">{p.name.charAt(0)}</span>
+          <img
+            src={p.imageUrl}
+            alt={p.name}
+            loading="lazy"
+            class="w-full h-full object-cover"
+            onError={(e) => {
+              // 图片加载失败时回退到首字母
+              const el = e.currentTarget as HTMLImageElement;
+              el.style.display = 'none';
+              el.parentElement?.classList.add('fallback-letter');
+              el.parentElement?.setAttribute('data-fallback', p.name.charAt(0));
+            }}
+          />
         </div>
         <h3 class="font-bold text-onSurface mb-2">{p.name}</h3>
         <span class="text-[10px] text-onSurface/40 font-mono">BV: {p.breedingValue}</span>
