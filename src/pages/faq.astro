@@ -1,0 +1,116 @@
+---
+// /faq — SEO 冻结稿 §8/§13（10 题折叠式 + FAQPage JSON-LD）
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [
+  {
+    q: 'How does Palworld breeding work?',
+    a: 'Each Pal has a hidden "breeding value." When you place a male and female Pal in the Breeding Farm, the game averages their breeding values and produces the Pal whose value is closest to that average. Some parent pairs always produce the same offspring — those are called "unique combos."',
+  },
+  {
+    q: 'How do I breed a specific Pal?',
+    a: 'Use the reverse lookup mode. Select the Pal you want, and PalBreed will show you every parent pair that produces it. Start with the pair that uses Pals you already have.',
+  },
+  {
+    q: 'How many cakes do I need for breeding?',
+    a: 'One cake per breeding attempt. Use the Cake Calculator to convert your planned number of attempts into exact ingredient amounts.',
+  },
+  {
+    q: 'What are unique breeding combos?',
+    a: 'Unique combos are parent pairs that always produce the same offspring regardless of gender or individual Pal stats. For example, Relaxaurus × Sparkit always produces Jetragon.',
+  },
+  {
+    q: 'Is PalBreed free?',
+    a: 'Yes. All tools are free to use. No account, no payment, no ads.',
+  },
+  {
+    q: 'How is this different from other calculators?',
+    a: 'PalBreed combines parent-to-offspring lookup, reverse target lookup, and cake ingredient calculation in one place — so you don\'t need to switch between multiple tools.',
+  },
+  {
+    q: 'Is there a mobile app?',
+    a: 'No — but PalBreed works great in any mobile browser. Use it on your phone, tablet, or Steam Deck.',
+  },
+  {
+    q: 'Can I save my breeding plans?',
+    a: 'Not yet. Bookmark frequently used Pal pages to quickly check parent combinations.',
+  },
+  {
+    q: 'Is the data up to date?',
+    a: 'PalBreed uses community-sourced data from the current game version. Each page shows the data version and verification date.',
+  },
+  {
+    q: 'What if I find an error? / Have a feature idea?',
+    a: 'Contact us at feedback@palbreed.space. Use [Bug] in the subject line for data issues, or [Feature] for suggestions. We read every message.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Frequently Asked Questions — Palworld Breeding | PalBreed"
+  description="Answers to common questions about Palworld breeding mechanics, unique combos, cake recipes, and how to use the PalBreed calculator."
+  canonical="https://palbreed.space/faq"
+  activeNav="faq"
+  jsonLd={JSON.stringify(faqJsonLd)}
+>
+  <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Frequently Asked Questions</h1>
+      <p class="text-onSurface/70">
+        Everything about Palworld breeding, unique combos, and cake recipes.
+      </p>
+    </header>
+
+    <div class="space-y-4">
+      {faqs.map((f, i) => (
+        <details class="group bg-surface border border-border rounded-xl overflow-hidden" open={i === 0}>
+          <summary class="px-6 py-4 font-bold cursor-pointer flex items-center justify-between gap-4 hover:bg-surface-elevated/50 transition-colors touch-target">
+            <span class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-xs font-black text-primary shrink-0">
+                {i + 1}
+              </span>
+              {f.q}
+            </span>
+            <span class="text-primary transition-transform group-open:rotate-180 shrink-0">
+              <Icon name="expand-more" />
+            </span>
+          </summary>
+          <p class="px-6 pb-5 text-sm text-onSurface/70 leading-relaxed">{f.a}</p>
+        </details>
+      ))}
+    </div>
+
+    <!-- 反馈 CTA -->
+    <div class="mt-12 bg-surface/50 border border-border rounded-2xl p-8 text-center">
+      <h2 class="text-xl font-extrabold mb-3">Still have questions?</h2>
+      <p class="text-sm text-onSurface/70 mb-5">
+        Found an error in the data or have a feature idea? We read every message.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="mailto:feedback@palbreed.space?subject=%5BBug%5D%20Data%20issue"
+          class="px-6 py-3 rounded-xl bg-primary text-background font-bold hover:brightness-110 transition-all"
+        >
+          Report a data issue
+        </a>
+        <a
+          href="mailto:feedback@palbreed.space?subject=%5BFeature%5D%20Request"
+          class="px-6 py-3 rounded-xl border border-border hover:bg-surface-elevated font-bold transition-all"
+        >
+          Suggest a feature
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

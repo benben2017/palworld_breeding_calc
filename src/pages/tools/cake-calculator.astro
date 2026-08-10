@@ -1,0 +1,40 @@
+---
+// /tools/cake-calculator — SEO 冻结稿 §5
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CakeCalculator from '../../components/CakeCalculator';
+---
+
+<BaseLayout
+  title="Palworld Cake Recipe Calculator | PalBreed"
+  description="Calculate exact cake ingredients for breeding in Palworld. Enter breeding attempts and get flour, berries, milk, eggs, and honey amounts instantly."
+  canonical="https://palbreed.space/tools/cake-calculator"
+  activeNav="cake"
+>
+  <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
+    <header class="max-w-3xl mx-auto text-center mb-12 relative">
+      <h1 class="text-4xl md:text-6xl font-black font-headline tracking-tight mb-6">Palworld Cake Recipe Calculator</h1>
+      <p class="text-lg text-onSurface/80 leading-relaxed max-w-2xl mx-auto">
+        Breeding in Palworld needs cake — one per attempt. Enter how many times you plan to breed and get the exact
+        ingredient amounts.
+      </p>
+    </header>
+
+    <section class="max-w-[720px] mx-auto">
+      <div class="bg-surface border border-border rounded-2xl shadow-2xl overflow-hidden glow-cyan">
+        <div class="p-6 md:p-8">
+          <CakeCalculator client:load />
+        </div>
+      </div>
+
+      <!-- 配方说明（PRD §10.7：只列名称+数量，不给 farming tips） -->
+      <div class="mt-10 bg-surface/50 border border-border rounded-2xl p-6">
+        <h2 class="text-xl font-extrabold mb-3">The cake recipe</h2>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          One Palworld Cake needs <strong class="text-onSurface">5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, and 2
+          Honey</strong>. You can cook it at a Cooking Pot once you have the ingredients. Each breeding attempt at the
+          Breeding Farm consumes one cake.
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

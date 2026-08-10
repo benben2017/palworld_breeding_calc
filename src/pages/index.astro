@@ -1,0 +1,254 @@
+---
+// 首页 / — SEO 冻结稿 §3（title/H1/description 全部来自冻结稿）
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreedingQueryTool from '../components/BreedingQueryTool';
+import Icon from '../components/Icon.astro';
+import palsData from '../data/pals.json';
+
+const pals = palsData;
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does Palworld breeding work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Each Pal has a hidden breeding value. When you place a male and female Pal in the Breeding Farm, the game averages their breeding values and produces the Pal whose value is closest to that average. Some parent pairs always produce the same offspring — those are called unique combos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I breed a specific Pal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use the reverse lookup mode. Select the Pal you want, and PalBreed will show you every parent pair that produces it. Start with the pair that uses Pals you already have.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many cakes do I need for breeding?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'One cake per breeding attempt. Use the Cake Calculator to convert your planned number of attempts into exact ingredient amounts.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are unique breeding combos?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Unique combos are parent pairs that always produce the same offspring regardless of gender or individual Pal stats. For example, Relaxaurus x Sparkit always produces Jetragon.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is PalBreed free?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. All tools are free to use. No account, no payment, no ads.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I save my breeding plans?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not yet. Bookmark frequently used Pal pages to quickly check parent combinations.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What if I find an error?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contact us at feedback@palbreed.space. Use [Bug] in the subject line for data issues, or [Feature] for suggestions.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Palworld Breeding Calculator — Find Any Combo Instantly | PalBreed"
+  description="Free Palworld breeding calculator. Find parent combos, reverse lookup any Pal, and calculate cake ingredients. 299 Pals supported. No account needed."
+  canonical="https://palbreed.space/"
+  jsonLd={JSON.stringify(faqJsonLd)}
+>
+  <!-- Hero Section（设计稿 index.html 迁移，SEO 冻结稿 §3） -->
+  <section class="max-w-[1280px] mx-auto px-6 pt-12 pb-24 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="space-y-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-semibold tracking-wide">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span class="text-onSurface/70">44k+ Combinations · 299 Pals · Free — No Account</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
+        Palworld Breeding Calculator — <span class="text-primary">Find Any Combo Instantly</span>
+      </h1>
+      <p class="text-lg text-onSurface/70 max-w-lg leading-relaxed">
+        Find breeding combinations fast. Instant results for any parent pair, plus cake ingredient tracking.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="/tools/breeding-calculator"
+          class="bg-primary text-background px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all glow-cyan"
+        >
+          Find My Combo
+        </a>
+        <a
+          href="/tools/cake-calculator"
+          class="bg-surface border border-border text-onSurface px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-elevated transition-all flex items-center gap-2"
+        >
+          <Icon name="bakery-dining" /> Calculate Cakes
+        </a>
+      </div>
+    </div>
+
+    <!-- 内嵌工具 Widget（README：静态占位 -> 真实 BreedingQueryTool） -->
+    <div class="relative">
+      <div class="absolute -top-16 right-12 z-10 animate-bounce duration-[3000ms] pointer-events-none">
+        <img alt="Curious Mascot" class="w-28 h-28 object-contain" src="/assets/mascot-peek-v2.png" />
+      </div>
+      <div class="bg-surface border border-border rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+        <BreedingQueryTool client:load pals={pals} compact />
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works（SEO 冻结稿 §3：3 Steps） -->
+  <section class="bg-surface/50 border-y border-border py-24">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold">From two Pals to a plan — in seconds.</h2>
+        <p class="text-onSurface/60">Professional breeding logic simplified for your gaming sessions.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center space-y-6">
+          <div class="w-20 h-20 mx-auto rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.1)]">
+            <Icon name="search" class="text-primary text-3xl" />
+          </div>
+          <h3 class="text-xl font-bold">Pick Your Parents</h3>
+          <p class="text-onSurface/50 leading-relaxed">Search from all 299 Pals — autocomplete makes it lightning fast.</p>
+        </div>
+        <div class="text-center space-y-6">
+          <div class="w-20 h-20 mx-auto rounded-full bg-orange-400/10 border border-orange-400/20 flex items-center justify-center shadow-[0_0_20px_rgba(251,146,60,0.1)]">
+            <Icon name="egg" class="text-orange-400 text-3xl" filled />
+          </div>
+          <h3 class="text-xl font-bold">Find the Combo</h3>
+          <p class="text-onSurface/50 leading-relaxed">See the offspring instantly before you commit your cakes.</p>
+        </div>
+        <div class="text-center space-y-6">
+          <div class="w-20 h-20 mx-auto rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center shadow-[0_0_20px_rgba(167,139,250,0.1)]">
+            <Icon name="bakery-dining" class="text-secondary text-3xl" />
+          </div>
+          <h3 class="text-xl font-bold">Calculate Cake Ingredients</h3>
+          <p class="text-onSurface/50 leading-relaxed">Know exactly what you need to start breeding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features（SEO 冻结稿 §3：2 张 Feature 卡） -->
+  <section class="max-w-[1280px] mx-auto px-6 py-24">
+    <div class="text-center mb-16 space-y-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">More useful than a long list of combinations</h2>
+      <p class="text-onSurface/60 max-w-2xl mx-auto">
+        A list of pairs is a starting point. PalBreed gives you instant answers: check any two parents or work backward
+        from a target Pal.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <a
+        href="/tools/breeding-calculator"
+        class="group bg-surface border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.1)] transition-all"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><Icon name="egg" class="text-primary text-2xl" filled /></span>
+          <h3 class="text-xl font-bold">🔄 Breeding Calculator</h3>
+        </div>
+        <p class="text-onSurface/60 leading-relaxed">
+          Pick any two Pals to see their offspring, or select a target Pal to find every possible parent pair. Two
+          modes, one tool.
+        </p>
+        <span class="mt-4 inline-flex items-center gap-1 text-primary font-bold text-sm">
+          Open calculator <Icon name="arrow-forward" />
+        </span>
+      </a>
+      <a
+        href="/tools/cake-calculator"
+        class="group bg-surface border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.1)] transition-all"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center"><Icon name="bakery-dining" class="text-secondary text-2xl" /></span>
+          <h3 class="text-xl font-bold">🧁 Cake Calculator</h3>
+        </div>
+        <p class="text-onSurface/60 leading-relaxed">
+          Enter how many times you plan to breed and get the exact ingredient amounts — flour, berries, milk, eggs, and
+          honey.
+        </p>
+        <span class="mt-4 inline-flex items-center gap-1 text-primary font-bold text-sm">
+          Open calculator <Icon name="arrow-forward" />
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Stats Bar（冻结稿 §12：44k+ Combinations · 299 Pals · Free — No Account） -->
+  <section class="border-y border-border bg-surface/50">
+    <div class="max-w-[1280px] mx-auto px-6 py-12 flex flex-wrap justify-center gap-x-16 gap-y-6 text-center">
+      <div>
+        <p class="text-3xl md:text-4xl font-black text-primary">44k+</p>
+        <p class="text-sm text-onSurface/60 mt-1">Combinations</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-black text-primary">299</p>
+        <p class="text-sm text-onSurface/60 mt-1">Pals</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-black text-primary">Free</p>
+        <p class="text-sm text-onSurface/60 mt-1">No Account</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 摘要（冻结稿 §13 前 4 题，完整 10 题在 /faq） -->
+  <section class="max-w-[1280px] mx-auto px-6 py-24">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Breeding questions, answered</h2>
+      <p class="text-onSurface/60 mt-4">See all 10 FAQs <a href="/faq" class="text-primary underline">here</a>.</p>
+    </div>
+    <div class="max-w-2xl mx-auto space-y-4">
+      {[
+        ['How does Palworld breeding work?', 'Each Pal has a hidden breeding value. When a male and female Pal are placed in the Breeding Farm, the game averages their values and produces the Pal whose value is closest to that average.'],
+        ['How do I breed a specific Pal?', 'Use the reverse lookup mode. Select the Pal you want, and PalBreed shows every parent pair that produces it.'],
+        ['How many cakes do I need for breeding?', 'One cake per breeding attempt. Use the Cake Calculator to convert planned attempts into exact ingredient amounts.'],
+        ['What are unique breeding combos?', 'Parent pairs that always produce the same offspring regardless of gender or stats. For example, Relaxaurus × Sparkit always produces Jetragon.'],
+      ].map(([q, a]) => (
+        <details class="group bg-surface border border-border rounded-xl overflow-hidden">
+          <summary class="px-6 py-4 font-bold cursor-pointer flex items-center justify-between gap-4 hover:bg-surface-elevated/50 transition-colors">
+            {q}
+            <span class="text-primary transition-transform group-open:rotate-180"><Icon name="expand-more" /></span>
+          </summary>
+          <p class="px-6 pb-4 text-sm text-onSurface/70 leading-relaxed">{a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="max-w-[1280px] mx-auto px-6 pb-8 text-center">
+    <div class="bg-surface border border-border rounded-2xl p-12 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary decoration-blur rounded-full"></div>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 relative">Ready to find your perfect combo?</h2>
+      <p class="text-onSurface/60 mb-8 relative">It's free, it's fast, and you don't need an account.</p>
+      <a
+        href="/tools/breeding-calculator"
+        class="relative inline-flex bg-primary text-background px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 active:scale-95 transition-all glow-cyan"
+      >
+        Find My Combo
+      </a>
+    </div>
+  </section>
+</BaseLayout>

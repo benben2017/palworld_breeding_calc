@@ -1,0 +1,160 @@
+---
+// /terms — Terms of Service（合规文档生产化，12 节全保留）
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Terms of Service | PalBreed"
+  description="PalBreed's terms of service: fan-made non-affiliation declaration, data accuracy disclaimer, permitted use, and cookie policy summary."
+  canonical="https://palbreed.space/terms"
+>
+  <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2">Terms of Service</h1>
+    <p class="text-sm text-onSurface/60 mb-8">
+      PalBreed · <a href="https://palbreed.space/terms" class="text-primary underline">https://palbreed.space/terms</a>
+    </p>
+
+    <div class="space-y-10 text-sm text-onSurface/80 leading-relaxed">
+      <!-- 1. Acceptance -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">1. Acceptance of Terms</h2>
+        <p>By accessing or using <strong class="text-onSurface">palbreed.space</strong> (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use the Service.</p>
+      </section>
+
+      <!-- 2. Fan-Made -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">2. Fan-Made and Non-Affiliation Declaration</h2>
+        <p class="mb-3"><strong class="text-onSurface">PalBreed is an independent, fan-made tool created for Palworld players.</strong></p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>We are <strong>not affiliated with, endorsed by, sponsored by, or approved by Pocketpair, Inc.</strong></li>
+          <li>All <em>Palworld</em> related names, marks, characters, images, and game assets are trademarks or intellectual property of <strong class="text-onSurface">Pocketpair, Inc.</strong></li>
+          <li>This Service <strong>is not an official Pocketpair product or service</strong> in any capacity.</li>
+        </ul>
+      </section>
+
+      <!-- 3. Service Description -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">3. Service Description</h2>
+        <p class="mb-3">PalBreed provides the following <strong>browser-based tools</strong>:</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong class="text-onSurface">Breeding Calculator</strong> — select parent Pals to find offspring; or select a target Pal to find all possible parent combinations</li>
+          <li><strong class="text-onSurface">Cake Calculator</strong> — input breeding count to view ingredient requirements</li>
+          <li><strong class="text-onSurface">Pal Pages</strong> (<code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">/pals/[pal-name]</code>) — view Pal stats, breeding value, and work suitability</li>
+          <li><strong class="text-onSurface">FAQ</strong> — answers to common breeding questions</li>
+        </ul>
+        <p class="mt-3">All core tools run in your browser. The Service also uses analytics scripts — see our <a href="/privacy" class="text-primary underline">Privacy Policy</a> and §5 below.</p>
+      </section>
+
+      <!-- 4. Data Accuracy -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">4. Data Accuracy Disclaimer</h2>
+        <h3 class="font-bold text-onSurface mb-2">4.1 Data Sources</h3>
+        <p class="mb-3">Breeding combinations, Pal stats, and other game information are sourced from community-maintained projects, specifically <strong class="text-onSurface">tylercamp/palcalc</strong> (open-source breeding data, <a href="https://raw.githubusercontent.com/tylercamp/palcalc/be2ec7a95c52/LICENSE.txt" class="text-primary underline">MIT License</a>).</p>
+        <h3 class="font-bold text-onSurface mb-2">4.2 No Guarantee of Accuracy</h3>
+        <ul class="list-disc pl-6 space-y-1 mb-3">
+          <li>All data is provided <strong>"as is" for informational purposes only</strong></li>
+          <li>Game updates, community errors, or data-source limitations may affect accuracy</li>
+          <li>Data version badges indicate the game build and date of the underlying data</li>
+          <li>We do <strong>not</strong> guarantee that every combination is complete or error-free</li>
+          <li>Do not treat this Service as an official source or as a guarantee of any in-game outcome</li>
+        </ul>
+        <h3 class="font-bold text-onSurface mb-2">4.3 No Warranty</h3>
+        <p class="mb-3">THE SERVICE AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. To the fullest extent permitted by applicable law, we disclaim all warranties, express or implied, including but not limited to merchantability, fitness for a particular purpose, uninterrupted or error-free operation, and accuracy or completeness of content.</p>
+        <h3 class="font-bold text-onSurface mb-2">4.4 Limitation of Liability</h3>
+        <p>To the maximum extent permitted by applicable law, we shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising from or related to your use of the Service, including reliance on breeding calculator results or loss of locally stored data.</p>
+      </section>
+
+      <!-- 5. Cookie Summary -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">5. Cookie Policy Summary</h2>
+        <div class="overflow-x-auto mb-3">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left border-b border-border text-onSurface/60"><th class="py-2 pr-4">Storage Type</th><th class="py-2 pr-4">Purpose</th><th class="py-2">Consent Required</th></tr></thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">Plausible Analytics</td><td class="py-2 pr-4">Anonymous page view counting — no cookies</td><td class="py-2">❌ Always loaded</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-mono">_ga, _ga_*</td><td class="py-2 pr-4">User behavior analysis — 2 year retention</td><td class="py-2">✅ Accept via Cookie Banner</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-mono">_clck, _clsk</td><td class="py-2 pr-4">Heatmaps and session recordings — 1 year retention</td><td class="py-2">✅ Accept via Cookie Banner</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">Cloudflare Security Cookies</td><td class="py-2 pr-4">CDN functionality, rate limiting</td><td class="py-2">❌ Strictly necessary</td></tr>
+              <tr><td class="py-2 pr-4">localStorage</td><td class="py-2 pr-4">Theme preference, analytics consent, tool cache</td><td class="py-2">❌ Functionality only</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>For full details, see our <a href="/privacy" class="text-primary underline">Privacy Policy</a>.</p>
+      </section>
+
+      <!-- 6. Permitted Use -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">6. Permitted Use</h2>
+        <p class="mb-3">You may use the Service for <strong>personal, lawful, non-commercial purposes</strong>: using the breeding and cake calculators, accessing Pal pages/FAQ/other content, and customizing your visual experience via the theme system.</p>
+        <h3 class="font-bold text-onSurface mb-2">Prohibited Use</h3>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>❌ Use the Service for unlawful purposes</li>
+          <li>❌ Scrape, crawl, or bulk extract data at scale</li>
+          <li>❌ Misrepresent the Service as official or Pocketpair-endorsed</li>
+          <li>❌ Attempt to disrupt, overload, or compromise infrastructure</li>
+          <li>❌ Reverse-engineer, decompile, or extract source code</li>
+        </ul>
+      </section>
+
+      <!-- 7. IP -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">7. Intellectual Property</h2>
+        <h3 class="font-bold text-onSurface mb-2">7.1 Site Content (Our IP)</h3>
+        <p class="mb-3">The Service's original code, UI/UX design, visual theme system, and written guides (excluding game-specific data) are our intellectual property.</p>
+        <h3 class="font-bold text-onSurface mb-2">7.2 Third-Party IP</h3>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong class="text-onSurface">Palworld™</strong> and all related characters, names, designs, images, and assets are trademarks and/or copyright of <strong class="text-onSurface">Pocketpair, Inc.</strong></li>
+          <li>Breeding data sourced from <strong class="text-onSurface">tylercamp/palcalc</strong> is used under the MIT open-source license</li>
+          <li>If you believe any content infringes your copyright, contact <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code> with the relevant URL and a description</li>
+        </ul>
+      </section>
+
+      <!-- 8. No Paid Features -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">8. No Paid Features</h2>
+        <p>The current version of the Service does <strong>not</strong> include paid features or subscription plans. If we introduce paid features or new data processing in future versions, these Terms will be updated accordingly.</p>
+      </section>
+
+      <!-- 9. Third-Party -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">9. Third-Party Services</h2>
+        <div class="overflow-x-auto mb-3">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left border-b border-border text-onSurface/60"><th class="py-2 pr-4">Provider</th><th class="py-2">Service</th></tr></thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">Cloudflare, Inc.</td><td class="py-2">CDN, DNS, DDoS protection, SSL</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">Plausible Analytics</td><td class="py-2">Self-hosted privacy-friendly analytics</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">Google LLC (GA4)</td><td class="py-2">Usage analytics (consent-required)</td></tr>
+              <tr><td class="py-2 pr-4">Microsoft Corporation (Clarity)</td><td class="py-2">Heatmaps &amp; session recordings (consent-required)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Their services are governed by their own terms and privacy notices. We will update these Terms before enabling additional third-party services (e.g., AI API, payment processing).</p>
+      </section>
+
+      <!-- 10. Availability -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">10. Availability and Changes</h2>
+        <p class="mb-3">We may modify, suspend, or discontinue any part of the Service at any time without notice. We do not guarantee uninterrupted availability or that the Service will remain compatible with every future game version.</p>
+        <p>We may update these Terms by posting a revised version with an updated effective date. Continued use after changes constitutes acceptance of the updated Terms.</p>
+      </section>
+
+      <!-- 11. Contact -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">11. Contact</h2>
+        <p><strong class="text-onSurface">General &amp; legal inquiries:</strong> <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code></p>
+        <ul class="list-disc pl-6 space-y-1 mt-3">
+          <li>Terms questions → <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code></li>
+          <li>Privacy or data practices → <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code></li>
+          <li>Copyright/IP concerns → <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code> (include relevant URL and description)</li>
+          <li>Data errors / feature suggestions → <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code> (use <code class="font-mono text-xs">[Bug]</code> or <code class="font-mono text-xs">[Feature]</code> in subject)</li>
+        </ul>
+      </section>
+
+      <!-- 12. Disclaimer -->
+      <blockquote class="border-l-4 border-primary/50 pl-4 text-onSurface/60 italic">
+        This document is provided for informational purposes only and does not constitute legal advice. Fan-made tool, not affiliated with Pocketpair, Inc.
+      </blockquote>
+    </div>
+  </div>
+</BaseLayout>

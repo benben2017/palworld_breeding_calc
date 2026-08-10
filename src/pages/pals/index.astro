@@ -1,0 +1,35 @@
+---
+// /pals — SEO 冻结稿 §6（CollectionPage schema）
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PalsList from '../../components/PalsList';
+import palsData from '../../data/pals.json';
+
+const pals = palsData;
+
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'All 299 Pals — Palworld Breeding Database',
+  url: 'https://palbreed.space/pals',
+  about: 'Palworld breeding database with all 299 Pals, breeding values, and parent combinations.',
+};
+---
+
+<BaseLayout
+  title="All 299 Pals — Palworld Breeding Database | PalBreed"
+  description="Browse all 299 Pals in the Palworld breeding database. See breeding values, stats, and find parent combinations for any Pal."
+  canonical="https://palbreed.space/pals"
+  activeNav="pals"
+  jsonLd={JSON.stringify(collectionJsonLd)}
+>
+  <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">All 299 Pals</h1>
+      <p class="text-onSurface/70 max-w-2xl mx-auto">
+        Every Pal in Palworld with its breeding value. Click any Pal to see stats and every parent combination that
+        produces it.
+      </p>
+    </header>
+    <PalsList client:load pals={pals} />
+  </div>
+</BaseLayout>

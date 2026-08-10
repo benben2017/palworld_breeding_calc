@@ -1,0 +1,201 @@
+---
+// /pals/[pal] — Pal 详情页（299 静态页，构建期预渲染）
+// PRD §5/§10：仅展示已有字段（hp/attack/defense/breedingValue/workSuitability）；
+// types/drops/location/skills 缺失不展示；Top50 index，其余 noindex（数据驱动）
+// 反查组合：构建期从 reverse-index 预渲染进静态 HTML（0 JS 开销）
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import palsData from '../../data/pals.json';
+import reverseIndex from '../../../public/data/reverse-index.json';
+import { parseCombo, WORK_TYPES } from '../../lib/types';
+import { TOP50_PALS } from '../../config/top50-pals';
+
+export function getStaticPaths() {
+  return palsData.map((p) => ({
+    params: { pal: p.key },
+    props: { pal: p },
+  }));
+}
+
+const { pal } = Astro.props;
+const byKey = new Map(palsData.map((p) => [p.key, p]));
+const isTop50 = TOP50_PALS.includes(pal.key);
+const robots = isTop50 ? 'index,follow' : 'noindex,follow';
+
+// 反查组合（构建期预渲染；组合项解析性别键显示标注）
+const combos: string[] = reverseIndex[pal.key as keyof typeof reverseIndex] ?? [];
+const workEntries = Object.entries(pal.workSuitability || {}).filter(([, lv]) => lv > 0);
+
+const firstLetter = pal.name.charAt(0).toUpperCase();
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `${pal.name} — Breeding, Stats & Parents | PalBreed`,
+  url: `https://palbreed.space/pals/${pal.key}`,
+  about: {
+    '@type': 'Thing',
+    name: `${pal.name} (Palworld)`,
+    description: `Breeding value ${pal.breedingValue}, base HP ${pal.hp}, attack ${pal.attack}, defense ${pal.defense}.`,
+  },
+});
+---
+
+<BaseLayout
+  title={`${pal.name} — Breeding, Stats & Parents | PalBreed`}
+  description={`How to breed ${pal.name} in Palworld. Breeding value ${pal.breedingValue}, base stats, and every parent combination that produces ${pal.name}.`}
+  canonical={`https://palbreed.space/pals/${pal.key}`}
+  activeNav="pals"
+  robots={robots}
+  jsonLd={jsonLd}
+>
+  <div class="max-w-[1280px] mx-auto px-6 pt-8 pb-8">
+    <!-- 面包屑 -->
+    <nav class="flex items-center gap-2 text-sm text-onSurface/60 mb-6 font-medium" aria-label="Breadcrumb">
+      <a href="/pals" class="hover:text-primary">Pals</a>
+      <span class="text-onSurface/30">/</span>
+      <span class="text-onSurface">{pal.name}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="flex flex-col md:flex-row md:items-end gap-4">
+        <h1 class="text-5xl md:text-6xl font-black tracking-tighter">{pal.name}</h1>
+        <div class="flex flex-wrap items-center gap-3 pb-2">
+          <span class="bg-surface border border-border text-onSurface/60 px-3 py-1 rounded-md text-xs font-mono">
+            BV {pal.breedingValue}
+          </span>
+          <span class="bg-primary/5 border border-primary/15 text-primary/80 px-3 py-1 rounded-md text-xs font-mono">
+            Community-sourced data
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- 左列：属性 + 工作适性 -->
+      <div class="lg:col-span-7 space-y-8">
+        <!-- 基础属性 -->
+        <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
+          <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+            <div class="relative shrink-0">
+              <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary bg-surface-elevated flex items-center justify-center overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.2)]">
+                <span class="text-5xl font-black text-primary/50">{firstLetter}</span>
+              </div>
+            </div>
+            <div class="flex-grow w-full">
+              <h2 class="text-xl font-extrabold mb-6 flex items-center gap-2">
+                <Icon name="spark" class="text-primary" /> Base Attributes
+              </h2>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-background p-4 rounded-xl border border-border/50">
+                  <p class="text-[10px] uppercase tracking-widest text-onSurface/40 font-bold mb-1">Breeding Value</p>
+                  <p class="text-2xl font-black text-primary tabular-nums">{pal.breedingValue}</p>
+                </div>
+                <div class="bg-background p-4 rounded-xl border border-border/50">
+                  <p class="text-[10px] uppercase tracking-widest text-onSurface/40 font-bold mb-1">Base HP</p>
+                  <p class="text-2xl font-black tabular-nums">{pal.hp}</p>
+                </div>
+                <div class="bg-background p-4 rounded-xl border border-border/50">
+                  <p class="text-[10px] uppercase tracking-widest text-onSurface/40 font-bold mb-1">Base Attack</p>
+                  <p class="text-2xl font-black tabular-nums">{pal.attack}</p>
+                </div>
+                <div class="bg-background p-4 rounded-xl border border-border/50">
+                  <p class="text-[10px] uppercase tracking-widest text-onSurface/40 font-bold mb-1">Base Defense</p>
+                  <p class="text-2xl font-black tabular-nums">{pal.defense}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 工作适性 -->
+        {workEntries.length > 0 && (
+          <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
+            <h2 class="text-xl font-extrabold mb-6 flex items-center gap-2">
+              <Icon name="spark" class="text-primary" /> Work Suitability
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {workEntries.map(([type, level]) => (
+                <div key={type} class="bg-background p-4 rounded-xl border border-border/50">
+                  <p class="text-[10px] uppercase tracking-widest text-onSurface/40 font-bold mb-1">
+                    {WORK_TYPES[type] ?? type}
+                  </p>
+                  <p class="text-2xl font-black text-primary tabular-nums">Lv {level}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+
+      <!-- 右列：繁殖信息 -->
+      <div class="lg:col-span-5 space-y-8">
+        <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
+          <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
+            <Icon name="egg" class="text-primary" filled /> How to breed {pal.name}
+          </h2>
+          {combos.length > 0 ? (
+            <>
+              <p class="text-sm text-onSurface/70 mb-4">
+                {pal.name} can be bred from <strong class="text-primary">{combos.length}</strong>{' '}
+                {combos.length === 1 ? 'parent pair' : 'parent pairs'}:
+              </p>
+              <div class="space-y-2 max-h-[420px] overflow-auto custom-scrollbar pr-2">
+                {combos.slice(0, 50).map((combo, i) => {
+                  const parts = parseCombo(combo);
+                  const a = byKey.get(parts.aKey);
+                  const b = byKey.get(parts.bKey);
+                  const genderNote =
+                    parts.aGender || parts.bGender
+                      ? ` (${parts.aGender === 'f' ? '♀' : '♂'}${parts.bGender ? ' + ' + (parts.bGender === 'f' ? '♀' : '♂') : ''})`
+                      : '';
+                  return (
+                    <div
+                      key={i}
+                      class="flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-background/40 border border-border/60"
+                    >
+                      <span class="text-sm font-semibold text-onSurface">
+                        {a?.name ?? parts.aKey} <span class="text-primary">+</span> {b?.name ?? parts.bKey}
+                        {genderNote && <span class="text-xs text-onSurface/50">{genderNote}</span>}
+                      </span>
+                      <span class="text-primary shrink-0">→</span>
+                    </div>
+                  );
+                })}
+              </div>
+              {combos.length > 50 && (
+                <p class="text-xs text-onSurface/50 mt-3">
+                  Showing first 50 of {combos.length} — open the{' '}
+                  <a href="/tools/breeding-calculator" class="text-primary underline">calculator</a> to see all.
+                </p>
+              )}
+            </>
+          ) : (
+            <p class="text-sm text-onSurface/70">
+              No parent combinations are available for {pal.name} in the current data.{' '}
+              <a
+                href="mailto:feedback@palbreed.space?subject=%5BBug%5D%20Data%20issue"
+                class="text-primary underline"
+              >
+                Report a data issue
+              </a>
+            </p>
+          )}
+        </section>
+
+        <section class="bg-surface/50 border border-border rounded-2xl p-8">
+          <h2 class="text-lg font-extrabold mb-3">Want a different Pal?</h2>
+          <p class="text-sm text-onSurface/70 mb-4">
+            Browse all 299 Pals or find the right parents for any target.
+          </p>
+          <a
+            href="/tools/breeding-calculator"
+            class="inline-flex bg-primary text-background px-6 py-3 rounded-xl font-bold hover:brightness-110 transition-all"
+          >
+            Open Breeding Calculator
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

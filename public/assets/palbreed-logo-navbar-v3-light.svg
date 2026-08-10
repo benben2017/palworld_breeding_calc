@@ -1,0 +1,35 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PalBreed Logo</title>
+  <desc id="desc">PalBreed dark gaming utility logo with a glowing breeding egg icon.</desc>
+  <defs>
+    <linearGradient id="egg" x1="18" y1="10" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67F8FF"/>
+      <stop offset="0.48" stop-color="#22C8FF"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="word" x1="64" y1="14" x2="188" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F2A4A"/>
+      <stop offset="0.55" stop-color="#0891B2"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.22 0 0 0 0 0.87 0 0 0 0 0.97 0 0 0 0.9 0" result="cyanGlow"/>
+      <feMerge>
+        <feMergeNode in="cyanGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="4" y="4" width="48" height="48" rx="14" fill="#F4F8FC" stroke="#C9D8EA" stroke-width="1"/>
+  <path filter="url(#glow)" d="M28 10.2C20.2 10.2 14.4 22.5 14.4 34.2C14.4 43.1 20.3 48.8 28 48.8C35.7 48.8 41.6 43.1 41.6 34.2C41.6 22.5 35.8 10.2 28 10.2Z" fill="url(#egg)"/>
+  <ellipse cx="22.7" cy="31.5" rx="4.1" ry="6.2" transform="rotate(-22 22.7 31.5)" fill="#5B7FA6" opacity="0.35"/>
+  <ellipse cx="33.7" cy="36.1" rx="4.7" ry="6.8" transform="rotate(24 33.7 36.1)" fill="#5B7FA6" opacity="0.32"/>
+  <ellipse cx="31.8" cy="21.8" rx="3.5" ry="4.8" transform="rotate(48 31.8 21.8)" fill="#B8FBFF" opacity="0.24"/>
+  <path d="M18.9 42.1C24.7 46.3 33.8 45.6 38.2 39.4" stroke="#9B5CFF" stroke-width="1.8" stroke-linecap="round" opacity="0.42"/>
+  <path d="M37.1 16.6L38.8 20.2L42.4 21.9L38.8 23.6L37.1 27.2L35.4 23.6L31.8 21.9L35.4 20.2L37.1 16.6Z" fill="#FACC15"/>
+  <circle cx="34" cy="31" r="1.9" fill="#FACC15" opacity="0.9"/>
+
+  <text x="64" y="38" fill="url(#word)" font-family="Space Grotesk, Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="-0.8">PalBreed</text>
+</svg>

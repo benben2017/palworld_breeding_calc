@@ -1,0 +1,52 @@
+---
+// /about — SEO 冻结稿 §9
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About PalBreed — A Fan-Made Palworld Breeding Calculator"
+  description="PalBreed is a fan-made breeding calculator for Palworld. Find parent combos, calculate cake ingredients, and browse Pal stats. Not affiliated with Pocketpair."
+  canonical="https://palbreed.space/about"
+>
+  <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-8">About PalBreed</h1>
+
+    <div class="space-y-6 text-onSurface/80 leading-relaxed text-lg">
+      <p>
+        PalBreed is a fan-made breeding calculator for Palworld players. It helps you:
+      </p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Check what offspring any two Pals produce</li>
+        <li>Find all parent combinations for a target Pal</li>
+        <li>Calculate cake and ingredient amounts for breeding</li>
+      </ul>
+
+      <div class="bg-surface border border-border rounded-2xl p-6 space-y-3">
+        <p class="text-base">
+          <strong class="text-onSurface">Data source:</strong> Community-maintained breeding data
+          (tylercamp/palcalc, MIT licensed).
+        </p>
+        <p class="text-base">
+          <strong class="text-onSurface">Game content:</strong> © Pocketpair, Inc.
+        </p>
+      </div>
+
+      <p>
+        PalBreed is <strong>not affiliated with, endorsed by, or sponsored by</strong> Pocketpair, Inc.
+      </p>
+    </div>
+
+    <div class="mt-12 bg-surface/50 border border-border rounded-2xl p-8 text-center">
+      <h2 class="text-xl font-extrabold mb-3">Have feedback?</h2>
+      <p class="text-sm text-onSurface/70 mb-5">
+        Found a data issue or have a feature idea? Let us know.
+      </p>
+      <a
+        href="mailto:feedback@palbreed.space"
+        class="inline-flex px-6 py-3 rounded-xl bg-primary text-background font-bold hover:brightness-110 transition-all"
+      >
+        Contact feedback@palbreed.space
+      </a>
+    </div>
+  </div>
+</BaseLayout>

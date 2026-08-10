@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Pal placeholder">
+  <!-- Neutral geometric Pal placeholder: rounded tile with paw glyph + first letter -->
+  <rect x="4" y="4" width="112" height="112" rx="24" fill="#1a1a2e"/>
+  <rect x="4" y="4" width="112" height="112" rx="24" fill="none" stroke="#2a2a3e" stroke-width="3"/>
+  <!-- Paw -->
+  <ellipse cx="60" cy="66" rx="22" ry="18" fill="#00d4ff" opacity="0.85"/>
+  <circle cx="38" cy="46" r="7" fill="#00d4ff" opacity="0.85"/>
+  <circle cx="60" cy="40" r="7" fill="#00d4ff" opacity="0.85"/>
+  <circle cx="82" cy="46" r="7" fill="#00d4ff" opacity="0.85"/>
+  <!-- Letter slot -->
+  <text x="60" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#0f0f11">P</text>
+</svg>

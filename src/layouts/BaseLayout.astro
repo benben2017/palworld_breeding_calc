@@ -1,0 +1,120 @@
+---
+// BaseLayout — 全站布局（SEO meta / 主题 / Consent / Plausible / Nav / Footer）
+// SEO 文案源：palworld-breeding-copy-final.md §12 冻结总表
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/900.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  h1?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  robots?: string;
+  jsonLd?: string;
+  activeNav?: 'calculator' | 'cake' | 'pals' | 'faq' | 'none';
+}
+
+const {
+  title,
+  description,
+  canonical = 'https://palbreed.space/',
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = 'https://palbreed.space/assets/og-image.png',
+  ogType = 'website',
+  robots = 'index,follow',
+  jsonLd,
+  activeNav = 'none',
+} = Astro.props;
+
+const SITE = 'https://palbreed.space';
+const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | undefined;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="PalBreed" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/android-chrome-512x512.png" />
+
+    <!-- Plausible（无 Cookie 自托管，始终加载，不参与 Consent 控制 — PRD §9.3） -->
+    {
+      plausibleScript ? (
+        <script defer data-domain="palbreed.space" src={plausibleScript}></script>
+      ) : null
+    }
+
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+  </head>
+  <body class="min-h-screen selection:bg-primary/30 selection:text-primary">
+    <!-- 背景装饰（设计稿） -->
+    <div class="fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary decoration-blur rounded-full"></div>
+      <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary decoration-blur rounded-full"></div>
+      <div
+        class="absolute inset-0 opacity-[0.04]"
+        style="background-image: radial-gradient(#00d4ff 1px, transparent 1px); background-size: 40px 40px;"
+      ></div>
+    </div>
+
+    <Nav active={activeNav} />
+    <main><slot /></main>
+    <Footer />
+    <CookieBanner />
+
+    <!-- 主题 + Consent 初始化（设计稿逻辑生产化） -->
+    <script>
+      import { initTheme } from '../lib/theme';
+      import { initConsentManager } from '../lib/consent';
+      // 首帧前设置主题避免 FOUC
+      (function () {
+        try {
+          const v = localStorage.getItem('theme');
+          if (v === 'light' || v === 'hc' || v === 'dark') {
+            document.documentElement.setAttribute('data-theme', v);
+          }
+        } catch {}
+      })();
+      initTheme();
+      initConsentManager();
+    </script>
+  </body>
+</html>

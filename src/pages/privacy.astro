@@ -1,0 +1,215 @@
+---
+// /privacy — Privacy Policy（合规文档生产化，15 节全保留）
+// 含 Reset Consent 按钮（合规交接：清除 analyticsConsent → 删 Cookie → 刷新 → Banner 重现）
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy | PalBreed"
+  description="PalBreed's privacy policy: self-hosted Plausible analytics (no cookies), Google Analytics 4 and Clarity (consent-required), localStorage, and data source attribution."
+  canonical="https://palbreed.space/privacy"
+>
+  <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2">Privacy Policy</h1>
+    <p class="text-sm text-onSurface/60 mb-8">
+      PalBreed · <a href="https://palbreed.space/privacy" class="text-primary underline">https://palbreed.space/privacy</a>
+    </p>
+
+    <div class="space-y-10 text-sm text-onSurface/80 leading-relaxed">
+      <p>
+        This Privacy Policy explains how <strong class="text-onSurface">PalBreed</strong> ("we", "us", or "our")
+        handles information when you visit <strong class="text-onSurface">palbreed.space</strong> (the "Service").
+        PalBreed is a fan-made breeding calculator for <em>Palworld</em> players and is
+        <strong class="text-onSurface">not affiliated with, endorsed by, or sponsored by Pocketpair, Inc.</strong>
+      </p>
+
+      <!-- 1. Plausible -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">1. Plausible Analytics (Always Loaded, No Cookie)</h2>
+        <p class="mb-3">We self-host <strong>Plausible Analytics</strong> to collect basic anonymous traffic statistics. Plausible is loaded on every page visit and does <strong>not</strong> use cookies.</p>
+        <p class="font-bold text-onSurface mb-2">What Plausible collects (anonymized):</p>
+        <ul class="list-disc pl-6 space-y-1 mb-3">
+          <li>Page URL and title</li>
+          <li>Referrer (where you came from)</li>
+          <li>Browser type and device type</li>
+          <li>Country-level location (approximate, not IP-precise)</li>
+          <li>Time of visit</li>
+        </ul>
+        <p><strong class="text-onSurface">Plausible is not affected by the Cookie Consent Banner</strong> because it operates without cookies or persistent identifiers.</p>
+      </section>
+
+      <!-- 2. GA4 -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">2. Google Analytics 4 (Consent-Required)</h2>
+        <p class="mb-3">We use <strong>Google Analytics 4 (GA4)</strong> to understand usage patterns after you accept cookies via the Cookie Consent Banner. GA4 sets cookies and is loaded only after your explicit consent.</p>
+        <div class="overflow-x-auto mb-3">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left border-b border-border text-onSurface/60"><th class="py-2 pr-4">Cookie</th><th class="py-2 pr-4">Purpose</th><th class="py-2">Retention</th></tr></thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-mono">_ga</td><td class="py-2 pr-4">Distinguish users</td><td class="py-2">2 years</td></tr>
+              <tr><td class="py-2 pr-4 font-mono">_ga_*</td><td class="py-2 pr-4">Maintain session state</td><td class="py-2">2 years</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-3">Events: breeding query completions, tab switches, errors — <strong>no Pal names or PII</strong> (see §11).</p>
+        <p>Opt-out: Decline via the Cookie Consent Banner, or install the
+          <a href="https://tools.google.com/dlpage/gaoptout" class="text-primary underline">Google Analytics Opt-out Browser Add-on</a>.
+          Google's data processing is governed by
+          <a href="https://policies.google.com/privacy" class="text-primary underline">Google's Privacy Policy</a>.</p>
+      </section>
+
+      <!-- 3. Clarity -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">3. Microsoft Clarity (Consent-Required)</h2>
+        <p class="mb-3">We use <strong>Microsoft Clarity</strong> to analyze user behavior through heatmaps and session recordings after you accept cookies via the Cookie Consent Banner.</p>
+        <div class="overflow-x-auto mb-3">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left border-b border-border text-onSurface/60"><th class="py-2 pr-4">Cookie</th><th class="py-2 pr-4">Purpose</th><th class="py-2">Retention</th></tr></thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-mono">_clck</td><td class="py-2 pr-4">Persist Clarity User ID</td><td class="py-2">1 year</td></tr>
+              <tr><td class="py-2 pr-4 font-mono">_clsk</td><td class="py-2 pr-4">Session link</td><td class="py-2">1 year</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-3"><strong class="text-onSurface">Privacy safeguards:</strong> Clarity is configured to mask the breeding calculator's Pal selector area in recordings, so your specific Pal selections are not captured. Session recordings are loaded only after your explicit consent.</p>
+        <p>Opt-out: Decline via the Cookie Consent Banner. Microsoft's data processing is governed by
+          <a href="https://privacy.microsoft.com/privacystatement" class="text-primary underline">Microsoft Privacy Statement</a>.</p>
+      </section>
+
+      <!-- 4. Cookie Consent -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">4. Cookie Consent and Your Choices</h2>
+        <p class="mb-3">Because the Service uses GA4 and Clarity (which set non-essential cookies), you will see a <strong>Cookie Consent Banner</strong> when you first visit.</p>
+        <div class="overflow-x-auto mb-3">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left border-b border-border text-onSurface/60"><th class="py-2 pr-4">Action</th><th class="py-2">Result</th></tr></thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-bold">Accept All</td><td class="py-2">Loads Plausible + GA4 + Clarity</td></tr>
+              <tr><td class="py-2 pr-4 font-bold">Decline</td><td class="py-2">Loads Plausible only (no GA4, no Clarity)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-3">Your choice is stored in your browser as <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">localStorage['analyticsConsent']</code>.</p>
+        <h3 class="font-bold text-onSurface mb-3">Resetting Your Choice</h3>
+        <p class="mb-4">To change your consent preference at any time, click <strong>Reset Consent</strong>. This will automatically: clear the stored choice, delete GA4 and Clarity cookies, refresh the page, and show the banner again.</p>
+        <button
+          id="reset-consent"
+          class="px-6 py-3 rounded-xl border border-primary/50 text-primary font-bold hover:bg-primary/10 transition-colors touch-target"
+        >
+          Reset Consent
+        </button>
+        <p class="text-xs text-onSurface/50 mt-3">Note: Plausible is always loaded regardless of your consent choice, as it uses no cookies and collects no personal data.</p>
+      </section>
+
+      <!-- 5. Local Storage -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">5. Local Storage</h2>
+        <p class="mb-3">The Service stores the following preferences <strong>locally in your browser</strong> using <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">localStorage</code>:</p>
+        <ul class="list-disc pl-6 space-y-1 mb-3">
+          <li><strong class="text-onSurface">Theme preference</strong> — your selected color theme (default / dark / high-contrast)</li>
+          <li><strong class="text-onSurface">analyticsConsent</strong> — your Cookie Consent Banner choice</li>
+        </ul>
+        <p>This data <strong>never leaves your device</strong>, is <strong>not transmitted to our servers</strong>, and you can clear it anytime via your browser settings.</p>
+      </section>
+
+      <!-- 6. Feedback -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">6. Feedback, Feature Suggestions and Error Reports</h2>
+        <p class="mb-3">When you contact us via <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code>:</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>We retain your email and the details of your message <strong>for 30 days</strong>, after which they are deleted</li>
+          <li>This data is used solely to investigate, evaluate, and respond to your message</li>
+          <li>We will <strong>not</strong> use your email for marketing, newsletters, or any purpose beyond your original message</li>
+        </ul>
+      </section>
+
+      <!-- 7. Cloudflare -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">7. Technical and Security Information (Cloudflare)</h2>
+        <p class="mb-3">The Service is hosted and delivered through <strong>Cloudflare, Inc.</strong> (CDN, DNS, DDoS protection, SSL). As part of standard operations, Cloudflare may process: IP address, browser type and version, request time and date, and requested page URL.</p>
+        <p>For more detail, see <a href="https://www.cloudflare.com/privacypolicy/" class="text-primary underline">Cloudflare's Privacy Policy</a>.</p>
+      </section>
+
+      <!-- 8. Data Sources -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">8. Data Sources and Attribution</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong class="text-onSurface">tylercamp/palcalc</strong> — community-maintained open-source project (<a href="https://raw.githubusercontent.com/tylercamp/palcalc/be2ec7a95c52/LICENSE.txt" class="text-primary underline">MIT License</a>)</li>
+          <li>Game content and Palworld-related assets are the property of <strong class="text-onSurface">Pocketpair, Inc.</strong></li>
+        </ul>
+      </section>
+
+      <!-- 9. Not Collected -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">9. Information We Do NOT Collect</h2>
+        <ul class="space-y-1.5">
+          <li>❌ Require your name, email, or identity to use the tools</li>
+          <li>❌ Collect account registration data (no login system)</li>
+          <li>❌ Process payment or billing information</li>
+          <li>❌ Accept user-generated content or file uploads</li>
+          <li>❌ Engage in cross-site tracking or social media data collection</li>
+          <li>❌ Send your Pal selections or breeding inputs to our servers (processed entirely in your browser)</li>
+          <li>❌ Include Pal names, search terms, or free text in analytics events</li>
+        </ul>
+      </section>
+
+      <!-- 10. Children -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">10. Children (COPPA)</h2>
+        <p>The Service is intended for users <strong>aged 13 and older</strong>. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, contact us at <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code>.</p>
+      </section>
+
+      <!-- 11. GA4 Event Constraints -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">11. GA4 Event Data Constraints (No PII)</h2>
+        <p class="mb-3">When you accept analytics cookies, GA4 events are sent for product improvement:</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">breeding_query_completed</code> — <code class="font-mono text-xs">mode</code>, <code class="font-mono text-xs">has_result</code> (Pal names not sent)</li>
+          <li><code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">reverse_lookup_completed</code> — <code class="font-mono text-xs">mode</code>, <code class="font-mono text-xs">result_count</code> (Pal names not sent)</li>
+          <li><code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">cake_calculated</code> — <code class="font-mono text-xs">quantity</code> (bucketed)</li>
+          <li><code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">tab_switched</code> — <code class="font-mono text-xs">from</code>, <code class="font-mono text-xs">to</code></li>
+          <li><code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">error_shown</code> — <code class="font-mono text-xs">type</code>, <code class="font-mono text-xs">mode</code></li>
+        </ul>
+        <p class="mt-3"><strong class="text-onSurface">No Pal names, search terms, free text, or personally identifiable information is uploaded to GA4.</strong></p>
+      </section>
+
+      <!-- 12. Rights -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">12. Your Rights</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong class="text-onSurface">Right to Know</strong> — this policy explains all data we process (§1–§11)</li>
+          <li><strong class="text-onSurface">Right to Delete / Access / Restrict</strong> — no user accounts; feedback emails auto-delete after 30 days; use <strong>Reset Consent</strong> to stop further collection</li>
+          <li><strong class="text-onSurface">Right to Opt Out</strong> — use the Cookie Consent Banner to decline GA4/Clarity; install the GA Opt-out Add-on; clear localStorage via browser settings</li>
+        </ul>
+      </section>
+
+      <!-- 13-15 -->
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">13. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy when the Service or applicable legal requirements change. Material changes (e.g., adding AI features, advertising, or payment processing) will be noted on the Service.</p>
+      </section>
+
+      <section class="bg-surface border border-border rounded-2xl p-6">
+        <h2 class="text-lg font-extrabold mb-3 text-onSurface">14. Contact</h2>
+        <p><strong class="text-onSurface">Privacy &amp; feedback:</strong> <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code></p>
+      </section>
+
+      <blockquote class="border-l-4 border-primary/50 pl-4 text-onSurface/60 italic">
+        This document is provided for informational purposes and does not constitute legal advice. Fan-made tool, not affiliated with Pocketpair, Inc.
+      </blockquote>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Reset Consent（合规交接：清除 analyticsConsent -> 删 Cookie -> 刷新 -> Banner 重现）
+  const btn = document.getElementById('reset-consent');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      if (typeof window.resetAnalyticsConsent === 'function') {
+        window.resetAnalyticsConsent();
+      }
+      location.reload();
+    });
+  }
+</script>

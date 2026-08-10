@@ -1,0 +1,92 @@
+---
+// /tools/breeding-calculator — SEO 冻结稿 §4（独立 Tool 页，H1 不同）
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreedingQueryTool from '../../components/BreedingQueryTool';
+import palsData from '../../data/pals.json';
+
+const pals = palsData;
+---
+
+<BaseLayout
+  title="Palworld Breeding Combination Finder — Every Parent Pair | PalBreed"
+  description="Find every possible breeding result in Palworld. Check any parent pair or reverse lookup a target Pal to see all parent combinations."
+  canonical="https://palbreed.space/tools/breeding-calculator"
+  activeNav="calculator"
+>
+  <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
+    <!-- Hero & Intro -->
+    <header class="max-w-4xl mx-auto text-center mb-12 relative">
+      <h1 class="text-4xl md:text-6xl font-black font-headline tracking-tight mb-6">
+        Palworld Breeding Combination Finder — Every Parent Pair
+      </h1>
+      <p class="text-lg text-onSurface/80 leading-relaxed max-w-2xl mx-auto">
+        Discover every possible breeding result in Palworld. Check any parent pair for their offspring, or reverse
+        lookup a target Pal to see all parent combinations.
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        <span class="bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+          44k+ Combinations · 299 Pals
+        </span>
+        <span class="bg-primary/5 border border-primary/15 text-primary/80 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+          Community-sourced data
+        </span>
+      </div>
+    </header>
+
+    <!-- Main Tool Card -->
+    <section id="calculator" class="max-w-[800px] mx-auto relative mb-16">
+      <div class="absolute -top-16 right-0 w-32 h-32 z-10 drop-shadow-2xl pointer-events-none">
+        <img class="w-full h-full object-contain" alt="Mascot peeking over the calculator" src="/assets/mascot-peek-v2.png" />
+      </div>
+      <div class="bg-surface border border-border rounded-2xl shadow-2xl overflow-hidden glow-cyan">
+        <div class="p-6 md:p-8">
+          <BreedingQueryTool client:load pals={pals} />
+        </div>
+      </div>
+    </section>
+
+    <!-- 内容模块：配种机制说明（冻结稿 §4 深度内容） -->
+    <section class="max-w-[800px] mx-auto mb-16">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">How Palworld breeding works</h2>
+      <div class="space-y-4 text-onSurface/70 leading-relaxed">
+        <p>
+          Every Pal in Palworld has a hidden <strong class="text-onSurface">breeding value</strong>. When you place a
+          male and a female Pal in the Breeding Farm, the game averages their breeding values and produces the Pal
+          whose value is closest to that average.
+        </p>
+        <p>
+          Because values are averaged, most parent pairs can produce several different offspring. But some pairs are
+          <strong class="text-onSurface">unique combos</strong> — they always produce the same Pal. For example,
+          Relaxaurus × Sparkit always produces Jetragon.
+        </p>
+        <p>
+          Use the two modes above: <strong class="text-onSurface">Parents → Child</strong> to check what any two Pals
+          produce, or <strong class="text-onSurface">Target → Parents</strong> to work backward from the Pal you want.
+        </p>
+      </div>
+    </section>
+
+    <!-- 常见组合列表（冻结稿 §4） -->
+    <section class="max-w-[800px] mx-auto">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Popular unique combos</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          ['Relaxaurus', 'Sparkit', 'Jetragon'],
+          ['Lamball', 'Foxparks', 'Direhowl'],
+          ['Anubis', 'Eikthyrdeer', 'Mossanda'],
+          ['Penking', 'Bushi', 'Anubis'],
+        ].map(([a, b, c]) => (
+          <div class="bg-surface border border-border rounded-xl px-5 py-4 flex items-center justify-between gap-3">
+            <span class="text-sm font-semibold text-onSurface">
+              {a} <span class="text-primary">+</span> {b}
+            </span>
+            <span class="text-primary font-black text-sm">→ {c}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-onSurface/50 mt-4">
+        Example combos — use the calculator above to explore all 44k+ combinations.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

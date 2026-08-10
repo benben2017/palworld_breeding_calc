@@ -1,0 +1,106 @@
+---
+// 顶部导航 — 从设计稿迁移（9 页共用）
+// 桌面：品牌 + 4 链接 + Find My Combo CTA；移动：品牌 + 主题切换 + 汉堡菜单
+import Icon from './Icon.astro';
+
+interface Props {
+  active?: 'calculator' | 'cake' | 'pals' | 'faq' | 'none';
+}
+
+const { active = 'none' } = Astro.props;
+
+const links = [
+  { href: '/tools/breeding-calculator', label: 'Calculator', key: 'calculator' },
+  { href: '/tools/cake-calculator', label: 'Cake Calculator', key: 'cake' },
+  { href: '/pals', label: 'Pals', key: 'pals' },
+  { href: '/faq', label: 'FAQ', key: 'faq' },
+] as const;
+---
+
+<header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+  <nav class="max-w-[1280px] mx-auto px-6 py-4 flex justify-between items-center" aria-label="Main">
+    <a href="/" class="flex items-center gap-3" aria-label="PalBreed home">
+      <img id="logo-navbar" alt="PalBreed Logo" class="h-8 w-auto object-contain" src="/assets/palbreed-logo-navbar-v3.svg" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              'font-medium transition-colors',
+              active === l.key
+                ? 'text-primary border-b-2 border-primary pb-1 font-semibold'
+                : 'text-onSurface hover:text-primary',
+            ]}
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={active === 'calculator' ? '#calculator' : '/tools/breeding-calculator'}
+        class="bg-primary text-background px-5 py-2.5 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all glow-cyan hidden lg:inline-flex items-center"
+      >
+        Find My Combo
+      </a>
+
+      <button
+        data-theme-toggle
+        aria-label="Switch theme, current: Dark"
+        title="Theme: Dark"
+        class="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
+        style="cursor:pointer"
+      >
+        <span data-theme-icon class="text-onSurface text-xl"><Icon name="moon" /></span>
+      </button>
+
+      <button
+        id="hamburger"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+        class="md:hidden w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
+        style="cursor:pointer"
+      >
+        <span class="text-onSurface text-xl" data-hamburger-icon="menu"><Icon name="menu" /></span>
+        <span class="text-onSurface text-xl hidden" data-hamburger-icon="close"><Icon name="close" /></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div
+  id="mobile-menu"
+  class="hidden md:hidden fixed top-16 left-0 right-0 z-40 bg-background border-b border-border px-6 py-4 flex flex-col gap-4 shadow-2xl"
+>
+  {
+    links.map((l) => (
+      <a href={l.href} class="text-onSurface font-headline font-extrabold py-1.5 hover:text-primary transition-colors">
+        {l.label}
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  // 汉堡菜单（设计稿 mobile-menu-js 迁移）
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!open));
+      const menuIcon = btn.querySelector('[data-hamburger-icon="menu"]');
+      const closeIcon = btn.querySelector('[data-hamburger-icon="close"]');
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.toggle('hidden', open);
+        closeIcon.classList.toggle('hidden', !open);
+      }
+    });
+  }
+</script>
