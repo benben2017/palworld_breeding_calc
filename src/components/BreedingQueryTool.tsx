@@ -140,7 +140,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
         const sexKey = `${low}(${sexA})+${high}(${sexB})`;
         const childKey = idx[sexKey] ?? idx[`${low}(${sexB})+${high}(${sexA})`];
         if (childKey) {
-          setForwardState({ status: 'success', childKey });
+          setForwardState({ status: 'success', childKey, needsSex: true });
           analytics.breedingQueryCompleted({ has_result: true });
         } else {
           setForwardState({ status: 'no_result' });
@@ -204,18 +204,33 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
   }
 
   // ---- 渲染辅助 ----
-  function renderPalCard(key: string, extra?: string) {
+  // 竞品参考（palworldbreeding.org）：A + B = C 公式布局，child 高亮
+  function renderPalCard(key: string, highlight = false) {
     const p = byKey.get(key);
-    return p ? (
+    if (!p) return <span className="text-sm font-bold text-onSurface/80">{key}</span>;
+    return (
       <a
         href={`/pals/${key}`}
-        className="inline-flex items-center gap-2 bg-surface-elevated/60 border border-border rounded-lg px-3 py-1.5 text-sm font-bold text-primary hover:border-primary/50 transition-colors"
+        className={[
+          'inline-flex flex-col items-center gap-1.5 rounded-xl px-4 py-3 border transition-all min-w-[104px]',
+          highlight
+            ? 'border-primary/60 bg-primary/10 shadow-[0_0_24px_rgba(0,212,255,0.25)]'
+            : 'border-border bg-surface-elevated/60 hover:border-primary/40 hover:bg-surface-elevated',
+        ].join(' ')}
       >
-        {p.name}
-        {extra && <span className="text-xs font-normal text-onSurface/60">{extra}</span>}
+        <img
+          src={p.imageUrl}
+          alt=""
+          loading="lazy"
+          className="w-12 h-12 rounded-full object-cover bg-surface-elevated"
+        />
+        <span className={['text-sm font-bold leading-tight text-center', highlight ? 'text-primary' : 'text-onSurface'].join(' ')}>
+          {p.name}
+        </span>
+        {highlight && (
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary/80">Offspring</span>
+        )}
       </a>
-    ) : (
-      <span className="text-sm font-bold text-onSurface/80">{key}</span>
     );
   }
 
@@ -345,12 +360,28 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                 <div className="h-3 w-2/3 mx-auto rounded-full skeleton opacity-50"></div>
               </div>
             )}
-            {forwardState.status === 'success' && forwardState.childKey && (
-              <div className="flex flex-col items-center gap-3">
-                <div className="flex items-center gap-3 flex-wrap justify-center">
+            {forwardState.status === 'success' && (forwardState.childKey || forwardState.needsSex) && (
+              <div className="flex flex-col items-center gap-4 w-full">
+                {/* 公式布局（设计稿 Success State + 竞品参考）：A + B = C */}
+                <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5 flex-wrap">
                   {palA && renderPalCard(palA.key)}
-                  <span className="text-primary font-black">→</span>
+                  <span className="text-2xl font-black text-onSurface/40 select-none" aria-hidden="true">
+                    +
+                  </span>
                   {palB && renderPalCard(palB.key)}
+                  <span className="text-2xl font-black text-primary select-none" aria-hidden="true">
+                    =
+                  </span>
+                  {forwardState.childKey ? (
+                    renderPalCard(forwardState.childKey, true)
+                  ) : (
+                    <div className="inline-flex flex-col items-center gap-1.5 rounded-xl px-4 py-3 border border-dashed border-primary/40 min-w-[104px]">
+                      <span className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-2xl text-primary">
+                        🥚
+                      </span>
+                      <span className="text-sm font-bold text-primary/70">Select genders</span>
+                    </div>
+                  )}
                 </div>
                 {forwardState.needsSex ? (
                   <div className="w-full max-w-md space-y-4 mt-2">
@@ -407,12 +438,12 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                       {palA?.name} {GENDER_LABEL[sexA]} + {palB?.name} {GENDER_LABEL[sexB]}
                     </p>
                   </div>
-                ) : (
-                  <div className="flex flex-col items-center gap-2">
-                    <p className="text-sm text-onSurface/60">Same species — offspring is</p>
-                    <div className="text-xl font-black text-primary">{renderPalCard(forwardState.childKey)}</div>
-                  </div>
-                )}
+                ) : palA?.key === palB.key ? (
+                  <p className="text-sm text-onSurface/60">
+                    Same species — offspring is{' '}
+                    <strong className="text-primary">{palA?.name}</strong>
+                  </p>
+                ) : null}
               </div>
             )}
             {forwardState.status === 'no_result' && (

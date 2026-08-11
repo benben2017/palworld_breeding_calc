@@ -53,9 +53,17 @@ export default function PalSelector({ pals, label, placeholder, value, onChange,
       </label>
       <div ref={boxRef} className="relative">
         <div className="relative group">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-onSurface/40 group-focus-within:text-primary transition-colors text-lg">
-            🔍
-          </span>
+          {value ? (
+            <img
+              src={value.imageUrl}
+              alt=""
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full object-cover bg-surface-elevated"
+            />
+          ) : (
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-onSurface/40 group-focus-within:text-primary transition-colors text-lg">
+              🔍
+            </span>
+          )}
           <input
             id={id}
             ref={inputRef}
