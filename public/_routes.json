@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/",
+    "/_astro/*",
+    "/robots.txt",
+    "/assets/*",
+    "/data/*",
+    "/about",
+    "/faq",
+    "/pals/",
+    "/privacy",
+    "/terms",
+    "/tools/breeding-calculator",
+    "/tools/cake-calculator"
+  ]
+}

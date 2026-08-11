@@ -1,5 +1,22 @@
 # PalBreed CHANGELOG
 
+## v1.0.2 (2026-08-11) — QA10 修复（Soft 404 + 预览域 noindex）
+
+### 修复（对应 REQA10_REPORT P1-1 / P1-2）
+- **Soft 404**：新增 `src/pages/404.astro`（noindex + 返回首页/图鉴引导）；`public/_routes.json` 将 exclude 精确化（`/pals/*` → `/pals/`、`/tools/*` → 两个具体工具页），无效 slug（如 `/pals/nyafia`）不再落入 SPA fallback，由 Worker 以 404 状态返回自定义 404 页
+- **预览域可索引**：`public/_headers` 增加 `https://palbreed-4ab.pages.dev/*` → `X-Robots-Tag: noindex, nofollow`（仅预览域，生产域不受影响）；`src/middleware.ts` 对 `*.pages.dev` 的 Worker 响应设置同一 header（覆盖详情页等非静态路径）
+
+### 验证（wrangler pages dev 本地模拟）
+- `/definitely-not-here-xyz` `/pals/nyafia` `/pals/chikipi` `/tools/nonexistent` → 404 + 自定义 404 页
+- `/pals/anubis`（真实详情页）→ 200 正常渲染
+- 预览域 3 类路径均带 `x-robots-tag: noindex`；生产域 `palbreed.space` 无此 header
+- `_headers` 规则通过 Cloudflare 校验（Parsed 1 valid header rule）
+
+### 遗留（需部署配置）
+- **P0-1 Analytics**：代码已就绪（Plausible 在 `BaseLayout.astro`、GA4/Clarity 在 `src/lib/consent.ts`），需在 Cloudflare Pages 配置 `PUBLIC_PLAUSIBLE_SCRIPT_URL` / `PUBLIC_GA_MEASUREMENT_ID` / `PUBLIC_CLARITY_PROJECT_ID` 后重新部署
+
+---
+
 ## v1.0.1 (2026-08-10) — Pal 头像 + 数据版本徽章
 
 ### 新增

@@ -1,0 +1,14 @@
+# QA10 P1-2 修复：预览域 pages.dev 全站 noindex（静态路径）
+#
+# 背景：Cloudflare Pages 的 _headers 支持绝对 URL 规则（必须 https、不含端口），
+# 可按 host 区分预览域与生产域。此规则仅匹配 palbreed-4ab.pages.dev 预览域，
+# 生产域 palbreed.space 不匹配，保持 index,follow。
+#
+# 注意：
+# 1. 每个规则只允许一个通配符（host 通配 + path 通配不能同时使用），
+#    故此处使用具体预览域 + path 通配。
+# 2. _headers 不作用于 Pages Functions/Worker 生成的响应，走 Worker 的路径
+#    （含 299 个 Pal 详情页与 404 页）由 src/middleware.ts 按 host 后缀
+#    .pages.dev 统一设置同一 header，两层配合覆盖全部请求。
+https://palbreed-4ab.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

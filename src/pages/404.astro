@@ -1,0 +1,39 @@
+---
+// /404 — 自定义 404 页（QA10 P1-1：Soft 404 修复）
+// Astro 约定：src/pages/404.astro → 构建生成 404.html，未知路径由 Worker 以 404 状态返回本页
+// SEO：noindex（错误页不收录）；canonical 指回首页
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | PalBreed"
+  description="The page you are looking for does not exist. Find breeding combinations for any Palworld Pal on PalBreed."
+  canonical="https://palbreed.space/"
+  robots="noindex,follow"
+  activeNav="none"
+>
+  <div class="max-w-3xl mx-auto px-6 pt-24 pb-28 text-center">
+    <p class="text-primary font-extrabold text-lg tracking-widest uppercase">404</p>
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3 text-onSurface">
+      Page not found
+    </h1>
+    <p class="mt-4 text-onSurface/70 max-w-md mx-auto leading-relaxed">
+      The page you're looking for doesn't exist or may have been moved.
+      Head back to the breeding calculator, or browse all 299 Pals.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4 justify-center">
+      <a
+        href="/"
+        class="bg-primary text-background px-6 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all glow-cyan"
+      >
+        Find My Combo
+      </a>
+      <a
+        href="/pals"
+        class="bg-surface border border-border text-onSurface px-6 py-3 rounded-lg font-bold hover:border-primary transition-colors"
+      >
+        Browse Pals
+      </a>
+    </div>
+  </div>
+</BaseLayout>
