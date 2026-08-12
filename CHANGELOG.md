@@ -1,5 +1,14 @@
 # PalBreed CHANGELOG
 
+## v1.0.6 (2026-08-12) — Footer 移除数据版本徽章 + src 哈希
+
+### 变更
+- `src/components/Footer.astro`：移除数据版本徽章（Data: palcalc v26 · combos · updated）与 src 提交哈希
+- 原因：技术噪音，普通用户无意义；数据版本信息在首页 hero 已有同款标签（v1.0.1 引入），Terms §4.2 的「数据版本徽章」声明仍由首页承担
+- 保留：4 列链接网格 + 免责/数据来源声明（合规必需）
+
+---
+
 ## v1.0.5 (2026-08-12) — Pals 列表 A-Z 字母筛选修复
 
 ### 修复
