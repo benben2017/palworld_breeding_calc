@@ -110,3 +110,14 @@
 ### 修复
 - Tailwind v4 插件位置错误（integrations → vite.plugins），工具类未生成导致排版全乱 → 已修复
 - Icon.astro 在 frontmatter 中使用 JSX 返回（Astro 不支持）→ 改为标准 Astro 组件
+
+## v1.0.7 (2026-08-12) — Analytics 回归修复
+
+### 修复
+- **Plausible/GA4/Clarity 全部丢失的回归**：v1.0.3~v1.0.6 的本地重新构建未携带 3 个 PUBLIC_* env（Astro 构建期内联），部署后 analytics 脚本全部消失
+- 恢复方法：构建时 export PUBLIC_PLAUSIBLE_SCRIPT_URL / PUBLIC_GA_MEASUREMENT_ID / PUBLIC_CLARITY_PROJECT_ID 后重新构建部署
+- **教训**：Direct Upload 模式下改任何代码重新构建部署，都必须带齐 env（本地无 .env 文件，靠构建时 export）
+
+### 验证
+- 线上首页 Plausible script + GA4 gtag config + Clarity tag 全部恢复
+- 详情页（worker 路径）同样恢复
