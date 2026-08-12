@@ -10,8 +10,13 @@
 //
 // Pal 详情页尾斜杠归一化（QA11 P1-1）：
 //   /pals/{key}/ -> 308 -> /pals/{key}（与 canonical 一致）
-// 说明：Cloudflare Pages 可能对 URL 做规范化，若 pathname 无尾斜杠则此分支不触发，
-// 需要时用 x-debug-pathname 响应头核对实际 pathname。
+// 结论（2026-08-12 实测）：
+// 1) 详情页是预渲染静态文件，Cloudflare Pages 静态优先，从不走 Worker ——
+//    本 middleware 的 308 分支对静态详情页不会触发（排查期已用 x-debug-pathname 证实）。
+// 2) public/_redirects 的 /pals/:key/ -> /pals/:key 规则会导致 500：
+//    Pages 对无斜杠目录自动 308 补斜杠，与 _redirects 去斜杠互相重定向循环。
+// 3) P1-1 最终处理：sitemap 全部无斜杠（serialize）+ 页面 canonical 无斜杠，
+//    两者信号一致，Google 会合并重复内容；不追求 301/308 归一化。
 import { defineMiddleware } from 'astro:middleware';
 
 export const onRequest = defineMiddleware(async (context, next) => {
