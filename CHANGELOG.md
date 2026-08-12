@@ -1,10 +1,11 @@
 # PalBreed CHANGELOG
 
-## v1.0.6 (2026-08-12) — Footer 移除数据版本徽章 + src 哈希
+## v1.0.6 (2026-08-12) — Footer 清理（移除数据徽章 + Sitemap 链接）
 
 ### 变更
-- `src/components/Footer.astro`：移除数据版本徽章（Data: palcalc v26 · combos · updated）与 src 提交哈希
-- 原因：技术噪音，普通用户无意义；数据版本信息在首页 hero 已有同款标签（v1.0.1 引入），Terms §4.2 的「数据版本徽章」声明仍由首页承担
+- `src/components/Footer.astro`：
+  - 移除数据版本徽章（Data: palcalc v26 · combos · updated）与 src 提交哈希（技术噪音；数据版本信息在首页 hero 已有同款标签，Terms §4.2 声明仍由首页承担）
+  - 移除 Resources 列的 Sitemap 链接（sitemap 是给搜索引擎爬虫的，用户点击只会看到 XML 源码；GSC 与 robots.txt 已自动发现）
 - 保留：4 列链接网格 + 免责/数据来源声明（合规必需）
 
 ---
