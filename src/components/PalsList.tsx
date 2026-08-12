@@ -1,6 +1,7 @@
 // PalsList — Pal 图鉴列表（设计稿 Pals List Development State Spec 生产实现）
-// 状态：搜索过滤 / 加载 skeleton≥300ms / 无结果（mascot-empty + 清除按钮）/ A-Z 分组
-// 注：types 字段数据缺失（PRD §10.1）→ 无类型筛选；分页 48/页 + A-Z 锚点
+// 状态：搜索过滤 / 加载 skeleton≥300ms / 无结果（mascot-empty + 清除按钮）/ A-Z 字母筛选
+// v1.0.5：A-Z 锚点 → 字母筛选（原锚点分页模式下无目标元素，点击无效）
+// 注：types 字段数据缺失（PRD §10.1）→ 无类型筛选；无筛选时分页 48/页，筛选时按字母分组全量显示
 import { useMemo, useRef, useState } from 'react';
 import type { Pal } from '../lib/types';
 
@@ -12,34 +13,41 @@ const PAGE_SIZE = 48;
 
 export default function PalsList({ pals }: Props) {
   const [query, setQuery] = useState('');
+  const [letter, setLetter] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const hasFilter = query.trim() !== '' || letter !== null;
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return pals;
-    return pals.filter((p) => p.name.toLowerCase().includes(q) || p.key.includes(q));
-  }, [query, pals]);
+    let result = pals;
+    if (q) result = result.filter((p) => p.name.toLowerCase().includes(q) || p.key.includes(q));
+    if (letter) result = result.filter((p) => p.name.charAt(0).toUpperCase() === letter);
+    return result;
+  }, [query, letter, pals]);
 
-  // A-Z 分组（搜索时不分页，直接全量显示结果；无搜索时分页 48/页）
+  // A-Z 分组（筛选时不分页，按字母分组全量显示结果；无筛选时分页 48/页）
   const groups = useMemo(() => {
-    if (query.trim()) {
+    if (hasFilter) {
       const g: Record<string, Pal[]> = {};
       filtered.forEach((p) => {
-        const letter = p.name.charAt(0).toUpperCase();
-        (g[letter] ??= []).push(p);
+        const l = p.name.charAt(0).toUpperCase();
+        (g[l] ??= []).push(p);
       });
       return { g, pageItems: null as Pal[] | null, totalPages: 0 };
     }
     const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
     return { g: null, pageItems, totalPages: Math.ceil(filtered.length / PAGE_SIZE) };
-  }, [filtered, query, page]);
+  }, [filtered, hasFilter, page]);
 
   const letters = useMemo(() => {
+    // 字母筛选激活时，仍显示全量字母表（便于直接切换到其他字母）
+    if (letter) return Array.from(new Set(pals.map((p) => p.name.charAt(0).toUpperCase()))).sort();
     if (groups.g) return Object.keys(groups.g).sort();
     return Array.from(new Set(filtered.map((p) => p.name.charAt(0).toUpperCase()))).sort();
-  }, [groups, filtered]);
+  }, [letter, groups, filtered, pals]);
 
   function onSearch(v: string) {
     setQuery(v);
@@ -50,6 +58,11 @@ export default function PalsList({ pals }: Props) {
       setLoading(false);
       setPage(1);
     }, 300);
+  }
+
+  function onLetterClick(l: string) {
+    setLetter(letter === l ? null : l);
+    setPage(1);
   }
 
   function renderCard(p: Pal) {
@@ -94,23 +107,46 @@ export default function PalsList({ pals }: Props) {
             class="w-full bg-surface border border-border rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-onSurface transition-all touch-target"
           />
         </div>
-        {query.trim() && (
+        {hasFilter && (
           <p class="text-sm text-onSurface/60 mt-3 text-center">
             <strong class="text-primary">{filtered.length}</strong> {filtered.length === 1 ? 'Pal' : 'Pals'} match
+            {letter ? ` starting with “${letter}”` : ''}
           </p>
         )}
       </div>
 
-      {/* A-Z 锚点 */}
+      {/* A-Z 字母筛选（点字母过滤该字母开头的 Pal；再点一次或点 All 恢复全部） */}
       <div class="flex flex-wrap justify-center gap-1.5 mb-10">
+        <button
+          type="button"
+          onClick={() => {
+            setLetter(null);
+            setPage(1);
+          }}
+          class={[
+            'px-3 h-9 rounded-lg bg-surface border text-sm font-bold transition-colors',
+            letter === null
+              ? 'border-primary/50 text-primary bg-primary/10'
+              : 'border-border text-onSurface/80 hover:text-primary hover:border-primary/50',
+          ].join(' ')}
+        >
+          All
+        </button>
         {letters.map((l) => (
-          <a
+          <button
             key={l}
-            href={query.trim() ? undefined : `#letter-${l}`}
-            class="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center text-sm font-bold text-onSurface/80 hover:text-primary hover:border-primary/50 transition-colors"
+            type="button"
+            onClick={() => onLetterClick(l)}
+            aria-pressed={letter === l}
+            class={[
+              'w-9 h-9 rounded-lg bg-surface border text-sm font-bold transition-colors',
+              letter === l
+                ? 'border-primary/50 text-primary bg-primary/10'
+                : 'border-border text-onSurface/80 hover:text-primary hover:border-primary/50',
+            ].join(' ')}
           >
             {l}
-          </a>
+          </button>
         ))}
       </div>
 
@@ -131,12 +167,17 @@ export default function PalsList({ pals }: Props) {
       {!loading && filtered.length === 0 && (
         <div class="flex flex-col items-center gap-4 py-16 text-center">
           <img src="/assets/mascot-empty-v2.png" alt="Empty state mascot" class="w-32 h-32 object-contain" />
-          <p class="text-onSurface/70 font-medium">No Pals match your filters</p>
+          <p class="text-onSurface/70 font-medium">
+            {letter ? `No Pals start with “${letter}”` : 'No Pals match your filters'}
+          </p>
           <button
-            onClick={() => onSearch('')}
+            onClick={() => {
+              setQuery('');
+              setLetter(null);
+            }}
             class="px-6 py-2.5 rounded-lg border border-border hover:bg-surface-elevated text-sm font-bold transition-colors touch-target"
           >
-            Clear search
+            Clear all filters
           </button>
         </div>
       )}

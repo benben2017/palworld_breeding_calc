@@ -1,5 +1,17 @@
 # PalBreed CHANGELOG
 
+## v1.0.5 (2026-08-12) — Pals 列表 A-Z 字母筛选修复
+
+### 修复
+- **A-Z 字母条点击无效**：原实现是滚动锚点（`href="#letter-X"`），但分页模式下页面无对应锚点元素、搜索模式下 href 为 undefined，导致点击无反应
+- 改为**字母筛选按钮**：点字母只显示该字母开头的 Pal（按字母分组全量显示），再点一次或点 All 恢复全部；新增 "All" 按钮 + 激活态高亮 + `aria-pressed`
+- 计数提示扩展：字母筛选时显示 `X Pals starting with "A"`；空态区分原因 + 清除按钮改为 "Clear all filters"（同时清搜索词和字母）
+
+### 变更
+- `src/components/PalsList.tsx`：新增 `letter` state，`filtered` 叠加字母过滤，`hasFilter` 控制分组/分页切换
+
+---
+
 ## v1.0.4 (2026-08-12) — Footer Popular Pals 缩减为 5 个
 
 ### 变更
