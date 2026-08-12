@@ -47,7 +47,8 @@ export default function PalSelector({ pals, label, placeholder, value, onChange,
   }
 
   return (
-    <div className="space-y-2">
+    // clarity-mask：Clarity 录屏遮罩该区域，Pal 选择内容不出现在录屏回放（PRD/Privacy 声明）
+    <div className="space-y-2 clarity-mask">
       <label for={id} className="block text-xs font-bold text-onSurface/70 uppercase tracking-widest">
         {label}
       </label>
