@@ -1,5 +1,12 @@
 # PalBreed CHANGELOG
 
+## v1.0.4 (2026-08-12) — Footer Popular Pals 缩减为 5 个
+
+### 变更
+- `src/components/Footer.astro`：Popular Pals 12 → 5 个（Jetragon、Anubis、Shadowbeak、Grizzbolt、Frostallion），解决三列高度不齐、视觉杂乱问题；SEO 权重传递目标更聚焦
+
+---
+
 ## v1.0.3 (2026-08-12) — Sitemap 式 Footer（SEO 内部链接）
 
 ### 新增

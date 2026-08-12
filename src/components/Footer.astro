@@ -1,7 +1,6 @@
 ---
 // 页脚 — 从设计稿迁移（9 页共用，文案按 SEO 冻结稿 §2）
-// v1.0.3：升级为 4 列 sitemap 式 footer（竞品对标 + SEO 内部链接优化）
-//   Tools | Popular Pals(12) | Resources | 底部声明区
+// v1.0.4：Popular Pals 缩减为 5 个最热门（12 个导致三列高度不齐，UI 体验差）
 // Popular Pals 从 TOP50 精选（community 共识热门，均有 index 详情页）
 // 数据版本徽章：构建期读取 version.json（PRD §5/§10）
 import version from '../data/version.json';
@@ -12,13 +11,6 @@ const popularPals: { name: string; key: string }[] = [
   { name: 'Shadowbeak', key: 'blackgriffon' },
   { name: 'Grizzbolt', key: 'elecpanda' },
   { name: 'Frostallion', key: 'icehorse' },
-  { name: 'Paladius', key: 'saintcentaur' },
-  { name: 'Astegon', key: 'blackmetaldragon' },
-  { name: 'Blazamut', key: 'kingbahamut' },
-  { name: 'Jormuntide Ignis', key: 'umihebi_fire' },
-  { name: 'Lyleen', key: 'lilyqueen' },
-  { name: 'Orserk', key: 'thunderdragonman' },
-  { name: 'Menasting', key: 'darkscorpion' },
 ];
 ---
 
