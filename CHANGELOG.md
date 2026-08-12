@@ -1,5 +1,22 @@
 # PalBreed CHANGELOG
 
+## v1.0.3 (2026-08-12) — Sitemap 式 Footer（SEO 内部链接）
+
+### 新增
+- **Footer 升级为 4 列链接网格**（Tools / Popular Pals / Resources / 底部声明区）
+  - Tools：Breeding Calculator · Cake Calculator · Pal List · FAQ
+  - Popular Pals：12 个社区热门 Pal 详情页链接（Jetragon、Anubis、Shadowbeak、Grizzbolt、Frostallion、Paladius、Astegon、Blazamut、Jormuntide Ignis、Lyleen、Orserk、Menasting），均来自 TOP50（有 index 详情页）
+  - Resources：Privacy · Terms · Sitemap · Report data issue · Suggest a feature
+- 效果：每个页面底部都链接到工具页 + 热门详情页，全站内部链接打通（帮助详情页爬取/索引，SEO 收益）
+
+### 变更
+- `src/components/Footer.astro`：5 个文字链接 → 4 列网格（移动端 2 列 / 桌面 3 列响应式）
+
+### 验证
+- 构建通过；首页 + 详情页 + FAQ + 工具页 + 合规页均渲染 4 列（Popular Pals 12 链接全部指向正确 slug）
+
+---
+
 ## v1.0.2 (2026-08-11) — QA10 修复（Soft 404 + 预览域 noindex）
 
 ### 修复（对应 REQA10_REPORT P1-1 / P1-2）
