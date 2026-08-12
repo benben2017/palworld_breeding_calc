@@ -20,6 +20,13 @@ export default defineConfig({
         if (match) return TOP50_PALS.includes(match[1]);
         return true;
       },
+      // QA11 P1-1: sitemap detail URLs use no-slash form (match canonical / middleware 308 target)
+      serialize: (item) => {
+        if (/^https:\/\/palbreed\.space\/pals\/[a-z0-9_]+\/$/.test(item.url)) {
+          item.url = item.url.slice(0, -1);
+        }
+        return item;
+      },
     }),
   ],
   vite: {

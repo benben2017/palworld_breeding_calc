@@ -47,6 +47,7 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F0F11" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
@@ -75,7 +76,7 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/android-chrome-512x512.png" />
 
-    <!-- Plausible（无 Cookie 自托管，始终加载，不参与 Consent 控制 — PRD §9.3） -->
+    {/* Plausible（无 Cookie 自托管，始终加载，不参与 Consent 控制 — PRD §9.3） */}
     {
       plausibleScript ? (
         <script defer data-domain="palbreed.space" src={plausibleScript}></script>
@@ -85,7 +86,7 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
     {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
   </head>
   <body class="min-h-screen selection:bg-primary/30 selection:text-primary">
-    <!-- 背景装饰（设计稿） -->
+    {/* 背景装饰（设计稿） */}
     <div class="fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
       <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary decoration-blur rounded-full"></div>
       <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary decoration-blur rounded-full"></div>
@@ -100,7 +101,7 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
     <Footer />
     <CookieBanner />
 
-    <!-- 主题 + Consent 初始化（设计稿逻辑生产化） -->
+    {/* 主题 + Consent 初始化（设计稿逻辑生产化） */}
     <script>
       import { initTheme } from '../lib/theme';
       import { initConsentManager } from '../lib/consent';
@@ -110,6 +111,9 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
           const v = localStorage.getItem('theme');
           if (v === 'light' || v === 'hc' || v === 'dark') {
             document.documentElement.setAttribute('data-theme', v);
+            // QA11 P2-2: sync mobile address-bar color (light #F5F0EB / hc #000000)
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', v === 'dark' ? '#0F0F11' : v === 'light' ? '#F5F0EB' : '#000000');
           }
         } catch {}
       })();

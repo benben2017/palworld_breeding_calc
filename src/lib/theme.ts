@@ -10,6 +10,13 @@ export const THEME_META: Record<Theme, { icon: string; label: string }> = {
   hc: { icon: 'contrast', label: 'High contrast' },
 };
 
+// QA11 P2-2: mobile browser address-bar color, synced with data-theme
+export const THEME_COLOR: Record<Theme, string> = {
+  dark: '#0F0F11',
+  light: '#F5F0EB',
+  hc: '#000000',
+};
+
 const KEY = 'theme';
 
 export function getStoredTheme(): Theme {
@@ -24,6 +31,8 @@ export function getStoredTheme(): Theme {
 
 export function applyTheme(t: Theme): void {
   document.documentElement.setAttribute('data-theme', t);
+  // QA11 P2-2: sync mobile address-bar color
+  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[t]);
   // Logo 变体：light 用浅色版，dark/hc 用深色版（设计稿逻辑）
   const logo = document.querySelector<HTMLImageElement>('#logo-navbar');
   if (logo) {

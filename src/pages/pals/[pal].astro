@@ -48,7 +48,7 @@ const jsonLd = JSON.stringify({
   jsonLd={jsonLd}
 >
   <div class="max-w-[1280px] mx-auto px-6 pt-8 pb-8">
-    <!-- 面包屑 -->
+    {/* 面包屑 */}
     <nav class="flex items-center gap-2 text-sm text-onSurface/60 mb-6 font-medium" aria-label="Breadcrumb">
       <a href="/pals" class="hover:text-primary">Pals</a>
       <span class="text-onSurface/30">/</span>
@@ -71,9 +71,9 @@ const jsonLd = JSON.stringify({
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <!-- 左列：属性 + 工作适性 -->
+      {/* 左列：属性 + 工作适性 */}
       <div class="lg:col-span-7 space-y-8">
-        <!-- 基础属性 -->
+        {/* 基础属性 */}
         <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
           <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
             <div class="relative shrink-0">
@@ -113,7 +113,7 @@ const jsonLd = JSON.stringify({
           </div>
         </section>
 
-        <!-- 工作适性 -->
+        {/* 工作适性 */}
         {workEntries.length > 0 && (
           <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
             <h2 class="text-xl font-extrabold mb-6 flex items-center gap-2">
@@ -133,7 +133,7 @@ const jsonLd = JSON.stringify({
         )}
       </div>
 
-      <!-- 右列：繁殖信息 -->
+      {/* 右列：繁殖信息 */}
       <div class="lg:col-span-5 space-y-8">
         <section class="bg-surface border border-border rounded-2xl p-8 shadow-xl">
           <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
