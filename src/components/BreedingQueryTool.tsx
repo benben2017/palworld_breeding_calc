@@ -262,9 +262,9 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
   }
 
   return (
-    <div class={compact ? '' : 'space-y-8'}>
+    <div className={compact ? '' : 'space-y-8'}>
       {/* Tab 切换 */}
-      <div class={compact ? 'flex gap-6 mb-8 border-b border-border/50' : 'flex border-b border-border'}>
+      <div className={compact ? 'flex gap-6 mb-8 border-b border-border/50' : 'flex border-b border-border'}>
         <button
           onClick={() => switchMode('forward')}
           aria-pressed={mode === 'forward'}
@@ -438,7 +438,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                       {palA?.name} {GENDER_LABEL[sexA]} + {palB?.name} {GENDER_LABEL[sexB]}
                     </p>
                   </div>
-                ) : palA?.key === palB.key ? (
+                ) : palA?.key === palB?.key ? (
                   <p className="text-sm text-onSurface/60">
                     Same species — offspring is{' '}
                     <strong className="text-primary">{palA?.name}</strong>

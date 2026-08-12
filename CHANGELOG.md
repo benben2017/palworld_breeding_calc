@@ -14,6 +14,15 @@
 - 构建通过（带 3 个 PUBLIC_* env）；sitemap 50 个详情页全部无斜杠；dist 无中文注释；analytics 三件套在
 - 生产全路径复测：50/50 详情页 200（带/不带斜杠均 200），无 500 回归；_redirects 实验后已回滚确认
 
+## v1.0.10 (2026-08-12) — 修复清除 Parent B 崩溃（QA11.5 P0-1）
+
+### 修复
+- **P0-1 清除 Parent B 后选择框消失（React 崩溃）**：`BreedingQueryTool.tsx` 同种繁殖判断 `palA?.key === palB.key` 在清除 B 后（palB=null、forwardState 仍为 success 的过渡帧）读取 `palB.key` 抛 `TypeError`，React 整树卸载导致工具消失。修复：改为 `palA?.key === palB?.key`
+- **清理 React 警告**：`.tsx` 中 `class=` → `className=`（2 处）、`<label for=` → `<label htmlFor=`（1 处）
+
+### 验证（本地真实浏览器 13 项场景）
+- 清除 B / 清除 A / 键盘删除 / 清除后重选 / 同种繁殖 / sex 组合 / 反查模式清除+重选 —— 全部通过，零 pageerror
+
 ---
 ## v1.0.8 (2026-08-12) — 移动端性能优化（mascot 转 WebP + LCP 优先级）
 
