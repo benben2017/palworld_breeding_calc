@@ -3,13 +3,16 @@
 ## v1.0.9 (2026-08-12) — QA11 P1-1 修复 + P2 跟进
 
 ### 修复（QA11 验收报告）
-- **P1-1 Pal 详情页斜杠归一化**：`/pals/{key}/` → 308 → `/pals/{key}`（middleware，与 canonical 一致）；sitemap 详情页 URL 改为无斜杠版本（serialize），信号统一
+- **P1-1 Pal 详情页斜杠归一化**（实测调整）：
+  - sitemap 详情页 URL 改为无斜杠版本（serialize），与页面 canonical（无斜杠）信号一致 —— 这是核心修复，Google 会据此合并重复内容
+  - 尝试 middleware 308 归一化：详情页为预渲染静态文件，Pages 静态优先，middleware 不触发（x-debug-pathname 实测证实）
+  - 尝试 public/_redirects（/pals/:key/ 301 /pals/:key）：与 Pages 自动补斜杠（无斜杠目录 308 加斜杠）形成重定向循环 → 500，已回滚；结论记录在 middleware.ts 注释
 - **P2-2 theme-color meta**：`<meta name="theme-color">` 三主题联动（dark #0F0F11 / light #F5F0EB / hc #000000），applyTheme + 首帧 FOUC 脚本同步，移动端地址栏颜色跟随主题
 - **P2-5 清理中文 HTML 注释**：18 处 `<!-- 中文 -->` → `{/* */}`（Astro 表达式注释，不输出到生产 HTML）
 
 ### 验证
 - 构建通过（带 3 个 PUBLIC_* env）；sitemap 50 个详情页全部无斜杠；dist 无中文注释；analytics 三件套在
-- 308 逻辑打包进 _worker.js middleware（本地 pages dev 对静态文件优先不触发，需生产验证）
+- 生产全路径复测：50/50 详情页 200（带/不带斜杠均 200），无 500 回归；_redirects 实验后已回滚确认
 
 ---
 ## v1.0.8 (2026-08-12) — 移动端性能优化（mascot 转 WebP + LCP 优先级）
