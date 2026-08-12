@@ -248,10 +248,32 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
         className="flex items-center justify-between gap-3 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors"
       >
         <div className="flex items-center gap-2 flex-wrap min-w-0">
+          {a && (
+            <img
+              src={a.imageUrl}
+              alt=""
+              loading="lazy"
+              className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          )}
           <a href={`/pals/${parts.aKey}`} className="font-semibold text-onSurface hover:text-primary transition-colors">
             {a?.name ?? parts.aKey}
           </a>
           <span className="text-primary">+</span>
+          {b && (
+            <img
+              src={b.imageUrl}
+              alt=""
+              loading="lazy"
+              className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          )}
           <a href={`/pals/${parts.bKey}`} className="font-semibold text-onSurface hover:text-primary transition-colors">
             {b?.name ?? parts.bKey}
           </a>
@@ -498,10 +520,19 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
             )}
             {reverseResult.status === 'success' && reverseResult.combos && (
               <div>
-                <p className="text-sm text-onSurface/70 mb-4">
-                  <strong className="text-primary">{target?.name}</strong> can be bred from{' '}
-                  <strong>{reverseResult.combos.length}</strong>{' '}
-                  {reverseResult.combos.length === 1 ? 'parent pair' : 'parent pairs'}:
+                <p className="text-sm text-onSurface/70 mb-4 flex items-center gap-2">
+                  {target && (
+                    <img
+                      src={target.imageUrl}
+                      alt=""
+                      className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
+                    />
+                  )}
+                  <span>
+                    <strong className="text-primary">{target?.name}</strong> can be bred from{' '}
+                    <strong>{reverseResult.combos.length}</strong>{' '}
+                    {reverseResult.combos.length === 1 ? 'parent pair' : 'parent pairs'}:
+                  </span>
                 </p>
                 <div className="space-y-2">
                   {reverseResult.combos.slice(0, reverseExpanded ? undefined : 20).map((c, i) => renderComboRow(c, i))}
