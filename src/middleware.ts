@@ -1,17 +1,17 @@
-// Edge middleware（QA10 P1-2 + QA11 P1-1 修复）
+// Edge middleware（QA10 P1-2 修复 + QA11 P1-1 排查）
 //
-// 1. Preview-domain noindex（QA10 P1-2）：
-//    Cloudflare Pages 预览域（*.pages.dev）与生产域共用同一份构建产物。
-//    预览域若可被搜索引擎收录，会与生产域 palbreed.space 形成重复内容。
-//    本 middleware 对 *.pages.dev 域名的所有 Worker 响应设置 X-Robots-Tag: noindex, nofollow。
-//    生产域 palbreed.space 不匹配，保持 index,follow。
-//    注意：_headers 文件对静态路径（_routes.json exclude 列表）同样设置了 noindex，
-//    两者配合覆盖全部请求。详见 public/_headers。
+// Preview-domain noindex（QA10 P1-2）：
+// Cloudflare Pages 预览域（*.pages.dev）与生产域共用同一份构建产物。
+// 预览域若可被搜索引擎收录，会与生产域 palbreed.space 形成重复内容。
+// 本 middleware 对 *.pages.dev 域名的所有 Worker 响应设置 X-Robots-Tag: noindex, nofollow。
+// 生产域 palbreed.space 不匹配，保持 index,follow。
+// 注意：_headers 文件对静态路径（_routes.json exclude 列表）同样设置了 noindex，
+// 两者配合覆盖全部请求。详见 public/_headers。
 //
-// 2. Pal 详情页尾斜杠归一化（QA11 P1-1）：
-//    sitemap 提交带斜杠版本、canonical 指向无斜杠版本，信号矛盾。
-//    统一为无斜杠（与 canonical 一致）：/pals/{key}/ -> 308 -> /pals/{key}
-//    /pals/（列表页，规范形态带斜杠）不受影响。
+// Pal 详情页尾斜杠归一化（QA11 P1-1）：
+//   /pals/{key}/ -> 308 -> /pals/{key}（与 canonical 一致）
+// 说明：Cloudflare Pages 可能对 URL 做规范化，若 pathname 无尾斜杠则此分支不触发，
+// 需要时用 x-debug-pathname 响应头核对实际 pathname。
 import { defineMiddleware } from 'astro:middleware';
 
 export const onRequest = defineMiddleware(async (context, next) => {
