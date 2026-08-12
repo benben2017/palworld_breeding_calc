@@ -1,5 +1,23 @@
 # PalBreed CHANGELOG
 
+## v1.0.8 (2026-08-12) — 移动端性能优化（mascot 转 WebP + LCP 优先级）
+
+### 优化（PageSpeed Insights 移动端报告）
+- **5 张 mascot PNG 全部转 WebP**（512×512 压缩后转码）：
+  - mascot-peek-v2：219KB → 11KB（LCP 图片，首页 + 计算器页）
+  - mascot-smile-v2：262KB → 12KB
+  - mascot-celebrate-v2：423KB → 18KB
+  - mascot-empty-v2：403KB → 17KB（图鉴空态）
+  - mascot-hero-v2：356KB → 21KB
+  - 合计 1.66MB → 79KB（省 95%），旧 PNG 从 public/assets 删除
+- **LCP 优化**：首页 Curious Mascot 加 `fetchpriority="high"` + `width/height`（防布局偏移）
+- 引用更新：`index.astro` / `breeding-calculator.astro` / `PalsList.tsx` 全部指向 `.webp`
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist 中 Plausible/GA4/Clarity 脚本均在
+- dist 无残留 PNG，webp 全部就位
+
+---
 ## v1.0.6 (2026-08-12) — Footer 清理（移除数据徽章 + Sitemap 链接）
 
 ### 变更

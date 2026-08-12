@@ -166,7 +166,7 @@ export default function PalsList({ pals }: Props) {
       {/* 无结果空态（设计稿规格：mascot-empty + 清除按钮） */}
       {!loading && filtered.length === 0 && (
         <div class="flex flex-col items-center gap-4 py-16 text-center">
-          <img src="/assets/mascot-empty-v2.png" alt="Empty state mascot" class="w-32 h-32 object-contain" />
+          <img src="/assets/mascot-empty-v2.webp" alt="Empty state mascot" class="w-32 h-32 object-contain" />
           <p class="text-onSurface/70 font-medium">
             {letter ? `No Pals start with “${letter}”` : 'No Pals match your filters'}
           </p>
