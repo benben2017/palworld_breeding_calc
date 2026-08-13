@@ -1,5 +1,15 @@
 # PalBreed CHANGELOG
 
+## v1.0.19 (2026-08-13) — 首页/工具页 title 缩短至 60 字符内（AITDK 黄色警报修复）
+
+### 变更（用户 AITDK 检测首页 title 黄色：66 字符超 60 阈值）
+- 首页 title：`Palworld Breeding Calculator — Find Any Combo Instantly | PalBreed`（66）→ `Palworld Breeding Calculator — Find Any Combo Instantly`（55）—— 保留主关键词 + 核心卖点，去品牌（SERP 自动显示域名，不占字符）
+- 工具页 title：`Palworld Breeding Combination Finder — Every Parent Pair | PalBreed`（67）→ `Palworld Breeding Combination Finder — Every Parent Pair`（56）
+- 详情页（最长 Pal 名 56）/FAQ（57）已达标，未动
+
+### 验证
+- 构建通过；生产 title 55/56 字符
+
 ## v1.0.18 (2026-08-13) — 提供标准文件名 sitemap.xml（AITDK 检测工具兼容）
 
 ### 变更（用户用 AITDK 检测时 /sitemap.xml 显示黄色，因为站点只有 sitemap-index.xml）
