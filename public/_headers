@@ -7,12 +7,10 @@
 # 注意：
 # 1. 每个规则只允许一个通配符（host 通配 + path 通配不能同时使用），
 #    故此处使用具体预览域 + path 通配。
-# 2. _headers 只作用于静态文件响应（_routes.json exclude 列表内路径），
-#    走 Worker 的路径（/api/* 等 on-demand 路由，含 /api/feedback）
-#    由 src/middleware.ts 按 host 后缀 .pages.dev 统一设置同一 header，
-#    两层配合覆盖全部请求。
-# 3. v1.0.15 起删除 public/_routes.json（v1.0.2 手工添加，exclude 漏掉 299 个
-#    详情页），改由 @astrojs/cloudflare adapter 自动生成（/pals/*、/tools/* 等
-#    通配覆盖全部静态路径），避免引入 Worker 后详情页被误路由到 SSR。
+# 2. _headers 只作用于静态文件响应。v1.0.16 起无 on-demand Worker（/api/feedback
+#    已删除，回归 mailto 方案），全站静态，本规则覆盖全部页面；middleware 仍
+#    保留作为兜底（对 *.pages.dev 的 worker 响应设置同一 header）。
+# 3. public/_routes.json（v1.0.2 手工添加，exclude 漏掉 299 个详情页）已删除，
+#    改由 @astrojs/cloudflare adapter 自动生成。
 https://palbreed-4ab.pages.dev/*
   X-Robots-Tag: noindex, nofollow

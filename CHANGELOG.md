@@ -1,5 +1,16 @@
 # PalBreed CHANGELOG
 
+## v1.0.16 (2026-08-13) — 回退：Feedback 恢复 mailto 方案，删除 /api/feedback
+
+### 变更（用户决定：Email Sending 需 Workers Paid 计划 + 新 token，放弃发信链路）
+- **FeedbackWidget 恢复 v1.0.14 mailto 版本**（git checkout e399054）：右下角按钮 → 展开面板 3 个 mailto（Report data issue / Suggest feature / Contact us，均发 feedback@palbreed.space，由 Email Routing 转发到站主 Gmail）
+- **删除 `src/pages/api/feedback.ts`**：站点回归纯静态（无 on-demand Worker），`_routes.json` 由 adapter 自动生成（include 仅 `/_server-islands/*`，exclude 覆盖全部静态页）；`dist/api` 不存在
+- **注释同步**：`astro.config.mjs` / `src/middleware.ts` / `public/_headers` 更新为纯静态状态说明；middleware 保留仅做预览域 noindex 兜底
+- canonical/sitemap 维持 v1.0.15 的带斜杠自引用方案（纯静态下双版本均 200，信号仍统一到带斜杠版，无需改动）
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；Playwright 真实浏览器：widget 展开/收起、3 个 mailto 链接、移动端展开、无 /api/feedback 残留、零 pageerror
+
 ## v1.0.15 (2026-08-13) — 站内反馈表单（竞品式模态）+ /api/feedback 后端
 
 ### 新增
