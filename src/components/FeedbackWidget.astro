@@ -1,0 +1,86 @@
+---
+// FeedbackWidget — 右下角悬浮反馈入口（竞品参考 palworldbreeding.org 右下角 feedback）
+// <details>/<summary> 原生展开收起，零依赖；Cookie banner 显示时自动上移避让（z-40 < banner z-100）
+import Icon from './Icon.astro';
+---
+
+<details class="feedback-widget fixed bottom-6 right-6 z-40 group/feedback">
+  <summary
+    aria-label="Open feedback options"
+    class="list-none cursor-pointer flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full bg-primary text-background font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all touch-target select-none [&::-webkit-details-marker]:hidden"
+  >
+    <Icon name="mail" class="text-base" />
+    <span>Feedback</span>
+    <Icon name="expand-more" class="text-base transition-transform group-open/feedback:rotate-180" />
+  </summary>
+  <div class="absolute bottom-full right-0 mb-3 w-72 rounded-2xl bg-surface border border-border shadow-2xl p-2 overflow-hidden">
+    <p class="px-4 pt-3 pb-2 text-xs font-bold uppercase tracking-widest text-onSurface/50">
+      Help us improve PalBreed
+    </p>
+    <a
+      href="mailto:feedback@palbreed.space?subject=%5BBug%5D%20Data%20issue"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
+    >
+      <span class="text-lg" aria-hidden="true">🐛</span>
+      <span>
+        <span class="block text-sm font-bold">Report a data issue</span>
+        <span class="block text-xs text-onSurface/50">Wrong offspring or missing combo</span>
+      </span>
+    </a>
+    <a
+      href="mailto:feedback@palbreed.space?subject=%5BFeature%5D%20Request"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
+    >
+      <span class="text-lg" aria-hidden="true">💡</span>
+      <span>
+        <span class="block text-sm font-bold">Suggest a feature</span>
+        <span class="block text-xs text-onSurface/50">What should we build next?</span>
+      </span>
+    </a>
+    <a
+      href="mailto:feedback@palbreed.space"
+      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
+    >
+      <span class="text-lg" aria-hidden="true">✉️</span>
+      <span>
+        <span class="block text-sm font-bold">Contact us</span>
+        <span class="block text-xs text-onSurface/50">feedback@palbreed.space</span>
+      </span>
+    </a>
+  </div>
+</details>
+
+<style>
+  /* Cookie banner 可见时上移避让（banner: 桌面右下 380px / 移动全宽条） */
+  .feedback-widget {
+    transition: bottom 0.3s ease;
+  }
+  .feedback-widget.fb-banner-open {
+    bottom: 16rem; /* 桌面：banner 高约 220px + 余量 */
+  }
+  @media (max-width: 767px) {
+    .feedback-widget.fb-banner-open {
+      bottom: 15rem; /* 移动：banner 高约 204px(12.75rem) + 余量 */
+    }
+  }
+</style>
+
+<script>
+  // Cookie banner 显示时按钮上移避让，隐藏时归位
+  (function () {
+    var widget = document.querySelector('.feedback-widget');
+    var banner = document.getElementById('cookie-banner');
+    if (!widget) return;
+    var open = false;
+    function sync() {
+      var visible = !!banner && banner.style.display !== 'none';
+      if (visible === open) return;
+      open = visible;
+      widget.classList.toggle('fb-banner-open', visible);
+    }
+    sync();
+    if (banner && typeof MutationObserver !== 'undefined') {
+      new MutationObserver(sync).observe(banner, { attributes: true, attributeFilter: ['style'] });
+    }
+  })();
+</script>

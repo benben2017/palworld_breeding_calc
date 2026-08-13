@@ -4,6 +4,7 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import FeedbackWidget from '../components/FeedbackWidget.astro';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
@@ -100,6 +101,7 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
     <main><slot /></main>
     <Footer />
     <CookieBanner />
+    <FeedbackWidget />
 
     {/* 主题 + Consent 初始化（设计稿逻辑生产化） */}
     <script>
