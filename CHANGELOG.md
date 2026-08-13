@@ -1,5 +1,15 @@
 # PalBreed CHANGELOG
 
+## v1.0.23 (2026-08-13) — terms/privacy 页面 title 扩写至 40-60 字符（AITDK Meta Title Check 修复）
+
+### 变更（用户 AITDK 检测：/terms/ title 27 字符、/privacy/ 25 字符，低于 40 阈值）
+- **`src/pages/terms.astro`**：`Terms of Service | PalBreed`（27）→ `Terms of Service for Palworld Breeding Tools | PalBreed`（55）——补入"for Palworld Breeding Tools"定位描述
+- **`src/pages/privacy.astro`**：`Privacy Policy | PalBreed`（25）→ `Privacy Policy for Palworld Breeding Calculator | PalBreed`（58）——补入"for Palworld Breeding Calculator"定位描述
+- 原则（延续 v1.0.19）：主关键词最前、自然扩写、≤60 字符；全站 8 个有 SEO 价值页面 title 现全部 40-60（42-58）
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist 两页 title 55/58 字符
+
 ## v1.0.22 (2026-08-13) — 全站 meta description 统一 140-160 字符 + 工具页 WebApplication schema（AITDK + GEO）
 
 ### 变更（AITDK 检测：/faq/ description 131 字符不达标，全站扫描发现 4 页同样不达标；工具页缺 schema）
