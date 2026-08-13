@@ -1,5 +1,15 @@
 # PalBreed CHANGELOG
 
+## v1.0.18 (2026-08-13) — 提供标准文件名 sitemap.xml（AITDK 检测工具兼容）
+
+### 变更（用户用 AITDK 检测时 /sitemap.xml 显示黄色，因为站点只有 sitemap-index.xml）
+- **新增 `scripts/copy-sitemap.mjs`**（postbuild）：把 Astro sitemap 插件生成的 `dist/sitemap-0.xml`（完整 urlset，58 个 indexable URL）复制为标准文件名 `dist/sitemap.xml`；`package.json` build 改为 `astro build && node scripts/copy-sitemap.mjs`
+- **`public/robots.txt`**：`Sitemap:` 声明从 sitemap-index.xml 改为 sitemap.xml（标准文件名，检测工具与爬虫按惯例抓 /sitemap.xml 直接命中）
+- sitemap-index.xml 保留（GSC 已提交的旧引用不断链，内容与 sitemap.xml 相同 URL 集，无重复内容问题）
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist/sitemap.xml 存在，58 个 <loc> 与 sitemap-0.xml 完全一致
+
 ## v1.0.17 (2026-08-13) — 新增 llms.txt（GEO/AEO 标准文件）
 
 ### 新增

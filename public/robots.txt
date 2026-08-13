@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-Sitemap: https://palbreed.space/sitemap-index.xml
+Sitemap: https://palbreed.space/sitemap.xml
