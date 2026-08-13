@@ -163,3 +163,13 @@
 ### 验证
 - 线上首页 Plausible script + GA4 gtag config + Clarity tag 全部恢复
 - 详情页（worker 路径）同样恢复
+## v1.0.13 (2026-08-13) — 详情页 + 计算器页组合列表加头像
+
+### 优化
+- **详情页 "How to breed X" 组合列表加父母头像**（`[pal].astro`，构建期预渲染，0 JS 开销）
+- **计算器页 "Popular unique combos" 卡片加头像**（`breeding-calculator.astro`：父母 + 子代头像）
+- 样式与 v1.0.11 反查头像一致（w-7 圆形）
+
+### 验证
+- 本地浏览器：lazydragon 组合列表 100 头像全加载无破图、popular combos 12 头像全加载、零 pageerror
+

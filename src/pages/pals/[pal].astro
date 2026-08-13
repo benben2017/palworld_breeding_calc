@@ -159,8 +159,16 @@ const jsonLd = JSON.stringify({
                       key={i}
                       class="flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg bg-background/40 border border-border/60"
                     >
-                      <span class="text-sm font-semibold text-onSurface">
-                        {a?.name ?? parts.aKey} <span class="text-primary">+</span> {b?.name ?? parts.bKey}
+                      <span class="flex items-center gap-2 min-w-0 flex-wrap">
+                        {a && (
+                          <img src={a.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
+                        )}
+                        <span class="text-sm font-semibold text-onSurface">{a?.name ?? parts.aKey}</span>
+                        <span class="text-primary">+</span>
+                        {b && (
+                          <img src={b.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
+                        )}
+                        <span class="text-sm font-semibold text-onSurface">{b?.name ?? parts.bKey}</span>
                         {genderNote && <span class="text-xs text-onSurface/50">{genderNote}</span>}
                       </span>
                       <span class="text-primary shrink-0">→</span>
