@@ -1,0 +1,76 @@
+# PalBreed — Palworld Breeding Calculator
+
+> Free Palworld breeding calculator: find any parent combo, reverse-lookup a target Pal, and calculate cake ingredients. No account, no ads, no paywall.
+
+## PalBreed key facts
+- PalBreed is a free fan-made tool for Palworld players. All tools are free: no account, no payment, no ads.
+- It is NOT affiliated with, endorsed by, or sponsored by Pocketpair, Inc. Game content is © Pocketpair, Inc.
+- Breeding data is community-sourced from tylercamp/palcalc (MIT license): 299 Pals and 44,851 parent combinations.
+- Breeding mechanics: each Pal has a hidden breeding value. The offspring is the Pal whose breeding value is closest to the average of the two parents' values.
+- Unique combos: some parent pairs always produce the same offspring regardless of gender or stats. Example: Relaxaurus × Sparkit always produces Jetragon.
+- Cake recipe: 1 Cake = 5 Flour + 8 Red Berries + 7 Milk + 8 Eggs + 2 Honey.
+- One cake is consumed per breeding attempt in the Breeding Farm.
+
+## Core tools
+- [Breeding Calculator](https://palbreed.space/tools/breeding-calculator/): Select two parents to see the offspring, or switch to reverse lookup to find every parent pair for a target Pal.
+- [Cake Calculator](https://palbreed.space/tools/cake-calculator/): Convert your planned number of breeding attempts into exact cake ingredient amounts (Flour, Red Berries, Milk, Eggs, Honey).
+
+## Pages
+- [Home](https://palbreed.space/): PalBreed home page with the quick breeding search.
+- [Pal List](https://palbreed.space/pals/): Browse all 299 Pals with search and A-Z filtering.
+- [FAQ](https://palbreed.space/faq/): Answers about Palworld breeding mechanics, unique combos, cake recipes, and using PalBreed.
+- [About](https://palbreed.space/about/): What PalBreed is, data source, and disclaimer.
+- [Privacy Policy](https://palbreed.space/privacy/): What data PalBreed collects (analytics with consent) and how it is handled.
+- [Terms](https://palbreed.space/terms/): Terms of use and content disclaimer.
+
+## Popular Pal breeding pages
+- [Lamball](https://palbreed.space/pals/sheepball/): How to breed Lamball in Palworld — every parent combination that produces Lamball, plus stats and breeding value.
+- [Foxparks](https://palbreed.space/pals/kitsunebi/): How to breed Foxparks in Palworld — every parent combination that produces Foxparks, plus stats and breeding value.
+- [Sparkit](https://palbreed.space/pals/eleccat/): How to breed Sparkit in Palworld — every parent combination that produces Sparkit, plus stats and breeding value.
+- [Cattiva](https://palbreed.space/pals/pinkcat/): How to breed Cattiva in Palworld — every parent combination that produces Cattiva, plus stats and breeding value.
+- [Chikipi](https://palbreed.space/pals/chickenpal/): How to breed Chikipi in Palworld — every parent combination that produces Chikipi, plus stats and breeding value.
+- [Cremis](https://palbreed.space/pals/woolfox/): How to breed Cremis in Palworld — every parent combination that produces Cremis, plus stats and breeding value.
+- [Daedream](https://palbreed.space/pals/dreamdemon/): How to breed Daedream in Palworld — every parent combination that produces Daedream, plus stats and breeding value.
+- [Gumoss](https://palbreed.space/pals/plantslime/): How to breed Gumoss in Palworld — every parent combination that produces Gumoss, plus stats and breeding value.
+- [Direhowl](https://palbreed.space/pals/garm/): How to breed Direhowl in Palworld — every parent combination that produces Direhowl, plus stats and breeding value.
+- [Anubis](https://palbreed.space/pals/anubis/): How to breed Anubis in Palworld — every parent combination that produces Anubis, plus stats and breeding value.
+- [Jetragon](https://palbreed.space/pals/jetdragon/): How to breed Jetragon in Palworld — every parent combination that produces Jetragon, plus stats and breeding value.
+- [Katress](https://palbreed.space/pals/catmage/): How to breed Katress in Palworld — every parent combination that produces Katress, plus stats and breeding value.
+- [Wixen](https://palbreed.space/pals/foxmage/): How to breed Wixen in Palworld — every parent combination that produces Wixen, plus stats and breeding value.
+- [Wixen Noct](https://palbreed.space/pals/foxmage_dark/): How to breed Wixen Noct in Palworld — every parent combination that produces Wixen Noct, plus stats and breeding value.
+- [Relaxaurus](https://palbreed.space/pals/lazydragon/): How to breed Relaxaurus in Palworld — every parent combination that produces Relaxaurus, plus stats and breeding value.
+- [Relaxaurus Lux](https://palbreed.space/pals/lazydragon_electric/): How to breed Relaxaurus Lux in Palworld — every parent combination that produces Relaxaurus Lux, plus stats and breeding value.
+- [Penking](https://palbreed.space/pals/captainpenguin/): How to breed Penking in Palworld — every parent combination that produces Penking, plus stats and breeding value.
+- [Bushi](https://palbreed.space/pals/ronin/): How to breed Bushi in Palworld — every parent combination that produces Bushi, plus stats and breeding value.
+- [Mossanda](https://palbreed.space/pals/grasspanda/): How to breed Mossanda in Palworld — every parent combination that produces Mossanda, plus stats and breeding value.
+- [Eikthyrdeer](https://palbreed.space/pals/deer/): How to breed Eikthyrdeer in Palworld — every parent combination that produces Eikthyrdeer, plus stats and breeding value.
+- [Vanwyrm](https://palbreed.space/pals/birddragon/): How to breed Vanwyrm in Palworld — every parent combination that produces Vanwyrm, plus stats and breeding value.
+- [Vanwyrm Cryst](https://palbreed.space/pals/birddragon_ice/): How to breed Vanwyrm Cryst in Palworld — every parent combination that produces Vanwyrm Cryst, plus stats and breeding value.
+- [Nitewing](https://palbreed.space/pals/hawkbird/): How to breed Nitewing in Palworld — every parent combination that produces Nitewing, plus stats and breeding value.
+- [Beakon](https://palbreed.space/pals/thunderbird/): How to breed Beakon in Palworld — every parent combination that produces Beakon, plus stats and breeding value.
+- [Grizzbolt](https://palbreed.space/pals/elecpanda/): How to breed Grizzbolt in Palworld — every parent combination that produces Grizzbolt, plus stats and breeding value.
+- [Orserk](https://palbreed.space/pals/thunderdragonman/): How to breed Orserk in Palworld — every parent combination that produces Orserk, plus stats and breeding value.
+- [Lyleen](https://palbreed.space/pals/lilyqueen/): How to breed Lyleen in Palworld — every parent combination that produces Lyleen, plus stats and breeding value.
+- [Menasting](https://palbreed.space/pals/darkscorpion/): How to breed Menasting in Palworld — every parent combination that produces Menasting, plus stats and breeding value.
+- [Frostallion](https://palbreed.space/pals/icehorse/): How to breed Frostallion in Palworld — every parent combination that produces Frostallion, plus stats and breeding value.
+- [Frostallion Noct](https://palbreed.space/pals/icehorse_dark/): How to breed Frostallion Noct in Palworld — every parent combination that produces Frostallion Noct, plus stats and breeding value.
+- [Paladius](https://palbreed.space/pals/saintcentaur/): How to breed Paladius in Palworld — every parent combination that produces Paladius, plus stats and breeding value.
+- [Necromus](https://palbreed.space/pals/blackcentaur/): How to breed Necromus in Palworld — every parent combination that produces Necromus, plus stats and breeding value.
+- [Astegon](https://palbreed.space/pals/blackmetaldragon/): How to breed Astegon in Palworld — every parent combination that produces Astegon, plus stats and breeding value.
+- [Blazamut](https://palbreed.space/pals/kingbahamut/): How to breed Blazamut in Palworld — every parent combination that produces Blazamut, plus stats and breeding value.
+- [Blazamut Ryu](https://palbreed.space/pals/kingbahamut_dragon/): How to breed Blazamut Ryu in Palworld — every parent combination that produces Blazamut Ryu, plus stats and breeding value.
+- [Shadowbeak](https://palbreed.space/pals/blackgriffon/): How to breed Shadowbeak in Palworld — every parent combination that produces Shadowbeak, plus stats and breeding value.
+- [Jormuntide](https://palbreed.space/pals/umihebi/): How to breed Jormuntide in Palworld — every parent combination that produces Jormuntide, plus stats and breeding value.
+- [Jormuntide Ignis](https://palbreed.space/pals/umihebi_fire/): How to breed Jormuntide Ignis in Palworld — every parent combination that produces Jormuntide Ignis, plus stats and breeding value.
+- [Suzaku Aqua](https://palbreed.space/pals/suzaku_water/): How to breed Suzaku Aqua in Palworld — every parent combination that produces Suzaku Aqua, plus stats and breeding value.
+- [Quivern](https://palbreed.space/pals/skydragon/): How to breed Quivern in Palworld — every parent combination that produces Quivern, plus stats and breeding value.
+- [Quivern Botan](https://palbreed.space/pals/skydragon_grass/): How to breed Quivern Botan in Palworld — every parent combination that produces Quivern Botan, plus stats and breeding value.
+- [Fenglope](https://palbreed.space/pals/fengyundeeper/): How to breed Fenglope in Palworld — every parent combination that produces Fenglope, plus stats and breeding value.
+- [Helzephyr](https://palbreed.space/pals/hadesbird/): How to breed Helzephyr in Palworld — every parent combination that produces Helzephyr, plus stats and breeding value.
+- [Mammorest](https://palbreed.space/pals/grassmammoth/): How to breed Mammorest in Palworld — every parent combination that produces Mammorest, plus stats and breeding value.
+- [Mammorest Cryst](https://palbreed.space/pals/grassmammoth_ice/): How to breed Mammorest Cryst in Palworld — every parent combination that produces Mammorest Cryst, plus stats and breeding value.
+- [Reptyro](https://palbreed.space/pals/volcanicmonster/): How to breed Reptyro in Palworld — every parent combination that produces Reptyro, plus stats and breeding value.
+- [Cryolinx](https://palbreed.space/pals/whitetiger/): How to breed Cryolinx in Palworld — every parent combination that produces Cryolinx, plus stats and breeding value.
+- [Elphidran](https://palbreed.space/pals/fairydragon/): How to breed Elphidran in Palworld — every parent combination that produces Elphidran, plus stats and breeding value.
+- [Elphidran Aqua](https://palbreed.space/pals/fairydragon_water/): How to breed Elphidran Aqua in Palworld — every parent combination that produces Elphidran Aqua, plus stats and breeding value.
+- [Katress Ignis](https://palbreed.space/pals/catmage_fire/): How to breed Katress Ignis in Palworld — every parent combination that produces Katress Ignis, plus stats and breeding value.

@@ -1,5 +1,16 @@
 # PalBreed CHANGELOG
 
+## v1.0.17 (2026-08-13) — 新增 llms.txt（GEO/AEO 标准文件）
+
+### 新增
+- **`public/llms.txt`**（llmstxt.org 标准，约 10.9KB）：给 AI 引擎（ChatGPT/Claude/Perplexity/Gemini）的站点内容清单
+  - 头部：一句话定位 + 关键事实（免费无广告、非官方、数据源 tylercamp/palcalc MIT、繁殖机制说明、unique combos 示例、蛋糕配方 1 Cake = 5 Flour + 8 Berries + 7 Milk + 8 Eggs + 2 Honey、每胎消耗 1 蛋糕）
+  - 工具页 + 内容页 + 50 个热门 Pal 详情页（"How to breed X" 链接清单，与 TOP50 index 名单一致）
+- 背景：用户关闭了 Cloudflare AI 爬虫拦截，配合让 AI 引擎更好理解/引用站点内容（生成脚本 `/tmp/palbreed/gen_llms.js`，从 top50-pals.ts + pals.json 生成）
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist/llms.txt 存在
+
 ## v1.0.16 (2026-08-13) — 回退：Feedback 恢复 mailto 方案，删除 /api/feedback
 
 ### 变更（用户决定：Email Sending 需 Workers Paid 计划 + 新 token，放弃发信链路）
