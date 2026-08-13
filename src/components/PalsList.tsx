@@ -96,6 +96,7 @@ export default function PalsList({ pals }: Props) {
     <div>
       {/* 搜索 + 结果计数 */}
       <div class="max-w-xl mx-auto mb-8">
+        <h2 class="text-xl font-extrabold mb-4 text-center">Find a Pal by name</h2>
         <div class="relative">
           <span class="absolute left-4 top-1/2 -translate-y-1/2 text-onSurface/40 text-lg">🔍</span>
           <input
@@ -206,6 +207,7 @@ export default function PalsList({ pals }: Props) {
       {/* 分页视图（无搜索时） */}
       {!loading && filtered.length > 0 && groups.pageItems && (
         <>
+          <h2 class="text-xl font-extrabold mb-4">All Pals</h2>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {groups.pageItems.map((p) => renderCard(p))}
           </div>

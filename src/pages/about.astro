@@ -11,29 +11,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
     <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-8">About PalBreed</h1>
 
-    <div class="space-y-6 text-onSurface/80 leading-relaxed text-lg">
-      <p>
-        PalBreed is a fan-made breeding calculator for Palworld players. It helps you:
-      </p>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>Check what offspring any two Pals produce</li>
-        <li>Find all parent combinations for a target Pal</li>
-        <li>Calculate cake and ingredient amounts for breeding</li>
-      </ul>
-
-      <div class="bg-surface border border-border rounded-2xl p-6 space-y-3">
-        <p class="text-base">
-          <strong class="text-onSurface">Data source:</strong> Community-maintained breeding data
-          (tylercamp/palcalc, MIT licensed).
+    <div class="space-y-8 text-onSurface/80 leading-relaxed text-lg">
+      <section>
+        <h2 class="text-2xl font-extrabold mb-4 text-onSurface">What PalBreed offers</h2>
+        <p>
+          PalBreed is a fan-made breeding calculator for Palworld players. It helps you:
         </p>
-        <p class="text-base">
-          <strong class="text-onSurface">Game content:</strong> © Pocketpair, Inc.
-        </p>
-      </div>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Check what offspring any two Pals produce</li>
+          <li>Find all parent combinations for a target Pal</li>
+          <li>Calculate cake and ingredient amounts for breeding</li>
+        </ul>
+      </section>
 
-      <p>
-        PalBreed is <strong>not affiliated with, endorsed by, or sponsored by</strong> Pocketpair, Inc.
-      </p>
+      <section>
+        <h2 class="text-2xl font-extrabold mb-4 text-onSurface">Data source and licensing</h2>
+        <div class="bg-surface border border-border rounded-2xl p-6 space-y-3">
+          <p class="text-base">
+            <strong class="text-onSurface">Data source:</strong> Community-maintained breeding data
+            (tylercamp/palcalc, MIT licensed).
+          </p>
+          <p class="text-base">
+            <strong class="text-onSurface">Game content:</strong> © Pocketpair, Inc.
+          </p>
+        </div>
+
+        <p class="mt-4">
+          PalBreed is <strong>not affiliated with, endorsed by, or sponsored by</strong> Pocketpair, Inc.
+        </p>
+      </section>
     </div>
 
     <div class="mt-12 bg-surface/50 border border-border rounded-2xl p-8 text-center">

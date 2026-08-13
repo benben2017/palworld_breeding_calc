@@ -72,7 +72,9 @@ const faqJsonLd = {
       </p>
     </header>
 
-    <div class="space-y-4">
+    <section class="mb-4">
+      <h2 class="text-2xl font-extrabold mb-6">Popular breeding questions</h2>
+      <div class="space-y-4">
       {faqs.map((f, i) => (
         <details class="group bg-surface border border-border rounded-xl overflow-hidden" open={i === 0}>
           <summary class="px-6 py-4 font-bold cursor-pointer flex items-center justify-between gap-4 hover:bg-surface-elevated/50 transition-colors touch-target">
@@ -89,7 +91,8 @@ const faqJsonLd = {
           <p class="px-6 pb-5 text-sm text-onSurface/70 leading-relaxed">{f.a}</p>
         </details>
       ))}
-    </div>
+      </div>
+    </section>
 
     {/* 反馈 CTA */}
     <div class="mt-12 bg-surface/50 border border-border rounded-2xl p-8 text-center">

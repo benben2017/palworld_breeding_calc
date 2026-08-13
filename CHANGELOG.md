@@ -1,5 +1,16 @@
 # PalBreed CHANGELOG
 
+## v1.0.21 (2026-08-13) — about/faq/pals 页面 H2 结构补齐（AITDK H2 Check 全站修复）
+
+### 变更（用户 AITDK 全站扫描：/about/ 与 /faq/ 仅 1 个 H2，/pals/ 0 个 H2）
+- **`src/pages/about.astro`**：正文分两节加 H2 —— "What PalBreed offers"（功能介绍 + 三点能力列表）、"Data source and licensing"（数据来源/版权 + 非官方声明），保留 "Have feedback?" → 共 3 个 H2
+- **`src/pages/faq.astro`**：FAQ 折叠列表上方加 H2 "Popular breeding questions"（区块包 section），保留 "Still have questions?" → 共 2 个 H2
+- **`src/components/PalsList.tsx`**（/pals/ 页）：搜索区上方加 H2 "Find a Pal by name"；分页视图（默认无筛选）网格前加 H2 "All Pals" → 默认视图 2 个 H2；筛选时字母分组 H2 保留
+- 层级校验：/about/ 1 H1+3 H2、/faq/ 1 H1+2 H2、/pals/ 1 H1+2 H2（卡片 H3 挂于 "All Pals" 之下）
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist 三页静态 H 结构正确
+
 ## v1.0.20 (2026-08-13) — AITDK 全站 alt 修复 + cake-calculator H2 结构完善
 
 ### 变更（用户 AITDK 检测：首页 12 张图缺 alt + cake-calculator 仅 1 个 H2）
