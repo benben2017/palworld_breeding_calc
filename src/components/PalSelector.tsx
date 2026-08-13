@@ -57,7 +57,7 @@ export default function PalSelector({ pals, label, placeholder, value, onChange,
           {value ? (
             <img
               src={value.imageUrl}
-              alt=""
+              alt={`${value.name} avatar`}
               className="absolute left-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full object-cover bg-surface-elevated"
             />
           ) : (
@@ -136,7 +136,7 @@ export default function PalSelector({ pals, label, placeholder, value, onChange,
                   <span className="flex items-center gap-3 min-w-0">
                     <img
                       src={p.imageUrl}
-                      alt=""
+                      alt={`${p.name} avatar`}
                       loading="lazy"
                       className="w-8 h-8 rounded-full object-cover bg-surface-elevated shrink-0"
                       onError={(e) => {

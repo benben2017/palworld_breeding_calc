@@ -26,13 +26,66 @@ import CakeCalculator from '../../components/CakeCalculator';
         </div>
       </div>
 
-      {/* 配方说明（PRD §10.7：只列名称+数量，不给 farming tips） */}
+      {/* 使用说明（纯 UI 说明，无 farming tips） */}
       <div class="mt-10 bg-surface/50 border border-border rounded-2xl p-6">
+        <h2 class="text-xl font-extrabold mb-3">How to use the cake calculator</h2>
+        <ol class="list-decimal list-inside text-sm text-onSurface/70 leading-relaxed space-y-2">
+          <li>Enter how many breeding attempts you plan to make.</li>
+          <li>The calculator shows the exact amount of each ingredient you need.</li>
+          <li>Cook the cakes at a Cooking Pot and keep one ready for each breeding session at the Breeding Farm.</li>
+        </ol>
+      </div>
+
+      {/* 配方说明（PRD §10.7：只列名称+数量，不给 farming tips） */}
+      <div class="mt-6 bg-surface/50 border border-border rounded-2xl p-6">
         <h2 class="text-xl font-extrabold mb-3">The cake recipe</h2>
         <p class="text-sm text-onSurface/70 leading-relaxed">
           One Palworld Cake needs <strong class="text-onSurface">5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, and 2
           Honey</strong>. You can cook it at a Cooking Pot once you have the ingredients. Each breeding attempt at the
           Breeding Farm consumes one cake.
+        </p>
+      </div>
+
+      {/* 静态材料速查表（纯 HTML，无 JS） */}
+      <div class="mt-6 bg-surface/50 border border-border rounded-2xl p-6">
+        <h2 class="text-xl font-extrabold mb-3">Cake ingredients for common breeding sessions</h2>
+        <p class="text-sm text-onSurface/70 leading-relaxed mb-4">
+          Skip the math for typical batch sizes. Each breeding attempt needs exactly one cake.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-onSurface/80">
+            <thead>
+              <tr class="border-b border-border text-left text-onSurface font-semibold">
+                <th class="py-2 pr-4">Attempts</th>
+                <th class="py-2 pr-4">Flour</th>
+                <th class="py-2 pr-4">Red Berries</th>
+                <th class="py-2 pr-4">Milk</th>
+                <th class="py-2 pr-4">Eggs</th>
+                <th class="py-2">Honey</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-semibold text-onSurface">1</td><td class="py-2 pr-4">5</td><td class="py-2 pr-4">8</td><td class="py-2 pr-4">7</td><td class="py-2 pr-4">8</td><td class="py-2">2</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-semibold text-onSurface">5</td><td class="py-2 pr-4">25</td><td class="py-2 pr-4">40</td><td class="py-2 pr-4">35</td><td class="py-2 pr-4">40</td><td class="py-2">10</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-semibold text-onSurface">10</td><td class="py-2 pr-4">50</td><td class="py-2 pr-4">80</td><td class="py-2 pr-4">70</td><td class="py-2 pr-4">80</td><td class="py-2">20</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4 font-semibold text-onSurface">20</td><td class="py-2 pr-4">100</td><td class="py-2 pr-4">160</td><td class="py-2 pr-4">140</td><td class="py-2 pr-4">160</td><td class="py-2">40</td></tr>
+              <tr><td class="py-2 pr-4 font-semibold text-onSurface">50</td><td class="py-2 pr-4">250</td><td class="py-2 pr-4">400</td><td class="py-2 pr-4">350</td><td class="py-2 pr-4">400</td><td class="py-2">100</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* FAQ（合并同类问题，保持简洁） */}
+      <div class="mt-6 bg-surface/50 border border-border rounded-2xl p-6">
+        <h2 class="text-xl font-extrabold mb-3">Cake calculator FAQ</h2>
+        <h3 class="text-base font-bold text-onSurface mt-2 mb-1">How many cakes do I need for breeding?</h3>
+        <p class="text-sm text-onSurface/70 leading-relaxed mb-4">
+          Exactly one cake per breeding attempt. If you plan 10 attempts, you need 10 cakes.
+        </p>
+        <h3 class="text-base font-bold text-onSurface mt-2 mb-1">Can I cook cakes with this recipe at any camp?</h3>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          Yes — the recipe works at any Cooking Pot. Enter your planned attempts above to see the exact ingredient
+          amounts.
         </p>
       </div>
     </section>

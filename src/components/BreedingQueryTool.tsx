@@ -220,7 +220,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
       >
         <img
           src={p.imageUrl}
-          alt=""
+          alt={`${p.name} avatar`}
           loading="lazy"
           className="w-12 h-12 rounded-full object-cover bg-surface-elevated"
         />
@@ -251,7 +251,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           {a && (
             <img
               src={a.imageUrl}
-              alt=""
+              alt={`${a.name} avatar`}
               loading="lazy"
               className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
               onError={(e) => {
@@ -266,7 +266,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           {b && (
             <img
               src={b.imageUrl}
-              alt=""
+              alt={`${b.name} avatar`}
               loading="lazy"
               className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
               onError={(e) => {
@@ -524,7 +524,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                   {target && (
                     <img
                       src={target.imageUrl}
-                      alt=""
+                      alt={`${target.name} avatar`}
                       className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
                     />
                   )}

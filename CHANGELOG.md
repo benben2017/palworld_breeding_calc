@@ -1,5 +1,21 @@
 # PalBreed CHANGELOG
 
+## v1.0.20 (2026-08-13) — AITDK 全站 alt 修复 + cake-calculator H2 结构完善
+
+### 变更（用户 AITDK 检测：首页 12 张图缺 alt + cake-calculator 仅 1 个 H2）
+- **全站 img alt 修复（AITDK "Image Alt Text Check" 修复）**：React 渲染的 Pal 头像此前大量 `alt=""`（被 AITDK 视为缺失）。
+  - `src/components/PalSelector.tsx`：选中头像、下拉选项头像 2 处 `alt=""` → `` alt={`${name} avatar`} ``
+  - `src/components/BreedingQueryTool.tsx`：正查结果行头像（p）、反查结果父母头像（a/b）、反查结果标题目标头像（target）4 处 `alt=""` → `` alt={`${name} avatar`} ``
+  - 校验：src 全部 17 个 `<img>` 标签均含 alt（PalsList/[pal].astro 原有 alt 未动）；dist 全部静态 HTML 19185 个 img 零缺 alt
+- **`src/pages/tools/cake-calculator.astro` 增加 3 个 H2 区块（AITDK "H2 Check" 修复）**：
+  - "How to use the cake calculator"（使用说明，纯 UI 说明无 farming tips，遵守 PRD §10.7）
+  - "Cake ingredients for common breeding sessions"（静态材料速查表：1/5/10/20/50 次 × 5 种材料，纯 HTML 无 JS，对 SEO 与用户均有用）
+  - "Cake calculator FAQ"（2 个 H3 子问题，均基于 llms.txt 已确认事实：每胎 1 蛋糕、Cooking Pot 制作）
+  - 结构：1 H1 + 4 H2 + 2 H3
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；产物 H 结构正确；全站静态 HTML 零缺 alt
+
 ## v1.0.19 (2026-08-13) — 首页/工具页 title 缩短至 60 字符内（AITDK 黄色警报修复）
 
 ### 变更（用户 AITDK 检测首页 title 黄色：66 字符超 60 阈值）
