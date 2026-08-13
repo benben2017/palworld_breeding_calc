@@ -1,17 +1,20 @@
 # PalBreed CHANGELOG
 
-## v1.0.22 (2026-08-13) — /pals/ meta description 达标 + 工具页 WebApplication schema（AITDK + GEO）
+## v1.0.22 (2026-08-13) — 全站 meta description 统一 140-160 字符 + 工具页 WebApplication schema（AITDK + GEO）
 
-### 变更（用户 AITDK 检测：/pals/ description 124 字符 < 140 阈值；工具页无 schema）
-- **`src/pages/pals/index.astro`**：meta description 扩写 124 → 145 字符（140-160 达标）——`Browse all 299 Pals in the free Palworld breeding database. See breeding values, base stats, and every parent combination that produces each Pal.`（补入 "free"、基统计量表述更具体、结尾补行动词）
-- **`src/pages/tools/breeding-calculator.astro`**：新增 WebApplication JSON-LD schema（name/url/description、applicationCategory=UtilityApplication、operatingSystem=Web、isAccessibleForFree=true、offers price 0）
-- **`src/pages/tools/cake-calculator.astro`**：新增 WebApplication JSON-LD schema（同上，name=Palworld Cake Calculator）
-- 注：/pals/ H2 结构已由 v1.0.21 修复（PalsList.tsx 组件内 H2），本版本不重复添加
+### 变更（AITDK 检测：/faq/ description 131 字符不达标，全站扫描发现 4 页同样不达标；工具页缺 schema）
+- **`src/pages/faq.astro`**（131→156）：补 "ingredients and" 与 "breeding calculator" 完整表述
+- **`src/pages/pals/index.astro`**（124→145）：扩写为 "free Palworld breeding database" + "base stats" + "produces each Pal"（协作方小糖仔提交）
+- **`src/pages/terms.astro`**（134→156）：补 "of the breeding tools"
+- **`src/pages/tools/breeding-calculator.astro`**（133→150）：补 "all of its ... instantly"；并新增 WebApplication JSON-LD schema（协作方）
+- **`src/pages/tools/cake-calculator.astro`**：新增 WebApplication JSON-LD schema（协作方）
+- **`src/pages/404.astro`**（105→146）：补 "Return to PalBreed ... plan your next combo today"（统一达标，虽无收录价值）
+- 原则：主关键词保持在前部，自然扩写不堆砌；全站 9 个页面 description 现全部 140-160
 
 ### 验证
-- 构建通过（带 3 个 PUBLIC_* env）；dist 检查：/pals/ 1 H1 + 2 H2（组件内）+ desc 145 字符；两工具页均含 WebApplication schema；robots.txt 指向 sitemap.xml；sitemap.xml 58 URL；analytics 三件套在
+- 构建通过（带 3 个 PUBLIC_* env）；dist 各页 description 145-158 字符；两工具页均含 WebApplication schema；/pals/ 1 H1 + 2 H2
 
-# PalBreed CHANGELOG
+# PalBreed CHANGELOG (fix(seo): expand meta descriptions to 140-160 chars across all pages (v1.0.22))
 
 ## v1.0.21 (2026-08-13) — about/faq/pals 页面 H2 结构补齐（AITDK H2 Check 全站修复）
 
