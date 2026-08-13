@@ -9,6 +9,8 @@ import { TOP50_PALS } from './src/config/top50-pals';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://palbreed.space',
+  // static（Astro 5.18+ hybrid 已移除，static 行为相同）：
+  // 页面默认静态预渲染（走 CF Pages 静态），仅 /api/feedback 用 export const prerender = false 走 on-demand Worker
   output: 'static',
   adapter: cloudflare({ platformProxy: { enabled: false } }),
   integrations: [

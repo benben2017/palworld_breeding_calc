@@ -1,5 +1,25 @@
 # PalBreed CHANGELOG
 
+## v1.0.15 (2026-08-13) — 站内反馈表单（竞品式模态）+ /api/feedback 后端
+
+### 新增
+- **FeedbackWidget 改为竞品式站内模态表单**（参考 palworldbreeding.org）：右下角按钮点击打开模态面板（role="dialog" + 焦点管理 + Escape 关闭 + 关闭后焦点还原），4 种反馈类型（Idea/Bug/Praise/Other 带图标，aria-pressed 切换）、消息 textarea（maxlength 2000 + 实时计数）、可选邮箱（格式校验）、honeypot（name="company"，机器填了静默丢弃）、提交状态提示（sending/success/error，用 --color-success/--color-error token）。全程不跳出站点（不再触发 mailto/Outlook）
+- **/api/feedback on-demand 端点**（`src/pages/api/feedback.ts`，`export const prerender = false`）：校验（类型白名单/消息必填+上限/邮箱格式）→ 调 Cloudflare Email Sending REST API（`POST /accounts/{id}/email/sending/send`）从 feedback@palbreed.space 发到 mengzai668899@gmail.com；secrets `CF_API_TOKEN`（需 Email Sending: Edit 权限）+ `ACCOUNT_ID`；未配置时返回 503「正在设置中」，CF API 报错返回 502
+- **构建配置**：`output` 保持 `static`（Astro 5.18+ 已移除 hybrid，static 行为相同，`prerender = false` 即走 on-demand）
+
+### 修复
+- **删除 `public/_routes.json`（v1.0.2 手写）**：其 exclude 只含 `/pals/`（精确匹配），引入 Worker（/api/feedback）后 299 个详情页会被误路由进 SSR（丢失静态边缘缓存、middleware 触发）。改由 @astrojs/cloudflare adapter 自动生成 `_routes.json`（include 仅 `/_image`、`/_server-islands/*`、`/api/*`；exclude 用 `/pals/*`、`/tools/*` 通配覆盖全部静态页含 404 页）。同步更新 public/_headers 与 src/middleware.ts 注释
+
+### 验证（本地）
+- 构建通过（带 3 个 PUBLIC_* env）；`_routes.json` 自动生成确认详情页静态
+- Playwright 真实浏览器 18 项：打开/关闭、类型切换、字数统计、空消息/非法邮箱校验、提交（503 分支）、Escape、焦点管理、cookie banner 避让、零 pageerror
+- API curl 7 项：honeypot 200 静默、空消息/非法类型/非法邮箱 400、无 secrets 503、CF API 错误 502
+
+### 待用户完成（发信链路）
+- Cloudflare Dashboard：Compute → Email Service → Email Sending onboard 域名 palbreed.space（按向导添加 cf-bounce MX/SPF/DKIM/DMARC 记录）
+- 验证发件地址 feedback@palbreed.space（验证邮件经 Email Routing 到达 Gmail）
+- 创建具备 **Email Sending: Edit** 权限的新 API token（现有 token 无此权限，10001）→ 我更新 secret 后即可真实发信
+
 ## v1.0.9 (2026-08-12) — QA11 P1-1 修复 + P2 跟进
 
 ### 修复（QA11 验收报告）

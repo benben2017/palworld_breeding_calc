@@ -1,57 +1,138 @@
 ---
-// FeedbackWidget — 右下角悬浮反馈入口（竞品参考 palworldbreeding.org 右下角 feedback）
-// <details>/<summary> 原生展开收起，零依赖；Cookie banner 显示时自动上移避让（z-40 < banner z-100）
+// FeedbackWidget — 右下角悬浮反馈入口（竞品参考 palworldbreeding.org 右下角 feedback 模态表单）
+// 点击打开站内模态表单：反馈类型 + 消息 + 可选邮箱 → POST /api/feedback（Worker on-demand，Cloudflare Email Sending 转发）
+// 全程不离开站点；Cookie banner 显示时按钮自动上移避让（z-40 < banner z-100，模态层 z-[120]）
 import Icon from './Icon.astro';
 ---
 
-<details class="feedback-widget fixed bottom-6 right-6 z-40 group/feedback">
-  <summary
-    aria-label="Open feedback options"
-    class="list-none cursor-pointer flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full bg-primary text-background font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all touch-target select-none [&::-webkit-details-marker]:hidden"
+<button
+  id="feedback-launcher"
+  type="button"
+  aria-haspopup="dialog"
+  aria-label="Send feedback"
+  class="feedback-widget fixed bottom-6 right-6 z-40 flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full bg-primary text-background font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all touch-target select-none cursor-pointer"
+>
+  <Icon name="mail" class="text-base" />
+  <span>Feedback</span>
+</button>
+
+<div id="feedback-layer" class="fixed inset-0 z-[120] hidden" aria-hidden="true">
+  <button
+    type="button"
+    data-fb-close
+    class="absolute inset-0 w-full h-full bg-black/60 cursor-default"
+    aria-label="Close feedback form"
+    tabindex="-1"
+  ></button>
+  <section
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="fb-title"
+    class="relative mx-auto mt-[8vh] w-full max-w-md rounded-2xl bg-surface border border-border shadow-2xl p-6 max-h-[84vh] overflow-y-auto custom-scrollbar"
   >
-    <Icon name="mail" class="text-base" />
-    <span>Feedback</span>
-    <Icon name="expand-more" class="text-base transition-transform group-open/feedback:rotate-180" />
-  </summary>
-  <div class="absolute bottom-full right-0 mb-3 w-72 rounded-2xl bg-surface border border-border shadow-2xl p-2 overflow-hidden">
-    <p class="px-4 pt-3 pb-2 text-xs font-bold uppercase tracking-widest text-onSurface/50">
-      Help us improve PalBreed
-    </p>
-    <a
-      href="mailto:feedback@palbreed.space?subject=%5BBug%5D%20Data%20issue"
-      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
+    <button
+      type="button"
+      data-fb-close
+      class="absolute top-4 right-4 w-9 h-9 rounded-full hover:bg-surface-elevated flex items-center justify-center text-onSurface/60 hover:text-onSurface transition-colors touch-target"
+      aria-label="Close feedback form"
     >
-      <span class="text-lg" aria-hidden="true">🐛</span>
-      <span>
-        <span class="block text-sm font-bold">Report a data issue</span>
-        <span class="block text-xs text-onSurface/50">Wrong offspring or missing combo</span>
-      </span>
-    </a>
-    <a
-      href="mailto:feedback@palbreed.space?subject=%5BFeature%5D%20Request"
-      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
-    >
-      <span class="text-lg" aria-hidden="true">💡</span>
-      <span>
-        <span class="block text-sm font-bold">Suggest a feature</span>
-        <span class="block text-xs text-onSurface/50">What should we build next?</span>
-      </span>
-    </a>
-    <a
-      href="mailto:feedback@palbreed.space"
-      class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-elevated text-onSurface transition-colors touch-target"
-    >
-      <span class="text-lg" aria-hidden="true">✉️</span>
-      <span>
-        <span class="block text-sm font-bold">Contact us</span>
-        <span class="block text-xs text-onSurface/50">feedback@palbreed.space</span>
-      </span>
-    </a>
-  </div>
-</details>
+      <Icon name="close" class="text-lg" />
+    </button>
+    <p class="text-[11px] font-bold uppercase tracking-widest text-primary">PalBreed Hotline</p>
+    <h2 id="fb-title" class="text-xl font-extrabold text-onSurface mt-1 pr-8">Send Feedback</h2>
+    <p class="text-sm text-onSurface/60 mt-1">Bugs, ideas, data fixes, or quick notes. Every message gets read.</p>
+
+    <form id="feedback-form" class="mt-5 space-y-4" novalidate>
+      <input type="hidden" name="type" id="fb-type" value="idea" />
+      <!-- honeypot：机器填了就静默丢弃 -->
+      <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <fieldset class="space-y-2">
+        <legend class="text-xs font-bold text-onSurface/70 uppercase tracking-widest">Feedback Type</legend>
+        <div class="grid grid-cols-4 gap-2">
+          <button
+            type="button"
+            data-fb-type="idea"
+            aria-pressed="true"
+            class="flex flex-col items-center gap-1.5 py-2.5 px-1 rounded-xl border text-xs font-semibold transition-all touch-target cursor-pointer aria-pressed:bg-primary/10 aria-pressed:text-primary aria-pressed:border-primary bg-background/50 text-onSurface/70 border-border"
+          >
+            <Icon name="lightbulb" class="text-lg" />
+            <span>Idea</span>
+          </button>
+          <button
+            type="button"
+            data-fb-type="bug"
+            aria-pressed="false"
+            class="flex flex-col items-center gap-1.5 py-2.5 px-1 rounded-xl border text-xs font-semibold transition-all touch-target cursor-pointer aria-pressed:bg-primary/10 aria-pressed:text-primary aria-pressed:border-primary bg-background/50 text-onSurface/70 border-border"
+          >
+            <Icon name="bug" class="text-lg" />
+            <span>Bug</span>
+          </button>
+          <button
+            type="button"
+            data-fb-type="praise"
+            aria-pressed="false"
+            class="flex flex-col items-center gap-1.5 py-2.5 px-1 rounded-xl border text-xs font-semibold transition-all touch-target cursor-pointer aria-pressed:bg-primary/10 aria-pressed:text-primary aria-pressed:border-primary bg-background/50 text-onSurface/70 border-border"
+          >
+            <Icon name="favorite" class="text-lg" />
+            <span>Praise</span>
+          </button>
+          <button
+            type="button"
+            data-fb-type="other"
+            aria-pressed="false"
+            class="flex flex-col items-center gap-1.5 py-2.5 px-1 rounded-xl border text-xs font-semibold transition-all touch-target cursor-pointer aria-pressed:bg-primary/10 aria-pressed:text-primary aria-pressed:border-primary bg-background/50 text-onSurface/70 border-border"
+          >
+            <Icon name="chat" class="text-lg" />
+            <span>Other</span>
+          </button>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="fb-message" class="text-xs font-bold text-onSurface/70 uppercase tracking-widest">Your Message</label>
+        <textarea
+          id="fb-message"
+          name="message"
+          rows="5"
+          maxlength="2000"
+          required
+          class="w-full mt-2 bg-background/50 border border-border rounded-xl p-3 text-sm text-onSurface focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none"
+          placeholder="Tell us what you found or what you need..."
+        ></textarea>
+        <div class="text-right text-xs text-onSurface/40 mt-1"><span id="fb-count">0</span>/2000</div>
+      </div>
+
+      <div>
+        <label for="fb-contact" class="text-xs font-bold text-onSurface/70 uppercase tracking-widest">Email optional</label>
+        <input
+          id="fb-contact"
+          name="contact"
+          type="email"
+          maxlength="160"
+          autocomplete="email"
+          inputmode="email"
+          placeholder="you@example.com"
+          class="w-full mt-2 bg-background/50 border border-border rounded-xl px-3 py-2.5 text-sm text-onSurface focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full py-3 rounded-xl bg-primary text-background font-bold hover:opacity-90 transition-opacity touch-target disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Send Feedback
+      </button>
+      <p class="text-xs text-onSurface/40">
+        Anonymous unless you add contact details. Please do not include sensitive personal information.
+      </p>
+      <p id="fb-status" class="text-sm font-semibold" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</div>
 
 <style>
-  /* Cookie banner 可见时上移避让（banner: 桌面右下 380px / 移动全宽条） */
+  /* Cookie banner 可见时按钮上移避让（banner: 桌面右下 380px / 移动全宽条） */
   .feedback-widget {
     transition: bottom 0.3s ease;
   }
@@ -63,24 +144,178 @@ import Icon from './Icon.astro';
       bottom: 15rem; /* 移动：banner 高约 204px(12.75rem) + 余量 */
     }
   }
+  /* 模态层隐藏时不可交互 */
+  #feedback-layer.hidden {
+    display: none;
+  }
+  #feedback-layer:not(.hidden) {
+    display: block;
+  }
+  /* 面板淡入 */
+  #feedback-layer section {
+    animation: fb-pop 0.18s ease-out;
+  }
+  @keyframes fb-pop {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
 
 <script>
-  // Cookie banner 显示时按钮上移避让，隐藏时归位
+  // 站内反馈表单：类型选择 + 消息 + 可选邮箱 → POST /api/feedback
   (function () {
-    var widget = document.querySelector('.feedback-widget');
-    var banner = document.getElementById('cookie-banner');
-    if (!widget) return;
-    var open = false;
-    function sync() {
-      var visible = !!banner && banner.style.display !== 'none';
-      if (visible === open) return;
-      open = visible;
-      widget.classList.toggle('fb-banner-open', visible);
+    var launcher = document.getElementById('feedback-launcher');
+    var layer = document.getElementById('feedback-layer');
+    if (!launcher || !layer) return;
+    var form = document.getElementById('feedback-form');
+    var typeInput = document.getElementById('fb-type');
+    var message = document.getElementById('fb-message');
+    var contact = document.getElementById('fb-contact');
+    var count = document.getElementById('fb-count');
+    var status = document.getElementById('fb-status');
+    var submitBtn = form ? form.querySelector('[type="submit"]') : null;
+    var typeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-fb-type]'));
+    var closeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-fb-close]'));
+    var lastFocus = null;
+    if (!form || !typeInput || !message || !contact || !count || !status || !submitBtn) return;
+
+    function setStatus(text, state) {
+      status.textContent = text || '';
+      status.className =
+        'text-sm font-semibold ' +
+        (state === 'error' ? 'text-error' : state === 'success' ? 'text-success' : state === 'pending' ? 'text-onSurface/60' : '');
     }
-    sync();
+
+    function openPanel() {
+      lastFocus = document.activeElement;
+      layer.classList.remove('hidden');
+      layer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('overflow-hidden');
+      setStatus('');
+      window.setTimeout(function () {
+        message.focus();
+      }, 0);
+    }
+
+    function closePanel() {
+      layer.classList.add('hidden');
+      layer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('overflow-hidden');
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    function updateCount() {
+      count.textContent = String(message.value.length);
+    }
+
+    function isEmail(value) {
+      if (!value) return true;
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    }
+
+    function validateContact() {
+      var valid = isEmail(contact.value.trim());
+      contact.setAttribute('aria-invalid', String(!valid));
+      return valid;
+    }
+
+    launcher.addEventListener('click', openPanel);
+    closeButtons.forEach(function (btn) {
+      btn.addEventListener('click', closePanel);
+    });
+    message.addEventListener('input', updateCount);
+    contact.addEventListener('input', function () {
+      if (validateContact()) setStatus('');
+    });
+
+    typeButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        typeInput.value = btn.getAttribute('data-fb-type') || 'idea';
+        typeButtons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (layer.classList.contains('hidden') || event.key !== 'Escape') return;
+      closePanel();
+    });
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var text = message.value.trim();
+      var contactValue = contact.value.trim();
+      if (!text) {
+        setStatus('Add a short message before sending.', 'error');
+        message.focus();
+        return;
+      }
+      if (!validateContact()) {
+        setStatus('Enter a valid email address or leave it blank.', 'error');
+        contact.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus('Sending...', 'pending');
+
+      try {
+        var honeypotInput = form.querySelector('[name="company"]');
+        var response = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            accept: 'application/json',
+          },
+          body: JSON.stringify({
+            type: typeInput.value,
+            message: text,
+            contact: contactValue,
+            page: window.location.href,
+            company: honeypotInput ? honeypotInput.value : '',
+          }),
+        });
+        var payload = await response.json().catch(function () {
+          return {};
+        });
+
+        if (!response.ok) {
+          throw new Error(payload.error || 'Feedback could not be sent.');
+        }
+
+        form.reset();
+        typeInput.value = 'idea';
+        typeButtons.forEach(function (b, index) {
+          b.setAttribute('aria-pressed', String(index === 0));
+        });
+        updateCount();
+        setStatus('Thanks, your note was sent.', 'success');
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : 'Feedback could not be sent.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Cookie banner 显示时按钮上移避让，隐藏时归位
+    var banner = document.getElementById('cookie-banner');
+    var bannerOpen = false;
+    function syncBanner() {
+      var visible = !!banner && banner.style.display !== 'none';
+      if (visible === bannerOpen) return;
+      bannerOpen = visible;
+      launcher.classList.toggle('fb-banner-open', visible);
+    }
+    syncBanner();
     if (banner && typeof MutationObserver !== 'undefined') {
-      new MutationObserver(sync).observe(banner, { attributes: true, attributeFilter: ['style'] });
+      new MutationObserver(syncBanner).observe(banner, { attributes: true, attributeFilter: ['style'] });
     }
   })();
 </script>
