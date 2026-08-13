@@ -149,8 +149,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     if (!response.ok) {
       const code = payload?.errors?.[0]?.code;
-      // 10001 = 无法认证（token 无 Email Sending 权限）或域名未 onboard
-      if (code === 10001) {
+      // 鉴权/授权失败（10000 认证失败 / 10001 无权限，或 401/403）或域名未 onboard
+      // → 反馈服务未配置好，给用户"稍后再试"而不是暴露内部错误
+      if (code === 10000 || code === 10001 || response.status === 401 || response.status === 403) {
         return new Response(
           JSON.stringify({ error: 'Feedback service is being set up. Please try again later.' }),
           { status: 503, headers: { 'content-type': 'application/json' } },
