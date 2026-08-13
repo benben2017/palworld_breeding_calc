@@ -5,6 +5,19 @@ import BreedingQueryTool from '../../components/BreedingQueryTool';
 import palsData from '../../data/pals.json';
 
 const pals = palsData;
+
+const webAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Palworld Breeding Calculator',
+  url: 'https://palbreed.space/tools/breeding-calculator/',
+  description:
+    'Find every possible breeding result in Palworld. Check any parent pair or reverse lookup a target Pal to see all parent combinations.',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
 ---
 
 <BaseLayout
@@ -12,6 +25,7 @@ const pals = palsData;
   description="Find every possible breeding result in Palworld. Check any parent pair or reverse lookup a target Pal to see all parent combinations."
   canonical="https://palbreed.space/tools/breeding-calculator/"
   activeNav="calculator"
+  jsonLd={JSON.stringify(webAppJsonLd)}
 >
   <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
     <!-- Hero & Intro -->

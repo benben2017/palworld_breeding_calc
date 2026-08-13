@@ -1,5 +1,18 @@
 # PalBreed CHANGELOG
 
+## v1.0.22 (2026-08-13) — /pals/ meta description 达标 + 工具页 WebApplication schema（AITDK + GEO）
+
+### 变更（用户 AITDK 检测：/pals/ description 124 字符 < 140 阈值；工具页无 schema）
+- **`src/pages/pals/index.astro`**：meta description 扩写 124 → 145 字符（140-160 达标）——`Browse all 299 Pals in the free Palworld breeding database. See breeding values, base stats, and every parent combination that produces each Pal.`（补入 "free"、基统计量表述更具体、结尾补行动词）
+- **`src/pages/tools/breeding-calculator.astro`**：新增 WebApplication JSON-LD schema（name/url/description、applicationCategory=UtilityApplication、operatingSystem=Web、isAccessibleForFree=true、offers price 0）
+- **`src/pages/tools/cake-calculator.astro`**：新增 WebApplication JSON-LD schema（同上，name=Palworld Cake Calculator）
+- 注：/pals/ H2 结构已由 v1.0.21 修复（PalsList.tsx 组件内 H2），本版本不重复添加
+
+### 验证
+- 构建通过（带 3 个 PUBLIC_* env）；dist 检查：/pals/ 1 H1 + 2 H2（组件内）+ desc 145 字符；两工具页均含 WebApplication schema；robots.txt 指向 sitemap.xml；sitemap.xml 58 URL；analytics 三件套在
+
+# PalBreed CHANGELOG
+
 ## v1.0.21 (2026-08-13) — about/faq/pals 页面 H2 结构补齐（AITDK H2 Check 全站修复）
 
 ### 变更（用户 AITDK 全站扫描：/about/ 与 /faq/ 仅 1 个 H2，/pals/ 0 个 H2）

@@ -2,6 +2,19 @@
 // /tools/cake-calculator — SEO 冻结稿 §5
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CakeCalculator from '../../components/CakeCalculator';
+
+const webAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Palworld Cake Calculator',
+  url: 'https://palbreed.space/tools/cake-calculator/',
+  description:
+    'Calculate exact cake ingredients for breeding in Palworld. Enter breeding attempts and get flour, berries, milk, eggs, and honey amounts instantly.',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
 ---
 
 <BaseLayout
@@ -9,6 +22,7 @@ import CakeCalculator from '../../components/CakeCalculator';
   description="Calculate exact cake ingredients for breeding in Palworld. Enter breeding attempts and get flour, berries, milk, eggs, and honey amounts instantly."
   canonical="https://palbreed.space/tools/cake-calculator/"
   activeNav="cake"
+  jsonLd={JSON.stringify(webAppJsonLd)}
 >
   <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
     <header class="max-w-3xl mx-auto text-center mb-12 relative">

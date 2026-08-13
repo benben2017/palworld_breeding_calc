@@ -17,7 +17,7 @@ const collectionJsonLd = {
 
 <BaseLayout
   title="All 299 Pals — Palworld Breeding Database | PalBreed"
-  description="Browse all 299 Pals in the Palworld breeding database. See breeding values, stats, and find parent combinations for any Pal."
+  description="Browse all 299 Pals in the free Palworld breeding database. See breeding values, base stats, and every parent combination that produces each Pal."
   canonical="https://palbreed.space/pals/"
   activeNav="pals"
   jsonLd={JSON.stringify(collectionJsonLd)}
@@ -30,6 +30,7 @@ const collectionJsonLd = {
         produces it.
       </p>
     </header>
+
     <PalsList client:load pals={pals} />
   </div>
 </BaseLayout>
