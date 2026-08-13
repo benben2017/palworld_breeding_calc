@@ -30,7 +30,7 @@ const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: `${pal.name} — Breeding, Stats & Parents | PalBreed`,
-  url: `https://palbreed.space/pals/${pal.key}`,
+  url: `https://palbreed.space/pals/${pal.key}/`,
   about: {
     '@type': 'Thing',
     name: `${pal.name} (Palworld)`,
@@ -42,7 +42,7 @@ const jsonLd = JSON.stringify({
 <BaseLayout
   title={`${pal.name} — Breeding, Stats & Parents | PalBreed`}
   description={`How to breed ${pal.name} in Palworld. Breeding value ${pal.breedingValue}, base stats, and every parent combination that produces ${pal.name}.`}
-  canonical={`https://palbreed.space/pals/${pal.key}`}
+  canonical={`https://palbreed.space/pals/${pal.key}/`}
   activeNav="pals"
   robots={robots}
   jsonLd={jsonLd}

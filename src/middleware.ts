@@ -12,10 +12,12 @@
 // 会把这种模式在构建期转换成静态 meta-refresh 重定向页（redirectTemplate），
 // 导致全部 299 个详情页 index.html 变成 353 字节的 "Redirecting to" 页，
 // 线上详情页全部失效。静态详情页本就不走 middleware，308 纯属有害。
-// P1-1 已通过 sitemap 无斜杠 + canonical 无斜杠解决信号一致性问题。
-// v1.0.15 补充教训：public/_routes.json 手写 exclude 曾漏掉 299 个详情页，
-// 引入 Worker（/api/feedback）后会把详情页误路由进 SSR——已删除该文件，
-// 由 adapter 自动生成（include 仅 /api/* 等，exclude 含 /pals/* 等通配）。
+// v1.0.15 起信号方案更新：Pages 平台在有 Worker（/api/feedback）后对静态目录
+// 无斜杠请求自动 308 补斜杠（/pals/lazydragon -> /pals/lazydragon/），URL 空间
+// 收敛到带斜杠版——canonical 与 sitemap 已改为带斜杠自引用，不再需要任何
+// 应用层重定向。附带教训：public/_routes.json 手写 exclude 曾漏掉 299 个详情页，
+// 引入 Worker 后会把详情页误路由进 SSR——已删除该文件，由 adapter 自动生成
+// （include 仅 /api/* 等，exclude 含 /pals/* 等通配）。
 import { defineMiddleware } from 'astro:middleware';
 
 export const onRequest = defineMiddleware(async (context, next) => {

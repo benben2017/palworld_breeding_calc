@@ -22,13 +22,10 @@ export default defineConfig({
         if (match) return TOP50_PALS.includes(match[1]);
         return true;
       },
-      // QA11 P1-1: sitemap detail URLs use no-slash form (match canonical / middleware 308 target)
-      serialize: (item) => {
-        if (/^https:\/\/palbreed\.space\/pals\/[a-z0-9_]+\/$/.test(item.url)) {
-          item.url = item.url.slice(0, -1);
-        }
-        return item;
-      },
+      // v1.0.15：不再去斜杠。Pages 平台在有 Worker（/api/feedback）后对静态目录
+      // 无斜杠请求自动 308 补斜杠（实测 /pals/lazydragon -> /pals/lazydragon/），
+      // URL 空间已收敛到带斜杠版本，sitemap 用默认带斜杠 URL 与页面 canonical
+      // 自引用完全一致（旧 P1-1 的 no-slash 方案已不适用，见 memory）。
     }),
   ],
   vite: {

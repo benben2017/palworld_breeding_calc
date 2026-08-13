@@ -9,11 +9,13 @@
 
 ### 修复
 - **删除 `public/_routes.json`（v1.0.2 手写）**：其 exclude 只含 `/pals/`（精确匹配），引入 Worker（/api/feedback）后 299 个详情页会被误路由进 SSR（丢失静态边缘缓存、middleware 触发）。改由 @astrojs/cloudflare adapter 自动生成 `_routes.json`（include 仅 `/_image`、`/_server-islands/*`、`/api/*`；exclude 用 `/pals/*`、`/tools/*` 通配覆盖全部静态页含 404 页）。同步更新 public/_headers 与 src/middleware.ts 注释
+- **canonical + sitemap 全部改为带斜杠**（P1-1 方案更新）：实测 Pages 平台在有 Worker 后对静态目录的无斜杠请求自动 308 补斜杠（`/pals/lazydragon` → `/pals/lazydragon/`），URL 空间已收敛到带斜杠版本。全部页面 canonical 改为自引用带斜杠（299 详情页 + faq/privacy/terms/about/pals/两个工具页），sitemap 移除去斜杠 serialize —— 消除"双版本均 200"的重复内容隐患，308 链收敛到 canonical，信号完全一致
 
 ### 验证（本地）
 - 构建通过（带 3 个 PUBLIC_* env）；`_routes.json` 自动生成确认详情页静态
 - Playwright 真实浏览器 18 项：打开/关闭、类型切换、字数统计、空消息/非法邮箱校验、提交（503 分支）、Escape、焦点管理、cookie banner 避让、零 pageerror
 - API curl 7 项：honeypot 200 静默、空消息/非法类型/非法邮箱 400、无 secrets 503、CF API 错误 502
+- sitemap 58 URL 全带斜杠、详情页 canonical 带斜杠自引用、非 TOP50 仍 noindex
 
 ### 待用户完成（发信链路）
 - Cloudflare Dashboard：Compute → Email Service → Email Sending onboard 域名 palbreed.space（按向导添加 cf-bounce MX/SPF/DKIM/DMARC 记录）
