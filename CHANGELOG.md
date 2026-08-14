@@ -1,3 +1,17 @@
+## v1.0.27 (2026-08-14) — 新增根路径 favicon.ico（Plausible 后台无法获取站点图标修复）
+
+### 背景（用户自托管 Plausible 后台站点列表不显示 palbreed.space 图标）
+- 站点 favicon 全部在 /assets/favicon-*.png（HTML head 已用 link rel=icon 声明，浏览器显示正常）
+- 但根路径 /favicon.ico 404 —— Plausible（及多数外部工具）拉取站点图标默认抓 /favicon.ico，抓不到则留空
+
+### 变更
+- **`public/favicon.ico`**（新增）：由 v3 品牌 favicon-32x32.png 生成，含 16x16 + 32x32 两尺寸
+- 浏览器行为不变（HTML 声明优先）；仅补齐根路径标准文件
+
+### 验证
+- 构建通过；部署后 /favicon.ico 200（2.9KB ICO）
+- Plausible 侧需等其下一次刷新（favicon 有缓存），或清除站点图标缓存后重试
+
 ## v1.0.26 (2026-08-14) — /pals/ 全量渲染 299 个 Pal，消除孤儿页面（Ahrefs Orphan page 37 条修复）
 
 ### 背景（用户 Ahrefs Site Audit 报 "Orphan page (has no incoming internal links)" 37 条）
