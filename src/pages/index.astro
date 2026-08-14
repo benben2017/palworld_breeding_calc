@@ -216,6 +216,43 @@ const faqJsonLd = {
     </div>
   </section>
 
+  {/* Quick facts（v1.0.25 GEO：AI 引擎可引用的结构化事实块）。
+      内容与 /llms.txt + FAQ schema 同步但用自然语言，AI 引擎更爱引用。 */}
+  <section class="border-y border-border bg-surface/50">
+    <div class="max-w-[1280px] mx-auto px-6 py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="space-y-2">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary">What is PalBreed</p>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          A free fan-made Palworld breeding calculator. It finds the offspring of any two parent Pals,
+          reverse-lookups every parent pair for a target Pal, and calculates cake ingredients for breeding.
+          All tools are free with no account and no ads.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary">Breeding mechanics</p>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          Each Pal has a hidden breeding value. The Breeding Farm averages the values of two parents and produces
+          the Pal whose value is closest to that average. Unique combos always produce the same offspring —
+          for example, Relaxaurus × Sparkit always produces Jetragon.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary">Cake recipe</p>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          One Palworld Cake needs 5 Flour, 8 Red Berries, 7 Milk, 8 Eggs, and 2 Honey. Each breeding attempt
+          consumes one cake cooked at a Cooking Pot.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary">Data source</p>
+        <p class="text-sm text-onSurface/70 leading-relaxed">
+          Breeding data is sourced from the community-maintained tylercamp/palcalc project (MIT licensed),
+          covering 299 Pals and over 44,000 parent combinations. Game content © Pocketpair, Inc.
+        </p>
+      </div>
+    </div>
+  </section>
+
   {/* FAQ 摘要（冻结稿 §13 前 4 题，完整 10 题在 /faq） */}
   <section class="max-w-[1280px] mx-auto px-6 py-24">
     <div class="text-center mb-12">

@@ -1,5 +1,21 @@
 # PalBreed CHANGELOG
 
+## v1.0.25 (2026-08-14) — GEO 优化：Organization/WebSite 站点级 schema + SoftwareApplication + 全页 FAQPage + 首页事实块（AITDK GEO 82 → 90+）
+
+### 变更（用户 AITDK GEO 评分 82 分；GEO 不影响 SEO 排名，仅影响 AI 答案引擎引用率）
+- **`src/layouts/BaseLayout.astro`**：
+  - 全站注入站点级 Organization schema（name=PalBreed、url、logo、description）—— GEO "author/publisher" 关键信号
+  - 全站注入 WebSite schema（含 inLanguage=en + publisher）—— AI 引擎站点身份信号
+  - jsonLd 入参支持 string 或 string[]（多 schema 块），向后兼容现有单 schema 调用
+- **`src/pages/index.astro`**：在 FAQ 区块前新增 4 列"Quick facts"事实块（What is PalBreed / Breeding mechanics / Cake recipe / Data source）—— AI 引擎最爱引用页面正文里的结构化自然语言事实
+- **`src/pages/tools/breeding-calculator.astro` & `src/pages/tools/cake-calculator.astro`**：
+  - WebApplication → **SoftwareApplication**（计算器更准的 schema type）；新增 applicationSuite/creator/publisher 字段指向 PalBreed Organization
+  - 新增页面级 FAQPage schema（4 题 breeding / 3 题 cake），与 FAQ schema 互不重复
+- **`src/pages/pals/[pal].astro`**：详情页新增 FAQPage schema（3 题：怎么育/基础属性/组合数），与原 WebPage schema 合并为数组输出
+
+### SEO 不退化验证
+- 9 个主页面 + 299 详情页 title/description/H1/H2 全部合规；全站 307 页 100% 注入 Organization；schema 块数 3-4/页（之前 1-2）
+
 ## v1.0.24 (2026-08-14) — Pal 详情页 alt 修复 + description 动态化至 140-160（AITDK 详情页检查修复）
 
 ### 变更（用户 AITDK 检测 /pals/brownrabbit/：100 张图缺 alt + description < 140 字符）

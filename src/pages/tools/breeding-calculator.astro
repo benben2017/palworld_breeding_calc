@@ -6,17 +6,31 @@ import palsData from '../../data/pals.json';
 
 const pals = palsData;
 
-const webAppJsonLd = {
+const appJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebApplication',
+  '@type': 'SoftwareApplication',
   name: 'Palworld Breeding Calculator',
   url: 'https://palbreed.space/tools/breeding-calculator/',
   description:
     'Find every possible breeding result in Palworld. Check any parent pair or reverse lookup a target Pal to see all parent combinations.',
   applicationCategory: 'UtilityApplication',
+  applicationSuite: 'PalBreed',
   operatingSystem: 'Web',
   isAccessibleForFree: true,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  creator: { '@type': 'Organization', name: 'PalBreed', url: 'https://palbreed.space' },
+  publisher: { '@type': 'Organization', name: 'PalBreed', url: 'https://palbreed.space' },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How does the breeding calculator work?', acceptedAnswer: { '@type': 'Answer', text: 'Select two parent Pals from the dropdown. The calculator shows the offspring instantly, based on averaging their breeding values.' } },
+    { '@type': 'Question', name: 'What is reverse lookup?', acceptedAnswer: { '@type': 'Answer', text: 'Reverse lookup lets you pick a target Pal and see every parent pair that produces it. Useful for finding parents you already own.' } },
+    { '@type': 'Question', name: 'How many breeding combinations are in the database?', acceptedAnswer: { '@type': 'Answer', text: 'Over 44,000 parent combinations covering all 299 Pals, sourced from tylercamp/palcalc (MIT licensed).' } },
+    { '@type': 'Question', name: 'Is the breeding calculator free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All PalBreed tools are free with no account, no payment, and no ads.' } }
+  ],
 };
 ---
 
@@ -25,7 +39,7 @@ const webAppJsonLd = {
   description="Find every possible breeding result in Palworld. Check any parent pair or reverse lookup a target Pal to see all of its parent combinations instantly."
   canonical="https://palbreed.space/tools/breeding-calculator/"
   activeNav="calculator"
-  jsonLd={JSON.stringify(webAppJsonLd)}
+  jsonLd={JSON.stringify([appJsonLd, faqJsonLd])}
 >
   <div class="max-w-[1280px] mx-auto px-6 pt-12 pb-8">
     <!-- Hero & Intro -->

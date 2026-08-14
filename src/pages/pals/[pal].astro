@@ -46,17 +46,51 @@ if (baseDesc.length < 140) {
 }
 const workEntries = Object.entries(pal.workSuitability || {}).filter(([, lv]) => lv > 0);
 
-const jsonLd = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: `${pal.name} — Breeding, Stats & Parents | PalBreed`,
-  url: `https://palbreed.space/pals/${pal.key}/`,
-  about: {
-    '@type': 'Thing',
-    name: `${pal.name} (Palworld)`,
-    description: `Breeding value ${pal.breedingValue}, base HP ${pal.hp}, attack ${pal.attack}, defense ${pal.defense}.`,
+const palFacts = `Breeding value ${pal.breedingValue}, base HP ${pal.hp}, attack ${pal.attack}, defense ${pal.defense}.`;
+const combosCount = combos.length;
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${pal.name} — Breeding, Stats & Parents | PalBreed`,
+    url: `https://palbreed.space/pals/${pal.key}/`,
+    about: {
+      '@type': 'Thing',
+      name: `${pal.name} (Palworld)`,
+      description: palFacts,
+    },
   },
-});
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `How do you breed ${pal.name} in Palworld?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${pal.name} has a breeding value of ${pal.breedingValue}. Place a male and female Pal in the Breeding Farm whose averaged breeding value is closest to ${pal.breedingValue}, and they will produce ${pal.name}. PalBreed lists every parent pair that produces ${pal.name}.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `What are the base stats of ${pal.name}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${pal.name} has base HP ${pal.hp}, attack ${pal.attack}, and defense ${pal.defense}. Breeding value is ${pal.breedingValue}.`,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `How many parent combinations produce ${pal.name}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `There are ${combosCount} known parent combinations that produce ${pal.name}, sourced from the community-maintained tylercamp/palcalc database (MIT licensed).`,
+        },
+      },
+    ],
+  },
+]);
 ---
 
 <BaseLayout

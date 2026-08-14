@@ -39,6 +39,9 @@ const {
   activeNav = 'none',
 } = Astro.props;
 
+// 允许 jsonLd 为单个 string 或 string 数组（多个独立 schema 块）
+const jsonLdArray: string[] = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+
 const SITE = 'https://palbreed.space';
 const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | undefined;
 ---
@@ -84,7 +87,27 @@ const plausibleScript = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_URL as string | 
       ) : null
     }
 
-    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+    {/* Site-level Organization + WebSite schema（GEO: author/publisher 元信息） */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'PalBreed',
+      url: 'https://palbreed.space',
+      logo: 'https://palbreed.space/assets/palbreed-logo-navbar-v3.svg',
+      description: 'Free fan-made Palworld breeding calculator and cake ingredient planner.',
+      sameAs: [],
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'PalBreed',
+      url: 'https://palbreed.space',
+      inLanguage: 'en',
+      publisher: { '@type': 'Organization', name: 'PalBreed', url: 'https://palbreed.space' },
+    })} />
+    {jsonLdArray.map((j) => (
+      <script type="application/ld+json" set:html={j} />
+    ))}
   </head>
   <body class="min-h-screen selection:bg-primary/30 selection:text-primary">
     {/* 背景装饰（设计稿） */}
