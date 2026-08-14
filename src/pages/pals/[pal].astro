@@ -24,6 +24,26 @@ const robots = isTop50 ? 'index,follow' : 'noindex,follow';
 
 // 反查组合（构建期预渲染；组合项解析性别键显示标注）
 const combos: string[] = reverseIndex[pal.key as keyof typeof reverseIndex] ?? [];
+
+// meta description（AITDK Meta Description Check）：基础模板 + 按 Pal 名长度动态补句，
+// 使 299 页 description 尽量落在 140-160 字符。名字越长基础模板越长，补句越短（或跳过）。
+const baseDesc = `How to breed ${pal.name} in Palworld. Breeding value ${pal.breedingValue}, base stats, and every parent combination that produces ${pal.name}.`;
+const descExtras = [
+  ' Use the PalBreed calculator to plan your next breeding session.',
+  ' Use PalBreed to plan your next breeding session.',
+  ' Find the perfect parents and start breeding.',
+  ' Plan your next breeding session.',
+  ' Start breeding today.',
+];
+let description = baseDesc;
+if (baseDesc.length < 140) {
+  for (const extra of descExtras) {
+    if (baseDesc.length + extra.length <= 160) {
+      description = baseDesc + extra;
+      break;
+    }
+  }
+}
 const workEntries = Object.entries(pal.workSuitability || {}).filter(([, lv]) => lv > 0);
 
 const jsonLd = JSON.stringify({
@@ -41,7 +61,7 @@ const jsonLd = JSON.stringify({
 
 <BaseLayout
   title={`${pal.name} — Breeding, Stats & Parents | PalBreed`}
-  description={`How to breed ${pal.name} in Palworld. Breeding value ${pal.breedingValue}, base stats, and every parent combination that produces ${pal.name}.`}
+  description={description}
   canonical={`https://palbreed.space/pals/${pal.key}/`}
   activeNav="pals"
   robots={robots}
@@ -161,12 +181,12 @@ const jsonLd = JSON.stringify({
                     >
                       <span class="flex items-center gap-2 min-w-0 flex-wrap">
                         {a && (
-                          <img src={a.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
+                          <img src={a.imageUrl} alt={`${a.name} avatar`} class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
                         )}
                         <span class="text-sm font-semibold text-onSurface">{a?.name ?? parts.aKey}</span>
                         <span class="text-primary">+</span>
                         {b && (
-                          <img src={b.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
+                          <img src={b.imageUrl} alt={`${b.name} avatar`} class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />
                         )}
                         <span class="text-sm font-semibold text-onSurface">{b?.name ?? parts.bKey}</span>
                         {genderNote && <span class="text-xs text-onSurface/50">{genderNote}</span>}

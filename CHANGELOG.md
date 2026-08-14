@@ -1,5 +1,16 @@
 # PalBreed CHANGELOG
 
+## v1.0.24 (2026-08-14) — Pal 详情页 alt 修复 + description 动态化至 140-160（AITDK 详情页检查修复）
+
+### 变更（用户 AITDK 检测 /pals/brownrabbit/：100 张图缺 alt + description < 140 字符）
+- **`src/pages/pals/[pal].astro` 组合列表头像 alt 修复（根因补漏）**：v1.0.20 的 alt 校验只查"有 alt 属性"，`alt=""` 通过了校验。详情页组合列表父母头像 `alt=""` → `` alt={`${a.name} avatar`} `` / `` alt={`${b.name} avatar`} ``（brownrabbit 页 102 张图全含描述性 alt，正是 AITDK 报的 100 张）
+- **`src/pages/pals/[pal].astro` description 动态化**：原模板固定句 `How to breed X in Palworld. Breeding value Y, base stats, and every parent combination that produces X.`（名字 3-56 字符波动 → description 110-138 不等）。改为：基础模板 + 按名字长度从长到短尝试 5 个补充句（"Use the PalBreed calculator to plan your next breeding session." 等），使总长落在 140-160；名字长到基础模板已 ≥140 则不补；名字超长（>28 字符）自然超过 160，极少数接受
+- **校验逻辑教训**：检查 alt 必须排除 `alt=""`（空 alt 被 AITDK 视为缺失），不能只看属性存在
+
+### 验证
+- 构建通过；299 个详情页 description 全部 140-160（0 不达标）；299 页缺 alt 页面 0（brownrabbit 102 img 全含 alt）
+- 示例：brownrabbit 151 / Anubis 160 / Jetragon 151 字符
+
 ## v1.0.23 (2026-08-13) — terms/privacy 页面 title 扩写至 40-60 字符（AITDK Meta Title Check 修复）
 
 ### 变更（用户 AITDK 检测：/terms/ title 27 字符、/privacy/ 25 字符，低于 40 阈值）
