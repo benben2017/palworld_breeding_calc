@@ -1,7 +1,7 @@
 // PalsList — Pal 图鉴列表（设计稿 Pals List Development State Spec 生产实现）
 // 状态：搜索过滤 / 加载 skeleton≥300ms / 无结果（mascot-empty + 清除按钮）/ A-Z 字母筛选
 // v1.0.5：A-Z 锚点 → 字母筛选（原锚点分页模式下无目标元素，点击无效）
-// 注：types 字段数据缺失（PRD §10.1）→ 无类型筛选；无筛选时分页 48/页，筛选时按字母分组全量显示
+// 注：types 字段数据缺失（PRD §10.1）→ 无类型筛选；v1.0.26 起全部 Pal 按字母分组全量渲染（原分页为客户端 JS，爬虫只能见第一页，其余详情页成孤儿页面）
 import { useMemo, useRef, useState } from 'react';
 import type { Pal } from '../lib/types';
 
@@ -9,12 +9,9 @@ interface Props {
   pals: Pal[];
 }
 
-const PAGE_SIZE = 48;
-
 export default function PalsList({ pals }: Props) {
   const [query, setQuery] = useState('');
   const [letter, setLetter] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -28,26 +25,21 @@ export default function PalsList({ pals }: Props) {
     return result;
   }, [query, letter, pals]);
 
-  // A-Z 分组（筛选时不分页，按字母分组全量显示结果；无筛选时分页 48/页）
+  // A-Z 分组（全部 Pal 按字母分组全量渲染，每个详情页都有内部链接入口）
   const groups = useMemo(() => {
-    if (hasFilter) {
-      const g: Record<string, Pal[]> = {};
-      filtered.forEach((p) => {
-        const l = p.name.charAt(0).toUpperCase();
-        (g[l] ??= []).push(p);
-      });
-      return { g, pageItems: null as Pal[] | null, totalPages: 0 };
-    }
-    const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    return { g: null, pageItems, totalPages: Math.ceil(filtered.length / PAGE_SIZE) };
-  }, [filtered, hasFilter, page]);
+    const g: Record<string, Pal[]> = {};
+    filtered.forEach((p) => {
+      const l = p.name.charAt(0).toUpperCase();
+      (g[l] ??= []).push(p);
+    });
+    return g;
+  }, [filtered]);
 
   const letters = useMemo(() => {
     // 字母筛选激活时，仍显示全量字母表（便于直接切换到其他字母）
     if (letter) return Array.from(new Set(pals.map((p) => p.name.charAt(0).toUpperCase()))).sort();
-    if (groups.g) return Object.keys(groups.g).sort();
-    return Array.from(new Set(filtered.map((p) => p.name.charAt(0).toUpperCase()))).sort();
-  }, [letter, groups, filtered, pals]);
+    return Object.keys(groups).sort();
+  }, [letter, groups, pals]);
 
   function onSearch(v: string) {
     setQuery(v);
@@ -56,13 +48,11 @@ export default function PalsList({ pals }: Props) {
     if (searchTimer.current) clearTimeout(searchTimer.current);
     searchTimer.current = setTimeout(() => {
       setLoading(false);
-      setPage(1);
     }, 300);
   }
 
   function onLetterClick(l: string) {
     setLetter(letter === l ? null : l);
-    setPage(1);
   }
 
   function renderCard(p: Pal) {
@@ -122,7 +112,6 @@ export default function PalsList({ pals }: Props) {
           type="button"
           onClick={() => {
             setLetter(null);
-            setPage(1);
           }}
           class={[
             'px-3 h-9 rounded-lg bg-surface border text-sm font-bold transition-colors',
@@ -183,55 +172,27 @@ export default function PalsList({ pals }: Props) {
         </div>
       )}
 
-      {/* 分组列表（搜索时按字母分组全量显示；否则分页 48/页） */}
-      {!loading && filtered.length > 0 && groups.g && (
-        <div class="space-y-12">
-          {Object.keys(groups.g)
-            .sort()
-            .map((letter) => (
-              <section key={letter} id={`letter-${letter}`} class="scroll-mt-24">
-                <h2 class="text-2xl font-extrabold mb-6 flex items-center gap-3">
-                  <span class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                    {letter}
-                  </span>
-                  <span class="text-sm font-medium text-onSurface/50">{groups.g![letter].length} Pals</span>
-                </h2>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  {groups.g![letter].map((p) => renderCard(p))}
-                </div>
-              </section>
-            ))}
-        </div>
-      )}
-
-      {/* 分页视图（无搜索时） */}
-      {!loading && filtered.length > 0 && groups.pageItems && (
+      {/* 分组列表（全部 Pal 按字母分组全量渲染） */}
+      {!loading && filtered.length > 0 && (
         <>
-          <h2 class="text-xl font-extrabold mb-4">All Pals</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {groups.pageItems.map((p) => renderCard(p))}
+          {!hasFilter && <h2 class="text-xl font-extrabold mb-4">All Pals</h2>}
+          <div class="space-y-12">
+            {Object.keys(groups)
+              .sort()
+              .map((letter) => (
+                <section key={letter} id={`letter-${letter}`} class="scroll-mt-24">
+                  <h2 class="text-2xl font-extrabold mb-6 flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                      {letter}
+                    </span>
+                    <span class="text-sm font-medium text-onSurface/50">{groups[letter].length} Pals</span>
+                  </h2>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {groups[letter].map((p) => renderCard(p))}
+                  </div>
+                </section>
+              ))}
           </div>
-          {groups.totalPages > 1 && (
-            <div class="flex items-center justify-center gap-3 mt-10">
-              <button
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
-                disabled={page === 1}
-                class="px-5 py-2.5 rounded-lg border border-border hover:bg-surface-elevated text-sm font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-colors touch-target"
-              >
-                ← Prev
-              </button>
-              <span class="text-sm text-onSurface/60">
-                Page <strong class="text-primary">{page}</strong> / {groups.totalPages}
-              </span>
-              <button
-                onClick={() => setPage((p) => Math.min(groups.totalPages, p + 1))}
-                disabled={page === groups.totalPages}
-                class="px-5 py-2.5 rounded-lg border border-border hover:bg-surface-elevated text-sm font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-colors touch-target"
-              >
-                Next →
-              </button>
-            </div>
-          )}
         </>
       )}
     </div>

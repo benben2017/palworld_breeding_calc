@@ -1,3 +1,18 @@
+## v1.0.26 (2026-08-14) — /pals/ 全量渲染 299 个 Pal，消除孤儿页面（Ahrefs Orphan page 37 条修复）
+
+### 背景（用户 Ahrefs Site Audit 报 "Orphan page (has no incoming internal links)" 37 条）
+- /pals/ 列表页原为客户端 JS 分页（48/页，onClick setState），静态 HTML 只有第一页 48 个 Pal 链接 + footer 5 个 = 51 个
+- 爬虫不执行 JS，永远到不了第 2-7 页 → 其余 ~250 个详情页无任何内部链接入口 → 孤儿页面
+- Ahrefs 报的 37 条 = 不在第一页的 TOP50 成员（Paladius/Necromus/Astegon/Jetragon 等传说+热门 Pal 全中招，key≠显示名的占 TOP50 的 49/50）
+
+### 变更
+- **`src/components/PalsList.tsx`**：删除客户端分页（PAGE_SIZE/page/Prev/Next 全部移除），无筛选时也按字母分组**全量渲染 299 个 Pal**（每页 27 个 H2：Find a Pal by name + All Pals + 25 个字母组标题）
+- 搜索/字母筛选/空态交互全部保留；URL 结构不变（仍 /pals/）
+
+### 验证
+- 构建通过；/pals/ 静态 HTML 含 **299/299** 全部 Pal 链接（与数据源 key 集合比对 0 缺失）；H1=1、H2=27、空 alt=0
+- 本地 Playwright 回归 10 项全过：默认全量 299 卡片 / 搜索 Anubis → 1 卡片 / 清空恢复 / D 字母筛选 + 再点恢复 / 空态 + Clear all / 点击 saintcentaur 卡 → Paladius 详情页 / 零 pageerror
+- 移除后 /pals/ HTML 约 371KB（图片 lazy loading，可接受，竞品同量级）
 # PalBreed CHANGELOG
 
 ## v1.0.25 (2026-08-14) — GEO 优化：Organization/WebSite 站点级 schema + SoftwareApplication + 全页 FAQPage + 首页事实块（AITDK GEO 82 → 90+）
