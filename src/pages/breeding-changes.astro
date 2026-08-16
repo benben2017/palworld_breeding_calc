@@ -1,0 +1,197 @@
+---
+// /breeding-changes — R3 版本变更页（事实记录 changelog，非攻略）
+// 数据源：src/data/breeding-changes.json（与主页 badge 共用同一文件，禁止两处手改不一致）
+// 规格：docs/r3-breeding-changes-spec.md
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import changes from '../data/breeding-changes.json';
+
+const SITE = 'https://palbreed.space';
+const PAGE_URL = `${SITE}/breeding-changes/`;
+const PAGE_TITLE = "Palworld Breeding Changes — What's Different in Each Update";
+const PAGE_DESCRIPTION =
+  'Track Palworld breeding changes across updates: breeding routes, passive effects, and drops that changed in 1.0.3 and 1.0 — with community evidence and confirmation status.';
+
+// 状态标签（✅ Official / ✅ Community-tested / ⚠️ Unconfirmed）
+const STATUS_META: Record<string, { label: string; badge: string; icon: string }> = {
+  official: { label: '✅ Official', badge: 'bg-success/15 text-success border-success/40', icon: 'check' },
+  community_tested: { label: '✅ Community-tested', badge: 'bg-success/15 text-success border-success/40', icon: 'check' },
+  unconfirmed: { label: '⚠️ Unconfirmed', badge: 'bg-error/15 text-error border-error/40', icon: 'error' },
+};
+
+// 类型 tag（Breeding / Passive / Drops / Mechanic）
+const TYPE_META: Record<string, string> = {
+  Breeding: 'bg-secondary/15 text-secondary border-secondary/40',
+  Passive: 'bg-primary/15 text-primary border-primary/40',
+  Drops: 'bg-success/15 text-success border-success/40',
+  Mechanic: 'bg-error/15 text-error border-error/40',
+};
+
+// 所有未确认条目（待验证区用）
+const unconfirmedItems = changes.versions.flatMap((v) =>
+  v.changes.filter((c) => c.status === 'unconfirmed').map((c) => ({ version: v.version, change: c }))
+);
+
+function formatDate(iso: string): string {
+  const d = new Date(iso + 'T00:00:00Z');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+}
+
+function formatReleased(iso: string): string {
+  const d = new Date(iso + '-01T00:00:00Z');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
+}
+
+// Schema: BreadcrumbList + Article + ItemList（不套 FAQPage，见规格 §七）
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Breeding Changes', item: PAGE_URL },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  url: PAGE_URL,
+  datePublished: '2026-08-15',
+  dateModified: '2026-08-15',
+  author: { '@type': 'Organization', name: 'PalBreed', url: SITE },
+};
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: changes.versions.flatMap((v, vi) =>
+    v.changes.map((c, ci) => ({
+      '@type': 'ListItem',
+      position: vi * 10 + ci + 1,
+      item: { '@type': 'Thing', name: `${v.version}: ${c.title}`, url: `${PAGE_URL}#c-${v.version}-${ci}` },
+    }))
+  ),
+};
+---
+
+<BaseLayout
+  title={`${PAGE_TITLE} | PalBreed`}
+  description={PAGE_DESCRIPTION}
+  canonical={PAGE_URL}
+  jsonLd={[JSON.stringify(breadcrumbJsonLd), JSON.stringify(articleJsonLd), JSON.stringify(itemListJsonLd)]}
+>
+  <div class="max-w-3xl mx-auto px-6 pt-12 pb-8">
+    <!-- 数据新鲜度声明区（与主页 badge 同源） -->
+    <header class="text-center mb-12">
+      <p class="text-sm text-primary font-bold tracking-wide mb-3">Breeding Data Changelog</p>
+      <h1 class="text-3xl md:text-4xl font-black tracking-tight mb-5">
+        Palworld Breeding Changes — What's Different in Each Update
+      </h1>
+      <div class="flex flex-col items-center gap-3">
+        <span class="inline-flex items-center gap-2 px-3 py-1 bg-success/10 border border-success/40 rounded-full text-sm font-bold text-success whitespace-nowrap">
+          <Icon name="check" />
+          Data v{changes.dataVersion} · Updated {formatDate(changes.updated)}
+        </span>
+        <p class="text-sm text-onSurface/70">{changes.refreshCommitment}</p>
+      </div>
+    </header>
+
+    <!-- 变更条目列表（版本降序） -->
+    {changes.versions.map((v, vi) => (
+      <section class="mb-12">
+        <div class="flex items-baseline gap-3 mb-5">
+          <h2 class="text-2xl font-extrabold">Version {v.version}</h2>
+          <span class="text-sm text-onSurface/60">{formatReleased(v.released)}</span>
+        </div>
+        <div class="space-y-4">
+          {v.changes.map((c, ci) => {
+            const status = STATUS_META[c.status] ?? STATUS_META.unconfirmed;
+            return (
+              <article id={`c-${v.version}-${ci}`} class="bg-surface border border-border rounded-2xl p-6 scroll-mt-24">
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <span
+                    class={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${TYPE_META[c.type] ?? 'bg-surface-elevated text-onSurface/70 border-border'}`}
+                  >
+                    {c.type}
+                  </span>
+                  <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${status.badge}`}>
+                    {status.label}
+                  </span>
+                </div>
+                <h3 class="text-lg font-extrabold mb-2">{c.title}</h3>
+                <p class="text-sm text-onSurface/80 leading-relaxed mb-3">{c.detail}</p>
+                <p class="text-sm text-onSurface/60 leading-relaxed mb-4">
+                  <span class="font-bold text-onSurface/80">Impact: </span>
+                  {c.impact}
+                </p>
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+                  <a
+                    href={c.source.url}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-primary hover:underline font-medium inline-flex items-center gap-1"
+                  >
+                    {c.source.label}
+                    <Icon name="arrow-forward" class="text-xs" />
+                  </a>
+                  <span class="text-onSurface/40">·</span>
+                  <time class="text-onSurface/50" datetime={c.source.date}>
+                    {formatDate(c.source.date)}
+                  </time>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+
+    <!-- 待验证区 -->
+    {unconfirmedItems.length > 0 && (
+      <section class="mb-12 bg-error/5 border border-error/25 rounded-2xl p-6">
+        <h2 class="text-xl font-extrabold mb-2 flex items-center gap-2">
+          <Icon name="error" class="text-error" />
+          Awaiting confirmation
+        </h2>
+        <p class="text-sm text-onSurface/70 leading-relaxed mb-4">
+          These changes were reported by the community but have not been officially confirmed. We will update this
+          page when they are confirmed.
+        </p>
+        <ul class="space-y-3">
+          {unconfirmedItems.map(({ version, change }) => (
+            <li class="text-sm text-onSurface/80 leading-relaxed">
+              <span class="font-bold text-error">⚠️ Unconfirmed</span> — {change.title}{' '}
+              <span class="text-onSurface/50">(v{version})</span>.{' '}
+              <a
+                href={change.source.url}
+                target="_blank"
+                rel="noopener"
+                class="text-primary hover:underline font-medium"
+              >
+                Community report
+              </a>{' '}
+              <span class="text-onSurface/50">({formatDate(change.source.date)})</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- 更新承诺 / 反馈区 -->
+    <div class="bg-surface/50 border border-border rounded-2xl p-8 text-center">
+      <h2 class="text-xl font-extrabold mb-3">Spot a change we missed? Tell us.</h2>
+      <p class="text-sm text-onSurface/70 mb-5">
+        We track community reports and official patch notes, and refresh this page after each game update. Found a
+        breeding route, drop, or passive that changed? We read every message.
+      </p>
+      <a
+        href="mailto:feedback@palbreed.space?subject=%5BData%5D%20Change%20report"
+        class="inline-flex px-6 py-3 rounded-xl bg-primary text-background font-bold hover:brightness-110 transition-all"
+      >
+        Report a change
+      </a>
+    </div>
+  </div>
+</BaseLayout>

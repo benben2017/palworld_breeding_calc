@@ -1,0 +1,79 @@
+{
+  "dataVersion": "26",
+  "updated": "2026-08-10",
+  "refreshCommitment": "We refresh data within 48h of a game update.",
+  "versions": [
+    {
+      "version": "1.0.3",
+      "released": "2026-08",
+      "changes": [
+        {
+          "type": "Passive",
+          "title": "Weak point bonus changed to elemental weakness",
+          "detail": "Fully-starred Pals' \"+40% damage to weak points\" effect now applies to elemental weakness instead. The change was not announced in official patch notes.",
+          "impact": "Builds relying on weak-point passives deal less damage against element-neutral targets; re-check starred Pal passives before committing to a build.",
+          "status": "community_tested",
+          "source": {
+            "label": "r/Palworld — \"Stealth change in 1.0.3\"",
+            "url": "https://www.reddit.com/r/Palworld/comments/1voyshj/",
+            "date": "2026-08-15"
+          }
+        },
+        {
+          "type": "Passive",
+          "title": "Alpha Sekhmet crafting passive may apply to mining",
+          "detail": "The crafting-related passive on Alpha Sekhmet is suspected to also affect mining (bug or intended feature). The community is verifying behavior version by version.",
+          "impact": "If confirmed, Alpha Sekhmet becomes a stronger choice for mining teams than previously assumed.",
+          "status": "unconfirmed",
+          "source": {
+            "label": "r/Palworld — \"Alpha Sekhmet passive still applies to mining in v1.0.3?\"",
+            "url": "https://www.reddit.com/r/Palworld/search/?q=Alpha%20Sekhmet%20passive%20mining",
+            "date": "2026-08-15"
+          }
+        }
+      ]
+    },
+    {
+      "version": "1.0",
+      "released": "2026-07",
+      "changes": [
+        {
+          "type": "Breeding",
+          "title": "Orserk breeding route changed",
+          "detail": "Grizzbolt + Relaxaurus no longer produces Orserk. The early-game electric route has been removed.",
+          "impact": "Early-game electric Pals are harder to obtain; guides that recommend the Grizzbolt + Relaxaurus route are now outdated.",
+          "status": "community_tested",
+          "source": {
+            "label": "r/Palworld — \"Was planning to breed an Orserk… now impossible\"",
+            "url": "https://www.reddit.com/r/Palworld/search/?q=breed%20Orserk%20now%20impossible",
+            "date": "2026-08-15"
+          }
+        },
+        {
+          "type": "Breeding",
+          "title": "Tower Pals can no longer breed",
+          "detail": "Tower Pals have lost their ability to breed. The full list of affected Pals is pending verification.",
+          "impact": "Offspring that required a Tower Pal parent are no longer obtainable; affected breeding plans need rework.",
+          "status": "unconfirmed",
+          "source": {
+            "label": "r/PalworldBreeding — \"Exact list of changes to the breeding pathways\"",
+            "url": "https://www.reddit.com/r/PalworldBreeding/search/?q=changes%20breeding%20pathways",
+            "date": "2026-08-11"
+          }
+        },
+        {
+          "type": "Drops",
+          "title": "Moonlord no longer drops Stat Fruits",
+          "detail": "Version 1.0 removed Moonlord's Stat Fruit drops, pushing players toward breeding for perfect 100 IVs instead.",
+          "impact": "Stat Fruits are scarcer; breeding for perfect IVs is now the main path to max stats.",
+          "status": "community_tested",
+          "source": {
+            "label": "r/Palworld — \"How do I breed for perfect 100 IVs\"",
+            "url": "https://www.reddit.com/r/Palworld/search/?q=breed%20perfect%20100%20IVs",
+            "date": "2026-08-15"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -38,7 +38,8 @@ const faqs = [
   },
   {
     q: 'Is the data up to date?',
-    a: 'PalBreed uses community-sourced data from the current game version. Each page shows the data version and verification date.',
+    a: 'PalBreed uses community-sourced data from the current game version. Each page shows the data version and verification date. For what changed in each update, check the Breeding Changes page.',
+    link: { href: '/breeding-changes', text: 'See breeding changes by version' },
   },
   {
     q: 'What if I find an error? / Have a feature idea?',
@@ -89,6 +90,15 @@ const faqJsonLd = {
             </span>
           </summary>
           <p class="px-6 pb-5 text-sm text-onSurface/70 leading-relaxed">{f.a}</p>
+          {
+            f.link && (
+              <p class="px-6 pb-5 -mt-2 text-sm">
+                <a href={f.link.href} class="text-primary font-bold hover:underline">
+                  {f.link.text} →
+                </a>
+              </p>
+            )
+          }
         </details>
       ))}
       </div>

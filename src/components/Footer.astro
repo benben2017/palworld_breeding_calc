@@ -2,7 +2,17 @@
 // 页脚 — 从设计稿迁移（9 页共用，文案按 SEO 冻结稿 §2）
 // v1.0.4：Popular Pals 缩减为 5 个最热门（12 个导致三列高度不齐）
 // v1.0.6：移除数据版本徽章 + src 哈希（技术噪音；数据版本信息首页 hero 已有同款标签）
+// v1.0.29：重新加回数据版本行（指向 /breeding-changes，与主页 badge 共用 breeding-changes.json）
 // Popular Pals 从 TOP50 精选（community 共识热门，均有 index 详情页）
+
+import changes from '../data/breeding-changes.json';
+
+const dataUpdated = new Date(changes.updated + 'T00:00:00Z').toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
 
 const popularPals: { name: string; key: string }[] = [
   { name: 'Jetragon', key: 'jetdragon' },
@@ -71,7 +81,16 @@ const popularPals: { name: string; key: string }[] = [
       </nav>
     </div>
 
-    <p class="mt-6 text-xs text-onSurface/50">
+    <p class="mt-6 text-xs">
+      <a
+        href="/breeding-changes"
+        class="text-onSurface/60 hover:text-primary transition-colors"
+      >
+        Data v{changes.dataVersion} · Updated {dataUpdated}
+      </a>
+    </p>
+
+    <p class="mt-2 text-xs text-onSurface/50">
       Not affiliated with Pocketpair, Inc. · Fan-made tool · Game content © Pocketpair · Data © tylercamp/palcalc (MIT)
     </p>
   </div>
