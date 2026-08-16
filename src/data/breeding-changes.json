@@ -1,7 +1,7 @@
 {
   "dataVersion": "26",
   "updated": "2026-08-10",
-  "refreshCommitment": "We refresh data within 48h of a game update.",
+  "refreshCommitment": "We update data after each game update.",
   "versions": [
     {
       "version": "1.0.3",
