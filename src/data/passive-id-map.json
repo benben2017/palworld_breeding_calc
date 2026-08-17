@@ -1,0 +1,700 @@
+{
+  "id_to_name": {
+    "abnormal": "Abnormal",
+    "ace_swimmer": "Ace Swimmer",
+    "aggressive": "Aggressive",
+    "artisan": "Artisan",
+    "babysitter": "Babysitter",
+    "blood_of_the_dragon": "Blood of the Dragon",
+    "botanical_barrier": "Botanical Barrier",
+    "bottomless_stomach": "Bottomless Stomach",
+    "brave": "Brave",
+    "brittle": "Brittle",
+    "burly_body": "Burly Body",
+    "capacitor": "Capacitor",
+    "celestial_emperor": "Celestial Emperor",
+    "cheery": "Cheery",
+    "clumsy": "Clumsy",
+    "coldblooded": "Coldblooded",
+    "conceited": "Conceited",
+    "coward": "Coward",
+    "dainty_eater": "Dainty Eater",
+    "demon_god": "Demon God",
+    "demon_s_hand": "Demon’s Hand",
+    "destructive": "Destructive",
+    "diamond_body": "Diamond Body",
+    "diet_lover": "Diet Lover",
+    "dimensional_leap": "Dimensional Leap",
+    "divine_dragon": "Divine Dragon",
+    "downtrodden": "Downtrodden",
+    "dragonkiller": "Dragonkiller",
+    "earth_emperor": "Earth Emperor",
+    "earthquake_resistant": "Earthquake Resistant",
+    "easygoing": "Easygoing",
+    "eternal_engine": "Eternal Engine",
+    "eternal_flame": "Eternal Flame",
+    "farmhand": "Farmhand",
+    "ferocious": "Ferocious",
+    "fine_furs": "Fine Furs",
+    "fit_as_a_fiddle": "Fit as a Fiddle",
+    "flame_emperor": "Flame Emperor",
+    "fragrant_foliage": "Fragrant Foliage",
+    "glutton": "Glutton",
+    "god_of_destruction": "God of Destruction",
+    "hard_skin": "Hard Skin",
+    "healing_coach": "Healing Coach",
+    "heart_of_the_immovable_king": "Heart of the Immovable King",
+    "heated_body": "Heated Body",
+    "heavily_armored": "Heavily Armored",
+    "heavyweight": "Heavyweight",
+    "hermit_sage": "Hermit Sage",
+    "hooligan": "Hooligan",
+    "hydromaniac": "Hydromaniac",
+    "ice_emperor": "Ice Emperor",
+    "idiosyncratic": "Idiosyncratic",
+    "immortality": "Immortality",
+    "impatient": "Impatient",
+    "infinite_stamina": "Infinite Stamina",
+    "insomnia": "Insomnia",
+    "insulated_body": "Insulated Body",
+    "invader": "Invader",
+    "king_of_the_waves": "King of the Waves",
+    "lavish_hospitality": "Lavish Hospitality",
+    "legend": "Legend",
+    "lightfooted": "Lightfooted",
+    "logging_foreman": "Logging Foreman",
+    "lord_of_lightning": "Lord of Lightning",
+    "lord_of_the_sea": "Lord of the Sea",
+    "lord_of_the_underworld": "Lord of the Underworld",
+    "lucky": "Lucky",
+    "lunker": "Lunker",
+    "masochist": "Masochist",
+    "mastery_of_fasting": "Mastery of Fasting",
+    "mercy_hit": "Mercy Hit",
+    "mine_foreman": "Mine Foreman",
+    "motivational_leader": "Motivational Leader",
+    "musclehead": "Musclehead",
+    "night_owl": "Night Owl",
+    "nimble": "Nimble",
+    "noble": "Noble",
+    "otherworldly_cells": "Otherworldly Cells",
+    "pacifist": "Pacifist",
+    "philanthropist": "Philanthropist",
+    "positive_thinker": "Positive Thinker",
+    "power_of_gaia": "Power of Gaia",
+    "pyromaniac": "Pyromaniac",
+    "ranch_master": "Ranch Master",
+    "reload_master": "Reload Master",
+    "remarkable_craftsmanship": "Remarkable Craftsmanship",
+    "runner": "Runner",
+    "sadist": "Sadist",
+    "sanctified_meat_shield": "Sanctified Meat Shield",
+    "savior": "Savior",
+    "serenity": "Serenity",
+    "serious": "Serious",
+    "service_minded": "Service-Minded",
+    "shabby": "Shabby",
+    "sickly": "Sickly",
+    "siren_of_the_void": "Siren of the Void",
+    "skymarcher": "Skymarcher",
+    "slacker": "Slacker",
+    "sleek_stroke": "Sleek Stroke",
+    "spirit_emperor": "Spirit Emperor",
+    "spirit_of_zen": "Spirit of Zen",
+    "stronghold_strategist": "Stronghold Strategist",
+    "suntan_lover": "Suntan Lover",
+    "swift": "Swift",
+    "twin_edged_holy_blade": "Twin-Edged Holy Blade",
+    "unstable": "Unstable",
+    "vampiric": "Vampiric",
+    "vanguard": "Vanguard",
+    "veil_of_darkness": "Veil of Darkness",
+    "waterproof": "Waterproof",
+    "wellness_watcher": "Wellness Watcher",
+    "whopper": "Whopper",
+    "work_slave": "Work Slave",
+    "workaholic": "Workaholic",
+    "world_tree_seedbed": "World Tree Seedbed"
+  },
+  "id_to_internal_ids": {
+    "abnormal": [
+      "ElementResist_Normal_1_PAL"
+    ],
+    "ace_swimmer": [
+      "SwimSpeed_up_2"
+    ],
+    "aggressive": [
+      "PAL_oraora"
+    ],
+    "artisan": [
+      "CraftSpeed_up2"
+    ],
+    "babysitter": [
+      "MutationPal_Babysitter"
+    ],
+    "blood_of_the_dragon": [
+      "ElementBoost_Dragon_1_PAL"
+    ],
+    "botanical_barrier": [
+      "ElementResist_Leaf_1_PAL"
+    ],
+    "bottomless_stomach": [
+      "PAL_FullStomach_Up_2"
+    ],
+    "brave": [
+      "PAL_ALLAttack_up1"
+    ],
+    "brittle": [
+      "Deffence_down2"
+    ],
+    "burly_body": [
+      "Deffence_up2"
+    ],
+    "capacitor": [
+      "ElementBoost_Thunder_1_PAL"
+    ],
+    "celestial_emperor": [
+      "ElementBoost_Normal_2_PAL"
+    ],
+    "cheery": [
+      "ElementResist_Dark_1_PAL"
+    ],
+    "clumsy": [
+      "CraftSpeed_down1"
+    ],
+    "coldblooded": [
+      "ElementBoost_Ice_1_PAL"
+    ],
+    "conceited": [
+      "PAL_conceited"
+    ],
+    "coward": [
+      "PAL_ALLAttack_down1"
+    ],
+    "dainty_eater": [
+      "PAL_FullStomach_Down_1"
+    ],
+    "demon_god": [
+      "PAL_ALLAttack_up3"
+    ],
+    "demon_s_hand": [
+      "WorldTree_CraftSpeed"
+    ],
+    "destructive": [
+      "PAL_Sanity_Up_2"
+    ],
+    "diamond_body": [
+      "Deffence_up3"
+    ],
+    "diet_lover": [
+      "PAL_FullStomach_Down_2"
+    ],
+    "dimensional_leap": [
+      "WorldTree_MoveSpeed"
+    ],
+    "divine_dragon": [
+      "ElementBoost_Dragon_2_PAL"
+    ],
+    "downtrodden": [
+      "Deffence_down1"
+    ],
+    "dragonkiller": [
+      "ElementResist_Dragon_1_PAL"
+    ],
+    "earth_emperor": [
+      "ElementBoost_Earth_2_PAL"
+    ],
+    "earthquake_resistant": [
+      "ElementResist_Earth_1_PAL"
+    ],
+    "easygoing": [
+      "CoolTimeReduction_Down_1"
+    ],
+    "eternal_engine": [
+      "Stamina_Up_3"
+    ],
+    "eternal_flame": [
+      "EternalFlame"
+    ],
+    "farmhand": [
+      "WorkSuitabilityAddRank_MonsterFarm_1"
+    ],
+    "ferocious": [
+      "PAL_ALLAttack_up2"
+    ],
+    "fine_furs": [
+      "SalePrice_Up_2"
+    ],
+    "fit_as_a_fiddle": [
+      "Stamina_Up_2"
+    ],
+    "flame_emperor": [
+      "ElementBoost_Fire_2_PAL"
+    ],
+    "fragrant_foliage": [
+      "ElementBoost_Leaf_1_PAL"
+    ],
+    "glutton": [
+      "PAL_FullStomach_Up_1"
+    ],
+    "god_of_destruction": [
+      "WorldTree_ATK_DEF"
+    ],
+    "hard_skin": [
+      "Deffence_up1"
+    ],
+    "healing_coach": [
+      "AutoHPRegeneRate_Passive"
+    ],
+    "heart_of_the_immovable_king": [
+      "PAL_Sanity_Down_3"
+    ],
+    "heated_body": [
+      "ElementResist_Ice_1_PAL"
+    ],
+    "heavily_armored": [
+      "MutationPal_ExplosionResist"
+    ],
+    "heavyweight": [
+      "Deffence_up2_2"
+    ],
+    "hermit_sage": [
+      "WorldTree_Sanity"
+    ],
+    "hooligan": [
+      "PAL_rude"
+    ],
+    "hydromaniac": [
+      "ElementBoost_Aqua_1_PAL"
+    ],
+    "ice_emperor": [
+      "ElementBoost_Ice_2_PAL"
+    ],
+    "idiosyncratic": [
+      "MutationPal_Mutant"
+    ],
+    "immortality": [
+      "MutationPal_Immortal"
+    ],
+    "impatient": [
+      "CoolTimeReduction_Up_2"
+    ],
+    "infinite_stamina": [
+      "Stamina_Up_1"
+    ],
+    "insomnia": [
+      "Nocturnal"
+    ],
+    "insulated_body": [
+      "ElementResist_Thunder_1_PAL"
+    ],
+    "invader": [
+      "Invader"
+    ],
+    "king_of_the_waves": [
+      "SwimSpeed_up_3"
+    ],
+    "lavish_hospitality": [
+      "SelfDeathAddItemDrop_up_3"
+    ],
+    "legend": [
+      "Legend"
+    ],
+    "lightfooted": [
+      "RideJumpCount_Increase1"
+    ],
+    "logging_foreman": [
+      "TrainerLogging_up1"
+    ],
+    "lord_of_lightning": [
+      "ElementBoost_Thunder_2_PAL"
+    ],
+    "lord_of_the_sea": [
+      "ElementBoost_Aqua_2_PAL"
+    ],
+    "lord_of_the_underworld": [
+      "ElementBoost_Dark_2_PAL"
+    ],
+    "lucky": [
+      "Rare"
+    ],
+    "lunker": [
+      "Nushi"
+    ],
+    "masochist": [
+      "PAL_masochist"
+    ],
+    "mastery_of_fasting": [
+      "PAL_FullStomach_Down_3"
+    ],
+    "mercy_hit": [
+      "NonKilling"
+    ],
+    "mine_foreman": [
+      "TrainerMining_up1"
+    ],
+    "motivational_leader": [
+      "TrainerWorkSpeed_UP_1"
+    ],
+    "musclehead": [
+      "Noukin"
+    ],
+    "night_owl": [
+      "NightOwl"
+    ],
+    "nimble": [
+      "MoveSpeed_up_1"
+    ],
+    "noble": [
+      "SalePrice_Up_1"
+    ],
+    "otherworldly_cells": [
+      "Alien"
+    ],
+    "pacifist": [
+      "PAL_ALLAttack_down2"
+    ],
+    "philanthropist": [
+      "Test_PalEgg_HatchingSpeed_Up"
+    ],
+    "positive_thinker": [
+      "PAL_Sanity_Down_1"
+    ],
+    "power_of_gaia": [
+      "ElementBoost_Earth_1_PAL"
+    ],
+    "pyromaniac": [
+      "ElementBoost_Fire_1_PAL"
+    ],
+    "ranch_master": [
+      "WorkSuitabilityAddRank_MonsterFarm_2"
+    ],
+    "reload_master": [
+      "ReloadSpeedUp_Passive"
+    ],
+    "remarkable_craftsmanship": [
+      "CraftSpeed_up3"
+    ],
+    "runner": [
+      "MoveSpeed_up_2"
+    ],
+    "sadist": [
+      "PAL_sadist"
+    ],
+    "sanctified_meat_shield": [
+      "WorldTree_DEF"
+    ],
+    "savior": [
+      "Salvation"
+    ],
+    "serenity": [
+      "CoolTimeReduction_Up_1"
+    ],
+    "serious": [
+      "CraftSpeed_up1"
+    ],
+    "service_minded": [
+      "SelfDeathAddItemDrop_up_2"
+    ],
+    "shabby": [
+      "SalePrice_Down_1"
+    ],
+    "sickly": [
+      "Stamina_Down_1"
+    ],
+    "siren_of_the_void": [
+      "Witch"
+    ],
+    "skymarcher": [
+      "RideJumpCount_Increase2"
+    ],
+    "slacker": [
+      "CraftSpeed_down2"
+    ],
+    "sleek_stroke": [
+      "SwimSpeed_up_1"
+    ],
+    "spirit_emperor": [
+      "ElementBoost_Leaf_2_PAL"
+    ],
+    "spirit_of_zen": [
+      "ElementBoost_Normal_1_PAL"
+    ],
+    "stronghold_strategist": [
+      "TrainerDEF_UP_1"
+    ],
+    "suntan_lover": [
+      "ElementResist_Fire_1_PAL"
+    ],
+    "swift": [
+      "MoveSpeed_up_3"
+    ],
+    "twin_edged_holy_blade": [
+      "WorldTree_ATK"
+    ],
+    "unstable": [
+      "PAL_Sanity_Up_1"
+    ],
+    "vampiric": [
+      "Vampire"
+    ],
+    "vanguard": [
+      "TrainerATK_UP_1"
+    ],
+    "veil_of_darkness": [
+      "ElementBoost_Dark_1_PAL"
+    ],
+    "waterproof": [
+      "ElementResist_Aqua_1_PAL"
+    ],
+    "wellness_watcher": [
+      "PlayerSP_DecreaseRate_Passive"
+    ],
+    "whopper": [
+      "MiniNushi"
+    ],
+    "work_slave": [
+      "PAL_CorporateSlave"
+    ],
+    "workaholic": [
+      "PAL_Sanity_Down_2"
+    ],
+    "world_tree_seedbed": [
+      "WorldTree_FullStomach"
+    ]
+  },
+  "internal_id_to_id": {
+    "ElementResist_Normal_1_PAL": "abnormal",
+    "SwimSpeed_up_2": "ace_swimmer",
+    "PAL_oraora": "aggressive",
+    "CraftSpeed_up2": "artisan",
+    "MutationPal_Babysitter": "babysitter",
+    "ElementBoost_Dragon_1_PAL": "blood_of_the_dragon",
+    "ElementResist_Leaf_1_PAL": "botanical_barrier",
+    "PAL_FullStomach_Up_2": "bottomless_stomach",
+    "PAL_ALLAttack_up1": "brave",
+    "Deffence_down2": "brittle",
+    "Deffence_up2": "burly_body",
+    "ElementBoost_Thunder_1_PAL": "capacitor",
+    "ElementBoost_Normal_2_PAL": "celestial_emperor",
+    "ElementResist_Dark_1_PAL": "cheery",
+    "CraftSpeed_down1": "clumsy",
+    "ElementBoost_Ice_1_PAL": "coldblooded",
+    "PAL_conceited": "conceited",
+    "PAL_ALLAttack_down1": "coward",
+    "PAL_FullStomach_Down_1": "dainty_eater",
+    "PAL_ALLAttack_up3": "demon_god",
+    "WorldTree_CraftSpeed": "demon_s_hand",
+    "PAL_Sanity_Up_2": "destructive",
+    "Deffence_up3": "diamond_body",
+    "PAL_FullStomach_Down_2": "diet_lover",
+    "WorldTree_MoveSpeed": "dimensional_leap",
+    "ElementBoost_Dragon_2_PAL": "divine_dragon",
+    "Deffence_down1": "downtrodden",
+    "ElementResist_Dragon_1_PAL": "dragonkiller",
+    "ElementBoost_Earth_2_PAL": "earth_emperor",
+    "ElementResist_Earth_1_PAL": "earthquake_resistant",
+    "CoolTimeReduction_Down_1": "easygoing",
+    "Stamina_Up_3": "eternal_engine",
+    "EternalFlame": "eternal_flame",
+    "WorkSuitabilityAddRank_MonsterFarm_1": "farmhand",
+    "PAL_ALLAttack_up2": "ferocious",
+    "SalePrice_Up_2": "fine_furs",
+    "Stamina_Up_2": "fit_as_a_fiddle",
+    "ElementBoost_Fire_2_PAL": "flame_emperor",
+    "ElementBoost_Leaf_1_PAL": "fragrant_foliage",
+    "PAL_FullStomach_Up_1": "glutton",
+    "WorldTree_ATK_DEF": "god_of_destruction",
+    "Deffence_up1": "hard_skin",
+    "AutoHPRegeneRate_Passive": "healing_coach",
+    "PAL_Sanity_Down_3": "heart_of_the_immovable_king",
+    "ElementResist_Ice_1_PAL": "heated_body",
+    "MutationPal_ExplosionResist": "heavily_armored",
+    "Deffence_up2_2": "heavyweight",
+    "WorldTree_Sanity": "hermit_sage",
+    "PAL_rude": "hooligan",
+    "ElementBoost_Aqua_1_PAL": "hydromaniac",
+    "ElementBoost_Ice_2_PAL": "ice_emperor",
+    "MutationPal_Mutant": "idiosyncratic",
+    "MutationPal_Immortal": "immortality",
+    "CoolTimeReduction_Up_2": "impatient",
+    "Stamina_Up_1": "infinite_stamina",
+    "Nocturnal": "insomnia",
+    "ElementResist_Thunder_1_PAL": "insulated_body",
+    "Invader": "invader",
+    "SwimSpeed_up_3": "king_of_the_waves",
+    "SelfDeathAddItemDrop_up_3": "lavish_hospitality",
+    "Legend": "legend",
+    "RideJumpCount_Increase1": "lightfooted",
+    "TrainerLogging_up1": "logging_foreman",
+    "ElementBoost_Thunder_2_PAL": "lord_of_lightning",
+    "ElementBoost_Aqua_2_PAL": "lord_of_the_sea",
+    "ElementBoost_Dark_2_PAL": "lord_of_the_underworld",
+    "Rare": "lucky",
+    "Nushi": "lunker",
+    "PAL_masochist": "masochist",
+    "PAL_FullStomach_Down_3": "mastery_of_fasting",
+    "NonKilling": "mercy_hit",
+    "TrainerMining_up1": "mine_foreman",
+    "TrainerWorkSpeed_UP_1": "motivational_leader",
+    "Noukin": "musclehead",
+    "NightOwl": "night_owl",
+    "MoveSpeed_up_1": "nimble",
+    "SalePrice_Up_1": "noble",
+    "Alien": "otherworldly_cells",
+    "PAL_ALLAttack_down2": "pacifist",
+    "Test_PalEgg_HatchingSpeed_Up": "philanthropist",
+    "PAL_Sanity_Down_1": "positive_thinker",
+    "ElementBoost_Earth_1_PAL": "power_of_gaia",
+    "ElementBoost_Fire_1_PAL": "pyromaniac",
+    "WorkSuitabilityAddRank_MonsterFarm_2": "ranch_master",
+    "ReloadSpeedUp_Passive": "reload_master",
+    "CraftSpeed_up3": "remarkable_craftsmanship",
+    "MoveSpeed_up_2": "runner",
+    "PAL_sadist": "sadist",
+    "WorldTree_DEF": "sanctified_meat_shield",
+    "Salvation": "savior",
+    "CoolTimeReduction_Up_1": "serenity",
+    "CraftSpeed_up1": "serious",
+    "SelfDeathAddItemDrop_up_2": "service_minded",
+    "SalePrice_Down_1": "shabby",
+    "Stamina_Down_1": "sickly",
+    "Witch": "siren_of_the_void",
+    "RideJumpCount_Increase2": "skymarcher",
+    "CraftSpeed_down2": "slacker",
+    "SwimSpeed_up_1": "sleek_stroke",
+    "ElementBoost_Leaf_2_PAL": "spirit_emperor",
+    "ElementBoost_Normal_1_PAL": "spirit_of_zen",
+    "TrainerDEF_UP_1": "stronghold_strategist",
+    "ElementResist_Fire_1_PAL": "suntan_lover",
+    "MoveSpeed_up_3": "swift",
+    "WorldTree_ATK": "twin_edged_holy_blade",
+    "PAL_Sanity_Up_1": "unstable",
+    "Vampire": "vampiric",
+    "TrainerATK_UP_1": "vanguard",
+    "ElementBoost_Dark_1_PAL": "veil_of_darkness",
+    "ElementResist_Aqua_1_PAL": "waterproof",
+    "PlayerSP_DecreaseRate_Passive": "wellness_watcher",
+    "MiniNushi": "whopper",
+    "PAL_CorporateSlave": "work_slave",
+    "PAL_Sanity_Down_2": "workaholic",
+    "WorldTree_FullStomach": "world_tree_seedbed"
+  },
+  "name_to_id": {
+    "Abnormal": "abnormal",
+    "Ace Swimmer": "ace_swimmer",
+    "Aggressive": "aggressive",
+    "Artisan": "artisan",
+    "Babysitter": "babysitter",
+    "Blood of the Dragon": "blood_of_the_dragon",
+    "Botanical Barrier": "botanical_barrier",
+    "Bottomless Stomach": "bottomless_stomach",
+    "Brave": "brave",
+    "Brittle": "brittle",
+    "Burly Body": "burly_body",
+    "Capacitor": "capacitor",
+    "Celestial Emperor": "celestial_emperor",
+    "Cheery": "cheery",
+    "Clumsy": "clumsy",
+    "Coldblooded": "coldblooded",
+    "Conceited": "conceited",
+    "Coward": "coward",
+    "Dainty Eater": "dainty_eater",
+    "Demon God": "demon_god",
+    "Demon’s Hand": "demon_s_hand",
+    "Destructive": "destructive",
+    "Diamond Body": "diamond_body",
+    "Diet Lover": "diet_lover",
+    "Dimensional Leap": "dimensional_leap",
+    "Divine Dragon": "divine_dragon",
+    "Downtrodden": "downtrodden",
+    "Dragonkiller": "dragonkiller",
+    "Earth Emperor": "earth_emperor",
+    "Earthquake Resistant": "earthquake_resistant",
+    "Easygoing": "easygoing",
+    "Eternal Engine": "eternal_engine",
+    "Eternal Flame": "eternal_flame",
+    "Farmhand": "farmhand",
+    "Ferocious": "ferocious",
+    "Fine Furs": "fine_furs",
+    "Fit as a Fiddle": "fit_as_a_fiddle",
+    "Flame Emperor": "flame_emperor",
+    "Fragrant Foliage": "fragrant_foliage",
+    "Glutton": "glutton",
+    "God of Destruction": "god_of_destruction",
+    "Hard Skin": "hard_skin",
+    "Healing Coach": "healing_coach",
+    "Heart of the Immovable King": "heart_of_the_immovable_king",
+    "Heated Body": "heated_body",
+    "Heavily Armored": "heavily_armored",
+    "Heavyweight": "heavyweight",
+    "Hermit Sage": "hermit_sage",
+    "Hooligan": "hooligan",
+    "Hydromaniac": "hydromaniac",
+    "Ice Emperor": "ice_emperor",
+    "Idiosyncratic": "idiosyncratic",
+    "Immortality": "immortality",
+    "Impatient": "impatient",
+    "Infinite Stamina": "infinite_stamina",
+    "Insomnia": "insomnia",
+    "Insulated Body": "insulated_body",
+    "Invader": "invader",
+    "King of the Waves": "king_of_the_waves",
+    "Lavish Hospitality": "lavish_hospitality",
+    "Legend": "legend",
+    "Lightfooted": "lightfooted",
+    "Logging Foreman": "logging_foreman",
+    "Lord of Lightning": "lord_of_lightning",
+    "Lord of the Sea": "lord_of_the_sea",
+    "Lord of the Underworld": "lord_of_the_underworld",
+    "Lucky": "lucky",
+    "Lunker": "lunker",
+    "Masochist": "masochist",
+    "Mastery of Fasting": "mastery_of_fasting",
+    "Mercy Hit": "mercy_hit",
+    "Mine Foreman": "mine_foreman",
+    "Motivational Leader": "motivational_leader",
+    "Musclehead": "musclehead",
+    "Night Owl": "night_owl",
+    "Nimble": "nimble",
+    "Noble": "noble",
+    "Otherworldly Cells": "otherworldly_cells",
+    "Pacifist": "pacifist",
+    "Philanthropist": "philanthropist",
+    "Positive Thinker": "positive_thinker",
+    "Power of Gaia": "power_of_gaia",
+    "Pyromaniac": "pyromaniac",
+    "Ranch Master": "ranch_master",
+    "Reload Master": "reload_master",
+    "Remarkable Craftsmanship": "remarkable_craftsmanship",
+    "Runner": "runner",
+    "Sadist": "sadist",
+    "Sanctified Meat Shield": "sanctified_meat_shield",
+    "Savior": "savior",
+    "Serenity": "serenity",
+    "Serious": "serious",
+    "Service-Minded": "service_minded",
+    "Shabby": "shabby",
+    "Sickly": "sickly",
+    "Siren of the Void": "siren_of_the_void",
+    "Skymarcher": "skymarcher",
+    "Slacker": "slacker",
+    "Sleek Stroke": "sleek_stroke",
+    "Spirit Emperor": "spirit_emperor",
+    "Spirit of Zen": "spirit_of_zen",
+    "Stronghold Strategist": "stronghold_strategist",
+    "Suntan Lover": "suntan_lover",
+    "Swift": "swift",
+    "Twin-Edged Holy Blade": "twin_edged_holy_blade",
+    "Unstable": "unstable",
+    "Vampiric": "vampiric",
+    "Vanguard": "vanguard",
+    "Veil of Darkness": "veil_of_darkness",
+    "Waterproof": "waterproof",
+    "Wellness Watcher": "wellness_watcher",
+    "Whopper": "whopper",
+    "Work Slave": "work_slave",
+    "Workaholic": "workaholic",
+    "World Tree Seedbed": "world_tree_seedbed"
+  }
+}

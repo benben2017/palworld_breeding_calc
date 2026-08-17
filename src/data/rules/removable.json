@@ -1,0 +1,6 @@
+{
+  "default": true,
+  "rule": "Operation Table removes any passive skill. Default true for all entries.",
+  "exceptions": {},
+  "note": "交接单预期'彩虹/mutation 不可手术'无游戏内证据；如需改例外在此表追加。"
+}

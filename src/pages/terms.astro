@@ -49,7 +49,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <section class="bg-surface border border-border rounded-2xl p-6">
         <h2 class="text-lg font-extrabold mb-3 text-onSurface">4. Data Accuracy Disclaimer</h2>
         <h3 class="font-bold text-onSurface mb-2">4.1 Data Sources</h3>
-        <p class="mb-3">Breeding combinations, Pal stats, and other game information are sourced from community-maintained projects, specifically <strong class="text-onSurface">tylercamp/palcalc</strong> (open-source breeding data, <a href="https://raw.githubusercontent.com/tylercamp/palcalc/be2ec7a95c52/LICENSE.txt" class="text-primary underline">MIT License</a>).</p>
+        <p class="mb-3">
+          Breeding combinations and passive skill data are assembled from community-maintained game data
+          sources and cross-validated; game data remains the property of Pocketpair, Inc. Full per-source
+          attribution is listed on our <a href="#" class="text-primary underline">Data Sources page</a>. Current sources:
+        </p>
+        <ul class="list-disc pl-6 space-y-1 mb-3">
+          <li><strong class="text-onSurface">palworld-save-pal</strong> (community project) — passive skill data, <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="text-primary underline">GNU GPL v3.0</a></li>
+          <li><strong class="text-onSurface">palschema-hub</strong> (community project) — schema field references, <a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT License</a></li>
+          <li><strong class="text-onSurface">Palworld Wiki</strong> (palworld.fandom.com) — rule cross-validation, <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="text-primary underline">CC-BY-SA</a></li>
+          <li><strong class="text-onSurface">palcalc</strong> (community project) — breeding combination data, <a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT License</a></li>
+        </ul>
+        <p>Game data is displayed with version badges indicating currency.</p>
         <h3 class="font-bold text-onSurface mb-2">4.2 No Guarantee of Accuracy</h3>
         <ul class="list-disc pl-6 space-y-1 mb-3">
           <li>All data is provided <strong>"as is" for informational purposes only</strong></li>
@@ -103,9 +114,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="mb-3">The Service's original code, UI/UX design, visual theme system, and written guides (excluding game-specific data) are our intellectual property.</p>
         <h3 class="font-bold text-onSurface mb-2">7.2 Third-Party IP</h3>
         <ul class="list-disc pl-6 space-y-1">
-          <li><strong class="text-onSurface">Palworld™</strong> and all related characters, names, designs, images, and assets are trademarks and/or copyright of <strong class="text-onSurface">Pocketpair, Inc.</strong></li>
-          <li>Breeding data sourced from <strong class="text-onSurface">tylercamp/palcalc</strong> is used under the MIT open-source license</li>
-          <li>If you believe any content infringes your copyright, contact <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code> with the relevant URL and a description</li>
+          <li>
+            <strong class="text-onSurface">Palworld™</strong> and all related characters, names, designs, images, and assets are
+            trademarks and/or copyright of <strong class="text-onSurface">Pocketpair, Inc.</strong>
+          </li>
+          <li>
+            Breeding data is sourced from community-maintained projects under their respective open-source
+            licenses (palworld-save-pal, <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="text-primary underline">GNU GPL v3.0</a>; palschema-hub, <a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT</a>; palcalc, <a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT</a>) — see the
+            <a href="#" class="text-primary underline">Data Sources page</a> for per-source details
+          </li>
+          <li>
+            Cross-validation data sourced from the Palworld Wiki is used under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="text-primary underline">CC-BY-SA</a>; structured facts are
+            extracted and no wiki text is reproduced verbatim
+          </li>
+          <li>
+            If you believe any content on this Service infringes your copyright, please contact
+            <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">feedback@palbreed.space</code> with the relevant URL and a description of the issue
+          </li>
         </ul>
       </section>
 

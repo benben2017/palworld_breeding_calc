@@ -1,0 +1,2503 @@
+[
+  {
+    "id": "abnormal",
+    "name": "Abnormal",
+    "effect": "10.0% decrease in incoming Neutral damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "pinklizard"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Abnormal",
+      "Abnormal palworld",
+      "Abnormal passive"
+    ]
+  },
+  {
+    "id": "ace_swimmer",
+    "name": "Ace Swimmer",
+    "effect": "40.0% increase movement speed on water.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Ace Swimmer",
+      "Ace Swimmer palworld",
+      "Ace Swimmer passive"
+    ]
+  },
+  {
+    "id": "aggressive",
+    "name": "Aggressive",
+    "effect": "Attack +10.0% Defense -10.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Aggressive",
+      "Aggressive palworld",
+      "Aggressive passive"
+    ]
+  },
+  {
+    "id": "artisan",
+    "name": "Artisan",
+    "effect": "Work Speed +50.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Artisan",
+      "Artisan palworld",
+      "Artisan passive"
+    ]
+  },
+  {
+    "id": "babysitter",
+    "name": "Babysitter",
+    "effect": "While at a base, increases egg production speed by +30.0% and incubation speed by +30.0% for Pals assigned to a Breeding Farm.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Babysitter",
+      "Babysitter palworld",
+      "Babysitter passive"
+    ]
+  },
+  {
+    "id": "blood_of_the_dragon",
+    "name": "Blood of the Dragon",
+    "effect": "10.0% increase in Dragon attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Blood of the Dragon",
+      "Blood of the Dragon palworld",
+      "Blood of the Dragon passive"
+    ]
+  },
+  {
+    "id": "botanical_barrier",
+    "name": "Botanical Barrier",
+    "effect": "10.0% decrease in incoming Grass damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Botanical Barrier",
+      "Botanical Barrier palworld",
+      "Botanical Barrier passive"
+    ]
+  },
+  {
+    "id": "bottomless_stomach",
+    "name": "Bottomless Stomach",
+    "effect": "Hunger decreases +15.0% faster.",
+    "rarity": "common",
+    "tier": -2,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Bottomless Stomach",
+      "Bottomless Stomach palworld",
+      "Bottomless Stomach passive"
+    ]
+  },
+  {
+    "id": "brave",
+    "name": "Brave",
+    "effect": "Attack +10.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Brave",
+      "Brave palworld",
+      "Brave passive"
+    ]
+  },
+  {
+    "id": "brittle",
+    "name": "Brittle",
+    "effect": "Defense -20.0%",
+    "rarity": "common",
+    "tier": -3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Brittle",
+      "Brittle palworld",
+      "Brittle passive"
+    ]
+  },
+  {
+    "id": "burly_body",
+    "name": "Burly Body",
+    "effect": "Defense +20.0% Immune to Flinch",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Burly Body",
+      "Burly Body palworld",
+      "Burly Body passive"
+    ]
+  },
+  {
+    "id": "capacitor",
+    "name": "Capacitor",
+    "effect": "10.0% increase in Lightning attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Capacitor",
+      "Capacitor palworld",
+      "Capacitor passive"
+    ]
+  },
+  {
+    "id": "celestial_emperor",
+    "name": "Celestial Emperor",
+    "effect": "30.0% increase in Neutral attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "saintcentaur"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Celestial Emperor",
+      "Celestial Emperor palworld",
+      "Celestial Emperor passive"
+    ]
+  },
+  {
+    "id": "cheery",
+    "name": "Cheery",
+    "effect": "10.0% decrease in incoming Dark damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Cheery",
+      "Cheery palworld",
+      "Cheery passive"
+    ]
+  },
+  {
+    "id": "clumsy",
+    "name": "Clumsy",
+    "effect": "Work Speed -10.0%",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Clumsy",
+      "Clumsy palworld",
+      "Clumsy passive"
+    ]
+  },
+  {
+    "id": "coldblooded",
+    "name": "Coldblooded",
+    "effect": "10.0% increase in Ice attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Coldblooded",
+      "Coldblooded palworld",
+      "Coldblooded passive"
+    ]
+  },
+  {
+    "id": "conceited",
+    "name": "Conceited",
+    "effect": "Work Speed +10.0% Defense -10.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Conceited",
+      "Conceited palworld",
+      "Conceited passive"
+    ]
+  },
+  {
+    "id": "coward",
+    "name": "Coward",
+    "effect": "Attack -10.0%",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "pinkcat"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Coward",
+      "Coward palworld",
+      "Coward passive"
+    ]
+  },
+  {
+    "id": "dainty_eater",
+    "name": "Dainty Eater",
+    "effect": "Hunger decreases +10.0% slower.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Dainty Eater",
+      "Dainty Eater palworld",
+      "Dainty Eater passive"
+    ]
+  },
+  {
+    "id": "demon_god",
+    "name": "Demon God",
+    "effect": "Attack +30.0% Defense +5.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Demon God",
+      "Demon God palworld",
+      "Demon God passive"
+    ]
+  },
+  {
+    "id": "demon_s_hand",
+    "name": "Demon’s Hand",
+    "effect": "Work Speed +90.0% SAN dreceases +15.0% faster World Tree harvestables won't vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Demon’s Hand",
+      "Demon’s Hand palworld",
+      "Demon’s Hand passive"
+    ]
+  },
+  {
+    "id": "destructive",
+    "name": "Destructive",
+    "effect": "SAN drops +15.0% faster.",
+    "rarity": "common",
+    "tier": -2,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Destructive",
+      "Destructive palworld",
+      "Destructive passive"
+    ]
+  },
+  {
+    "id": "diamond_body",
+    "name": "Diamond Body",
+    "effect": "Defense +30.0% Immune to Flinch Immune to Knockback",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Diamond Body",
+      "Diamond Body palworld",
+      "Diamond Body passive"
+    ]
+  },
+  {
+    "id": "diet_lover",
+    "name": "Diet Lover",
+    "effect": "Hunger decreases +15.0% slower.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Diet Lover",
+      "Diet Lover palworld",
+      "Diet Lover passive"
+    ]
+  },
+  {
+    "id": "dimensional_leap",
+    "name": "Dimensional Leap",
+    "effect": "Movement Speed +50.0% Increases Hunger depletion rate by +15.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Dimensional Leap",
+      "Dimensional Leap palworld",
+      "Dimensional Leap passive"
+    ]
+  },
+  {
+    "id": "divine_dragon",
+    "name": "Divine Dragon",
+    "effect": "30.0% increase in Dragon attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "jetdragon"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Divine Dragon",
+      "Divine Dragon palworld",
+      "Divine Dragon passive"
+    ]
+  },
+  {
+    "id": "downtrodden",
+    "name": "Downtrodden",
+    "effect": "Defense -10.0%",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Downtrodden",
+      "Downtrodden palworld",
+      "Downtrodden passive"
+    ]
+  },
+  {
+    "id": "dragonkiller",
+    "name": "Dragonkiller",
+    "effect": "10.0% decrease in incoming Dragon damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Dragonkiller",
+      "Dragonkiller palworld",
+      "Dragonkiller passive"
+    ]
+  },
+  {
+    "id": "earth_emperor",
+    "name": "Earth Emperor",
+    "effect": "30.0% increase in Earth attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "anubis"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Earth Emperor",
+      "Earth Emperor palworld",
+      "Earth Emperor passive"
+    ]
+  },
+  {
+    "id": "earthquake_resistant",
+    "name": "Earthquake Resistant",
+    "effect": "10.0% decrease in incoming Earth damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Earthquake Resistant",
+      "Earthquake Resistant palworld",
+      "Earthquake Resistant passive"
+    ]
+  },
+  {
+    "id": "easygoing",
+    "name": "Easygoing",
+    "effect": "Active skill cooldown extension -15.0%",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Easygoing",
+      "Easygoing palworld",
+      "Easygoing passive"
+    ]
+  },
+  {
+    "id": "eternal_engine",
+    "name": "Eternal Engine",
+    "effect": "Max stamina +75.0% *This effect is only valid for rideable pals.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Eternal Engine",
+      "Eternal Engine palworld",
+      "Eternal Engine passive"
+    ]
+  },
+  {
+    "id": "eternal_flame",
+    "name": "Eternal Flame",
+    "effect": "30.0% increase to Fire attack damage. 30.0% increase to Lightning attack damage.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "kingbahamut_dragon"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Eternal Flame",
+      "Eternal Flame palworld",
+      "Eternal Flame passive"
+    ]
+  },
+  {
+    "id": "farmhand",
+    "name": "Farmhand",
+    "effect": "Farming's Work Suitability +1",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Farmhand",
+      "Farmhand palworld",
+      "Farmhand passive"
+    ]
+  },
+  {
+    "id": "ferocious",
+    "name": "Ferocious",
+    "effect": "Attack +20.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Ferocious",
+      "Ferocious palworld",
+      "Ferocious passive"
+    ]
+  },
+  {
+    "id": "fine_furs",
+    "name": "Fine Furs",
+    "effect": "Increases the value of items when sold by +3.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Fine Furs",
+      "Fine Furs palworld",
+      "Fine Furs passive"
+    ]
+  },
+  {
+    "id": "fit_as_a_fiddle",
+    "name": "Fit as a Fiddle",
+    "effect": "Max stamina +25.0% *This effect is only valid for rideable pals.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Fit as a Fiddle",
+      "Fit as a Fiddle palworld",
+      "Fit as a Fiddle passive"
+    ]
+  },
+  {
+    "id": "flame_emperor",
+    "name": "Flame Emperor",
+    "effect": "30.0% increase in Fire attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "kingbahamut"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Flame Emperor",
+      "Flame Emperor palworld",
+      "Flame Emperor passive"
+    ]
+  },
+  {
+    "id": "fragrant_foliage",
+    "name": "Fragrant Foliage",
+    "effect": "10.0% increase in Grass attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Fragrant Foliage",
+      "Fragrant Foliage palworld",
+      "Fragrant Foliage passive"
+    ]
+  },
+  {
+    "id": "glutton",
+    "name": "Glutton",
+    "effect": "Hunger decreases +10.0% faster.",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "lazydragon"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Glutton",
+      "Glutton palworld",
+      "Glutton passive"
+    ]
+  },
+  {
+    "id": "god_of_destruction",
+    "name": "God of Destruction",
+    "effect": "Attack +40.0% Defense +20.0% Max Health -50.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "God of Destruction",
+      "God of Destruction palworld",
+      "God of Destruction passive"
+    ]
+  },
+  {
+    "id": "hard_skin",
+    "name": "Hard Skin",
+    "effect": "Defense +10.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "blackmetaldragon",
+      "drillgame",
+      "herculesbeetle",
+      "herculesbeetle_ground"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Hard Skin",
+      "Hard Skin palworld",
+      "Hard Skin passive"
+    ]
+  },
+  {
+    "id": "healing_coach",
+    "name": "Healing Coach",
+    "effect": "Player Auto Health Regeneration Rate +5.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Healing Coach",
+      "Healing Coach palworld",
+      "Healing Coach passive"
+    ]
+  },
+  {
+    "id": "heart_of_the_immovable_king",
+    "name": "Heart of the Immovable King",
+    "effect": "SAN drops +20.0% slower.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Heart of the Immovable King",
+      "Heart of the Immovable King palworld",
+      "Heart of the Immovable King passive"
+    ]
+  },
+  {
+    "id": "heated_body",
+    "name": "Heated Body",
+    "effect": "10.0% decrease in incoming Ice damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Heated Body",
+      "Heated Body palworld",
+      "Heated Body passive"
+    ]
+  },
+  {
+    "id": "heavily_armored",
+    "name": "Heavily Armored",
+    "effect": "Immune to Explosion Damage",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Heavily Armored",
+      "Heavily Armored palworld",
+      "Heavily Armored passive"
+    ]
+  },
+  {
+    "id": "heavyweight",
+    "name": "Heavyweight",
+    "effect": "Defense +20.0% Immune to Knockback",
+    "rarity": "rare",
+    "tier": 2,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "domearmordragon",
+      "grassgolem",
+      "grassgolem_dark",
+      "grassmammoth",
+      "grassmammoth_ice",
+      "kingalpaca",
+      "kingalpaca_ice",
+      "plesiosaur",
+      "rockbeast",
+      "rockbeast_ice",
+      "sakurasaurus",
+      "sakurasaurus_water",
+      "volcanicmonster",
+      "volcanicmonster_ice",
+      "whiteshielddragon",
+      "winggolem",
+      "winggolem_fire",
+      "yeti",
+      "yeti_grass"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Heavyweight",
+      "Heavyweight palworld",
+      "Heavyweight passive"
+    ]
+  },
+  {
+    "id": "hermit_sage",
+    "name": "Hermit Sage",
+    "effect": "SAN depletion rate -50.0% Work Speed -20.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Hermit Sage",
+      "Hermit Sage palworld",
+      "Hermit Sage passive"
+    ]
+  },
+  {
+    "id": "hooligan",
+    "name": "Hooligan",
+    "effect": "Attack +15.0% Work Speed -10.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "gorilla",
+      "gorilla_ground"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Hooligan",
+      "Hooligan palworld",
+      "Hooligan passive"
+    ]
+  },
+  {
+    "id": "hydromaniac",
+    "name": "Hydromaniac",
+    "effect": "10.0% increase in Water attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Hydromaniac",
+      "Hydromaniac palworld",
+      "Hydromaniac passive"
+    ]
+  },
+  {
+    "id": "ice_emperor",
+    "name": "Ice Emperor",
+    "effect": "30.0% increase in Ice attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "icehorse"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Ice Emperor",
+      "Ice Emperor palworld",
+      "Ice Emperor passive"
+    ]
+  },
+  {
+    "id": "idiosyncratic",
+    "name": "Idiosyncratic",
+    "effect": "Pal and Player Auto Health Regeneration Rate +50.0% Defense +25.0% Immune to Poison Damage Immune to Burn Damage",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Idiosyncratic",
+      "Idiosyncratic palworld",
+      "Idiosyncratic passive"
+    ]
+  },
+  {
+    "id": "immortality",
+    "name": "Immortality",
+    "effect": "Life Steal +5.0% Pal Auto Health Regeneration Rate +100.0% Attack +15.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Immortality",
+      "Immortality palworld",
+      "Immortality passive"
+    ]
+  },
+  {
+    "id": "impatient",
+    "name": "Impatient",
+    "effect": "Active skill cooldown reduction 15.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Impatient",
+      "Impatient palworld",
+      "Impatient passive"
+    ]
+  },
+  {
+    "id": "infinite_stamina",
+    "name": "Infinite Stamina",
+    "effect": "Max stamina +50.0% *This effect is only valid for rideable pals.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Infinite Stamina",
+      "Infinite Stamina palworld",
+      "Infinite Stamina passive"
+    ]
+  },
+  {
+    "id": "insomnia",
+    "name": "Insomnia",
+    "effect": "Does not sleep and continues to work even at night.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Insomnia",
+      "Insomnia palworld",
+      "Insomnia passive"
+    ]
+  },
+  {
+    "id": "insulated_body",
+    "name": "Insulated Body",
+    "effect": "10.0% decrease in incoming Lightning damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Insulated Body",
+      "Insulated Body palworld",
+      "Insulated Body passive"
+    ]
+  },
+  {
+    "id": "invader",
+    "name": "Invader",
+    "effect": "30.0% increase in Dark attack damage. 30.0% increase in Dragon attack damage.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "darkmechadragon"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Invader",
+      "Invader palworld",
+      "Invader passive"
+    ]
+  },
+  {
+    "id": "king_of_the_waves",
+    "name": "King of the Waves",
+    "effect": "50.0% increase movement speed on water.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "King of the Waves",
+      "King of the Waves palworld",
+      "King of the Waves passive"
+    ]
+  },
+  {
+    "id": "lavish_hospitality",
+    "name": "Lavish Hospitality",
+    "effect": "Your Dropped Items + 100.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lavish Hospitality",
+      "Lavish Hospitality palworld",
+      "Lavish Hospitality passive"
+    ]
+  },
+  {
+    "id": "legend",
+    "name": "Legend",
+    "effect": "Attack +20.0% Defense +20.0% Movement Speed increases 20.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "blackcentaur",
+      "icehorse",
+      "icehorse_dark",
+      "jetdragon",
+      "poseidonorca",
+      "saintcentaur"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Legend",
+      "Legend palworld",
+      "Legend passive"
+    ]
+  },
+  {
+    "id": "lightfooted",
+    "name": "Lightfooted",
+    "effect": "Mounted Jump Count +1",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lightfooted",
+      "Lightfooted palworld",
+      "Lightfooted passive"
+    ]
+  },
+  {
+    "id": "logging_foreman",
+    "name": "Logging Foreman",
+    "effect": "25.0% increase in Player Logging Efficiency.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Logging Foreman",
+      "Logging Foreman palworld",
+      "Logging Foreman passive"
+    ]
+  },
+  {
+    "id": "lord_of_lightning",
+    "name": "Lord of Lightning",
+    "effect": "30.0% increase in Lightning attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "thunderdragonman"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lord of Lightning",
+      "Lord of Lightning palworld",
+      "Lord of Lightning passive"
+    ]
+  },
+  {
+    "id": "lord_of_the_sea",
+    "name": "Lord of the Sea",
+    "effect": "30.0% increase in Water attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "umihebi"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lord of the Sea",
+      "Lord of the Sea palworld",
+      "Lord of the Sea passive"
+    ]
+  },
+  {
+    "id": "lord_of_the_underworld",
+    "name": "Lord of the Underworld",
+    "effect": "30.0% increase in Dark attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "blackcentaur",
+      "icehorse_dark"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lord of the Underworld",
+      "Lord of the Underworld palworld",
+      "Lord of the Underworld passive"
+    ]
+  },
+  {
+    "id": "lucky",
+    "name": "Lucky",
+    "effect": "Attack +15.0% Defense +15.0% Work Speed +20.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lucky",
+      "Lucky palworld",
+      "Lucky passive"
+    ]
+  },
+  {
+    "id": "lunker",
+    "name": "Lunker",
+    "effect": "20.0% increase to Water attack damage 20.0% increase to Ice attack damage 20.0% increase to defense.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "poseidonorca"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Lunker",
+      "Lunker palworld",
+      "Lunker passive"
+    ]
+  },
+  {
+    "id": "masochist",
+    "name": "Masochist",
+    "effect": "Defense +15.0% Attack -15.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Masochist",
+      "Masochist palworld",
+      "Masochist passive"
+    ]
+  },
+  {
+    "id": "mastery_of_fasting",
+    "name": "Mastery of Fasting",
+    "effect": "Hunger decreases +20.0% slower.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Mastery of Fasting",
+      "Mastery of Fasting palworld",
+      "Mastery of Fasting passive"
+    ]
+  },
+  {
+    "id": "mercy_hit",
+    "name": "Mercy Hit",
+    "effect": "Pacifist. Will not reduce the target's Health below 1.",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal",
+      "item"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Mercy Hit",
+      "Mercy Hit palworld",
+      "Mercy Hit passive"
+    ]
+  },
+  {
+    "id": "mine_foreman",
+    "name": "Mine Foreman",
+    "effect": "25.0% increase in Player Mining Efficiency.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Mine Foreman",
+      "Mine Foreman palworld",
+      "Mine Foreman passive"
+    ]
+  },
+  {
+    "id": "motivational_leader",
+    "name": "Motivational Leader",
+    "effect": "25.0% increase in Player Work Speed.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Motivational Leader",
+      "Motivational Leader palworld",
+      "Motivational Leader passive"
+    ]
+  },
+  {
+    "id": "musclehead",
+    "name": "Musclehead",
+    "effect": "Attack +30.0% Work Speed -50.0%",
+    "rarity": "rare",
+    "tier": 2,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Musclehead",
+      "Musclehead palworld",
+      "Musclehead passive"
+    ]
+  },
+  {
+    "id": "night_owl",
+    "name": "Night Owl",
+    "effect": "Tends to nap through the day, due to being nocturnal.",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Night Owl",
+      "Night Owl palworld",
+      "Night Owl passive"
+    ]
+  },
+  {
+    "id": "nimble",
+    "name": "Nimble",
+    "effect": "10.0% increase to movement speed.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Nimble",
+      "Nimble palworld",
+      "Nimble passive"
+    ]
+  },
+  {
+    "id": "noble",
+    "name": "Noble",
+    "effect": "Increases the value of items when sold by +5.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Noble",
+      "Noble palworld",
+      "Noble passive"
+    ]
+  },
+  {
+    "id": "otherworldly_cells",
+    "name": "Otherworldly Cells",
+    "effect": "Attack +10.0% Fire damage reduction 15.0% Lightning damage reduction 15.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "darkalien",
+      "darkmechadragon",
+      "whitealiendragon"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Otherworldly Cells",
+      "Otherworldly Cells palworld",
+      "Otherworldly Cells passive"
+    ]
+  },
+  {
+    "id": "pacifist",
+    "name": "Pacifist",
+    "effect": "Attack -20.0%",
+    "rarity": "common",
+    "tier": -3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Pacifist",
+      "Pacifist palworld",
+      "Pacifist passive"
+    ]
+  },
+  {
+    "id": "philanthropist",
+    "name": "Philanthropist",
+    "effect": "When assigned to a Breeding Farm, breeding speed is increased by 100.0%.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Philanthropist",
+      "Philanthropist palworld",
+      "Philanthropist passive"
+    ]
+  },
+  {
+    "id": "positive_thinker",
+    "name": "Positive Thinker",
+    "effect": "SAN drops +10.0% slower.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Positive Thinker",
+      "Positive Thinker palworld",
+      "Positive Thinker passive"
+    ]
+  },
+  {
+    "id": "power_of_gaia",
+    "name": "Power of Gaia",
+    "effect": "10.0% increase in Earth attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Power of Gaia",
+      "Power of Gaia palworld",
+      "Power of Gaia passive"
+    ]
+  },
+  {
+    "id": "pyromaniac",
+    "name": "Pyromaniac",
+    "effect": "10.0% increase in Fire attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Pyromaniac",
+      "Pyromaniac palworld",
+      "Pyromaniac passive"
+    ]
+  },
+  {
+    "id": "ranch_master",
+    "name": "Ranch Master",
+    "effect": "Farming's Work Suitability +2",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Ranch Master",
+      "Ranch Master palworld",
+      "Ranch Master passive"
+    ]
+  },
+  {
+    "id": "reload_master",
+    "name": "Reload Master",
+    "effect": "Player Reload Speed +4.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Reload Master",
+      "Reload Master palworld",
+      "Reload Master passive"
+    ]
+  },
+  {
+    "id": "remarkable_craftsmanship",
+    "name": "Remarkable Craftsmanship",
+    "effect": "Work Speed +75.0%",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Remarkable Craftsmanship",
+      "Remarkable Craftsmanship palworld",
+      "Remarkable Craftsmanship passive"
+    ]
+  },
+  {
+    "id": "runner",
+    "name": "Runner",
+    "effect": "20.0% increase to movement speed.",
+    "rarity": "rare",
+    "tier": 2,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Runner",
+      "Runner palworld",
+      "Runner passive"
+    ]
+  },
+  {
+    "id": "sadist",
+    "name": "Sadist",
+    "effect": "Attack +15.0% Defense -15.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "grimgirl"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Sadist",
+      "Sadist palworld",
+      "Sadist passive"
+    ]
+  },
+  {
+    "id": "sanctified_meat_shield",
+    "name": "Sanctified Meat Shield",
+    "effect": "Defense +50.0% Attack -30.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Sanctified Meat Shield",
+      "Sanctified Meat Shield palworld",
+      "Sanctified Meat Shield passive"
+    ]
+  },
+  {
+    "id": "savior",
+    "name": "Savior",
+    "effect": "30.0% increase in Neutral attack damage. 30.0% increase in Grass attack damage.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "legenddeer"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Savior",
+      "Savior palworld",
+      "Savior passive"
+    ]
+  },
+  {
+    "id": "serenity",
+    "name": "Serenity",
+    "effect": "Active skill cooldown reduction 30.0% Attack +10.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Serenity",
+      "Serenity palworld",
+      "Serenity passive"
+    ]
+  },
+  {
+    "id": "serious",
+    "name": "Serious",
+    "effect": "Work Speed +20.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Serious",
+      "Serious palworld",
+      "Serious passive"
+    ]
+  },
+  {
+    "id": "service_minded",
+    "name": "Service-Minded",
+    "effect": "Your Dropped Items + 50.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Service-Minded",
+      "Service-Minded palworld",
+      "Service-Minded passive"
+    ]
+  },
+  {
+    "id": "shabby",
+    "name": "Shabby",
+    "effect": "Decrease the value of items when sold by -10.0%",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Shabby",
+      "Shabby palworld",
+      "Shabby passive"
+    ]
+  },
+  {
+    "id": "sickly",
+    "name": "Sickly",
+    "effect": "Max Stamina -25.0% *This effect is only valid for rideable pals.",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Sickly",
+      "Sickly palworld",
+      "Sickly passive"
+    ]
+  },
+  {
+    "id": "siren_of_the_void",
+    "name": "Siren of the Void",
+    "effect": "30.0% increase in Dark attack damage. 30.0% increase in Ice attack damage.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal",
+      "rare"
+    ],
+    "removable": true,
+    "yakumo_transferable": false,
+    "legendary_restricted": true,
+    "learners": [
+      "nightlady_dark"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Siren of the Void",
+      "Siren of the Void palworld",
+      "Siren of the Void passive"
+    ]
+  },
+  {
+    "id": "skymarcher",
+    "name": "Skymarcher",
+    "effect": "Mounted Jump Count +2",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Skymarcher",
+      "Skymarcher palworld",
+      "Skymarcher passive"
+    ]
+  },
+  {
+    "id": "slacker",
+    "name": "Slacker",
+    "effect": "Work Speed -30.0%",
+    "rarity": "common",
+    "tier": -3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Slacker",
+      "Slacker palworld",
+      "Slacker passive"
+    ]
+  },
+  {
+    "id": "sleek_stroke",
+    "name": "Sleek Stroke",
+    "effect": "30.0% increase movement speed on water.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Sleek Stroke",
+      "Sleek Stroke palworld",
+      "Sleek Stroke passive"
+    ]
+  },
+  {
+    "id": "spirit_emperor",
+    "name": "Spirit Emperor",
+    "effect": "30.0% increase in Grass attack damage.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [
+      "lilyqueen"
+    ],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Spirit Emperor",
+      "Spirit Emperor palworld",
+      "Spirit Emperor passive"
+    ]
+  },
+  {
+    "id": "spirit_of_zen",
+    "name": "Spirit of Zen",
+    "effect": "10.0% increase in Neutral attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Spirit of Zen",
+      "Spirit of Zen palworld",
+      "Spirit of Zen passive"
+    ]
+  },
+  {
+    "id": "stronghold_strategist",
+    "name": "Stronghold Strategist",
+    "effect": "10.0% increase in Player Defense.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Stronghold Strategist",
+      "Stronghold Strategist palworld",
+      "Stronghold Strategist passive"
+    ]
+  },
+  {
+    "id": "suntan_lover",
+    "name": "Suntan Lover",
+    "effect": "10.0% decrease in incoming Fire damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Suntan Lover",
+      "Suntan Lover palworld",
+      "Suntan Lover passive"
+    ]
+  },
+  {
+    "id": "swift",
+    "name": "Swift",
+    "effect": "30.0% increase to movement speed.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Swift",
+      "Swift palworld",
+      "Swift passive"
+    ]
+  },
+  {
+    "id": "twin_edged_holy_blade",
+    "name": "Twin-Edged Holy Blade",
+    "effect": "Attack +50.0% Defense -30.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Twin-Edged Holy Blade",
+      "Twin-Edged Holy Blade palworld",
+      "Twin-Edged Holy Blade passive"
+    ]
+  },
+  {
+    "id": "unstable",
+    "name": "Unstable",
+    "effect": "SAN drops +10.0% faster.",
+    "rarity": "common",
+    "tier": -1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Unstable",
+      "Unstable palworld",
+      "Unstable passive"
+    ]
+  },
+  {
+    "id": "vampiric",
+    "name": "Vampiric",
+    "effect": "Absorbs a portion of the damage dealt to restore Health. Does not sleep at night and continues to work.",
+    "rarity": "legendary",
+    "tier": 4,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Vampiric",
+      "Vampiric palworld",
+      "Vampiric passive"
+    ]
+  },
+  {
+    "id": "vanguard",
+    "name": "Vanguard",
+    "effect": "10.0% increase in Player Attack.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Vanguard",
+      "Vanguard palworld",
+      "Vanguard passive"
+    ]
+  },
+  {
+    "id": "veil_of_darkness",
+    "name": "Veil of Darkness",
+    "effect": "10.0% increase in Dark attack damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Veil of Darkness",
+      "Veil of Darkness palworld",
+      "Veil of Darkness passive"
+    ]
+  },
+  {
+    "id": "waterproof",
+    "name": "Waterproof",
+    "effect": "10.0% decrease in incoming Water damage.",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Waterproof",
+      "Waterproof palworld",
+      "Waterproof passive"
+    ]
+  },
+  {
+    "id": "wellness_watcher",
+    "name": "Wellness Watcher",
+    "effect": "Player Stamina Consumption -5.0%",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Wellness Watcher",
+      "Wellness Watcher palworld",
+      "Wellness Watcher passive"
+    ]
+  },
+  {
+    "id": "whopper",
+    "name": "Whopper",
+    "effect": "5.0% increase to Water attack damage 5.0% increase to Ice attack damage 5.0% increase to defense.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Whopper",
+      "Whopper palworld",
+      "Whopper passive"
+    ]
+  },
+  {
+    "id": "work_slave",
+    "name": "Work Slave",
+    "effect": "Work Speed +30.0% Attack -30.0%",
+    "rarity": "uncommon",
+    "tier": 1,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Work Slave",
+      "Work Slave palworld",
+      "Work Slave passive"
+    ]
+  },
+  {
+    "id": "workaholic",
+    "name": "Workaholic",
+    "effect": "SAN drops +15.0% slower.",
+    "rarity": "epic",
+    "tier": 3,
+    "source": [
+      "pal"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "Workaholic",
+      "Workaholic palworld",
+      "Workaholic passive"
+    ]
+  },
+  {
+    "id": "world_tree_seedbed",
+    "name": "World Tree Seedbed",
+    "effect": "Decrease Hunger depletion rate by +50.0% HP -20.0% World Tree resources will not vanish when approached.",
+    "rarity": "legendary",
+    "tier": 5,
+    "source": [
+      "world_tree"
+    ],
+    "removable": true,
+    "yakumo_transferable": true,
+    "legendary_restricted": false,
+    "learners": [],
+    "effect_since": "1.0",
+    "effect_notes": [],
+    "search_terms": [
+      "World Tree Seedbed",
+      "World Tree Seedbed palworld",
+      "World Tree Seedbed passive"
+    ]
+  }
+]

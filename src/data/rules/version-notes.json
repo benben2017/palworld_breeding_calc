@@ -1,0 +1,18 @@
+{
+  "default_since": "1.0",
+  "known_notes": [
+    {
+      "version": "1.0",
+      "note": "Passive skills present since launch."
+    },
+    {
+      "version": "1.0.3",
+      "note": "Weak point damage formula changed (affects related damage passives)."
+    },
+    {
+      "version": "1.0",
+      "note": "Stat Fruit removed from the game."
+    }
+  ],
+  "note": "effect_notes 由监控周报持续积累；禁止编造版本事实。"
+}

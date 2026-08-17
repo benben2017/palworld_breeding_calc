@@ -130,13 +130,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>For more detail, see <a href="https://www.cloudflare.com/privacypolicy/" class="text-primary underline">Cloudflare's Privacy Policy</a>.</p>
       </section>
 
-      <!-- 8. Data Sources -->
+      <!-- 8. Data Sources and Attribution (Iteration 1) -->
       <section class="bg-surface border border-border rounded-2xl p-6">
         <h2 class="text-lg font-extrabold mb-3 text-onSurface">8. Data Sources and Attribution</h2>
+        <p class="mb-3">
+          The breeding data and passive skill data used by the Service are sourced from community-maintained
+          projects. Full per-source attribution, licenses, and extraction dates are listed on our
+          <a href="#" class="text-primary underline">Data Sources page</a>. A summary:
+        </p>
         <ul class="list-disc pl-6 space-y-1">
-          <li><strong class="text-onSurface">tylercamp/palcalc</strong> — community-maintained open-source project (<a href="https://raw.githubusercontent.com/tylercamp/palcalc/be2ec7a95c52/LICENSE.txt" class="text-primary underline">MIT License</a>)</li>
-          <li>Game content and Palworld-related assets are the property of <strong class="text-onSurface">Pocketpair, Inc.</strong></li>
+          <li>
+            <strong class="text-onSurface">palworld-save-pal</strong> (community project) — passive skill names and effect text, sourced
+            from <code class="bg-background px-1.5 py-0.5 rounded font-mono text-xs">data/json/l10n/en/passive_skills.json</code>. Only factual game data fields are used; no
+            source code is included.
+            (<a href="https://www.gnu.org/licenses/gpl-3.0.html" class="text-primary underline">GNU GPL v3.0</a>)
+          </li>
+          <li>
+            <strong class="text-onSurface">palschema-hub</strong> (community project) — field mapping reference for passive skill fields
+            (tier, source, learners) against Palworld 1.0 data tables.
+            (<a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT License</a>)
+          </li>
+          <li>
+            <strong class="text-onSurface">Palworld Wiki</strong> (palworld.fandom.com) — cross-validation data for passive skill rankings
+            and special cases. Facts are extracted in structured form; no wiki text is reproduced verbatim.
+            (<a href="https://creativecommons.org/licenses/by-sa/4.0/" class="text-primary underline">CC-BY-SA</a>)
+          </li>
+          <li>
+            <strong class="text-onSurface">palcalc</strong> (community project) — breeding combination data.
+            (<a href="https://opensource.org/licenses/MIT" class="text-primary underline">MIT License</a>)
+          </li>
         </ul>
+        <p class="mt-3">
+          Palworld game data (names, stats, effect text, breeding values) is the property of Pocketpair, Inc.
+          and is presented for informational, fan-made purposes only. This Service is not affiliated with,
+          endorsed by, or sponsored by Pocketpair, Inc.
+        </p>
       </section>
 
       <!-- 9. Not Collected -->

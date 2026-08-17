@@ -1,0 +1,58 @@
+{
+  "generated": "2026-08-17",
+  "dataset": "passives.json v1 (Data Contract v3.1)",
+  "sources": [
+    {
+      "name": "palworld-save-pal",
+      "repo": "https://github.com/oMaN-Rod/palworld-save-pal",
+      "license": "GNU GPL v3.0",
+      "commit": "e79032b89302",
+      "extracted": "2026-08-17",
+      "files": [
+        "data/json/l10n/en/passive_skills.json",
+        "data/json/pals.json",
+        "data/json/l10n/en/pals.json"
+      ],
+      "used_for": [
+        "id/name/effect 基座",
+        "learners（PassiveSkill 携带）",
+        "pal internalName 映射",
+        "is_raid_boss/is_tower_boss 参考"
+      ]
+    },
+    {
+      "name": "palschema-hub",
+      "repo": "https://github.com/Booyaka101/palschema-hub",
+      "license": "MIT",
+      "commit": "b52bf1be9599",
+      "extracted": "2026-08-17",
+      "files": [
+        "schemas/v1.0/DT_PassiveSkill_Main.schema.json",
+        "schemas/v1.0/DT_PalMonsterParameter.schema.json"
+      ],
+      "used_for": [
+        "Rank→tier 字段参考",
+        "Add*→source 字段参考",
+        "PassiveSkill1-4/IsRaidBoss 字段参考"
+      ]
+    },
+    {
+      "name": "Fandom Palworld Wiki",
+      "repo": "https://palworld.fandom.com/wiki/Passive_Skills",
+      "license": "CC-BY-SA",
+      "extracted": "2026-08-17",
+      "files": [
+        "Passive_Skills wikitext (action=parse)"
+      ],
+      "used_for": [
+        "rank/tier 排序表",
+        "Special Cases（Pal-Specific/Boss-Specific/Item-Specific）交叉验证"
+      ]
+    }
+  ],
+  "notes": [
+    "仅提取游戏事实字段；不复制任何源码/工具链/整库 JSON。",
+    "展示文案与 search_terms 为本站自撰/自建（合规红线 4）。",
+    "多源不一致以游戏内部 ID 为准，Fandom 名差异记录于融合表 fandom_notes（红线 7）。"
+  ]
+}

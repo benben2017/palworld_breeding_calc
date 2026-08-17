@@ -1,0 +1,73 @@
+name: Build and deploy PalBreed
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PUBLIC_PLAUSIBLE_SCRIPT_URL: https://plausible.shipsolo.io/js/script.js
+  PUBLIC_GA_MEASUREMENT_ID: G-B4JYQ5R6MX
+  PUBLIC_CLARITY_PROJECT_ID: y0qlcvfym0
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate passive data
+        run: python3 scripts/validate_passives.py src/data
+
+      - name: Build site
+        run: npm run build
+
+      - name: Include passive data in deployment artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/data/rules
+          cp src/data/passives.json dist/data/passives.json
+          cp src/data/passive-id-map.json dist/data/passive-id-map.json
+          cp src/data/passives-META.json dist/data/passives-META.json
+          cp src/data/rules/*.json dist/data/rules/
+
+      - name: Verify build output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -f dist/sitemap.xml
+          test -f dist/data/passives.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          passives = json.loads(Path("dist/data/passives.json").read_text())
+          assert len(passives) == 115, len(passives)
+          assert all(len(item) >= 12 for item in passives)
+          print(f"Build verification passed: {len(passives)} passive records")
+          PY
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: palbreed
+          directory: dist
+          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

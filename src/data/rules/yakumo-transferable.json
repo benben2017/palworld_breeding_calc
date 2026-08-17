@@ -1,0 +1,21 @@
+{
+  "default": true,
+  "rule": "Yakumo's SyncroPassiveWhenCapture transfers passives by default.",
+  "exceptions": {
+    "Immortality": "不可经 Yakumo 传递（社区实测反例，交接单步骤 3 证据）"
+  },
+  "exceptions_derived_from": {
+    "legendary_restricted": [
+      "Celestial Emperor",
+      "Divine Dragon",
+      "Earth Emperor",
+      "Eternal Flame",
+      "Ice Emperor",
+      "Invader",
+      "Lord of the Sea",
+      "Lord of the Underworld",
+      "Siren of the Void"
+    ]
+  },
+  "note": "例外 = Boss-Specific/专属被动（需击败 Raid 或捕获 Alpha 获得）+ Immortality（社区实测）。"
+}
