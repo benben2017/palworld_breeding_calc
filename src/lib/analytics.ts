@@ -9,6 +9,10 @@ function gtagEvent(name: string, params: Record<string, string | number | boolea
   try {
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, params);
+    } else if (window.analyticsConsent === 'accepted') {
+      // Queue events while gtag.js is still loading; never queue before consent.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(['event', name, params]);
     }
   } catch {
     /* ignore — analytics must never break the tool */

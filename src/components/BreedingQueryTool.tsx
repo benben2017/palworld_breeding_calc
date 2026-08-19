@@ -503,7 +503,11 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
             <div className="relative z-10 bg-surface px-4 py-1 text-primary text-2xl">🛣️</div>
           </div>
 
-          <div className="w-full max-w-full min-w-0 bg-background/50 border border-border rounded-xl min-h-32 p-4 overflow-hidden">
+          <div
+            className="w-full max-w-full min-w-0 bg-background/50 border border-border rounded-xl min-h-32 p-4 overflow-hidden"
+            aria-busy={reverseResult.status === 'loading'}
+            aria-live="polite"
+          >
             {reverseResult.status === 'idle' && (
               <div className="h-32 flex flex-col items-center justify-center gap-2">
                 <span className="text-4xl opacity-20">🐾</span>
@@ -511,11 +515,12 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
               </div>
             )}
             {reverseResult.status === 'loading' && (
-              <div className="h-32 flex items-center justify-center">
-                <div className="w-full max-w-xs space-y-3">
+              <div className="h-32 flex flex-col items-center justify-center gap-2" role="status" aria-live="polite">
+                <div className="w-full max-w-xs space-y-3" aria-hidden="true">
                   <div className="h-4 w-2/3 mx-auto rounded-full skeleton"></div>
                   <div className="h-3 w-1/2 mx-auto rounded-full skeleton opacity-50"></div>
                 </div>
+                <span className="sr-only">Loading parent combinations…</span>
               </div>
             )}
             {reverseResult.status === 'success' && reverseResult.combos && (
