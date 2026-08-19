@@ -243,7 +243,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
     return (
       <div
         key={i}
-        className="w-full max-w-full min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors [overflow-wrap:anywhere]"
+        className="reverse-combo-row w-full max-w-full min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors [overflow-wrap:anywhere]"
       >
         <span className="inline-flex min-w-0 max-w-full items-center gap-2">
           {a && (

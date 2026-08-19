@@ -106,6 +106,24 @@ body {
 [data-theme="hc"] .border-border { border-width: 2px !important; }
 [data-theme="hc"] a { text-decoration: underline; }
 
+/* 反查父母组合行：结果卡片内任何长名称都必须在可用宽度内换行。 */
+.reverse-combo-row,
+.reverse-combo-row > *,
+.reverse-combo-row a {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.reverse-combo-row > span:not(.text-primary) {
+  flex: 1 1 auto;
+}
+
+.reverse-combo-row > .text-primary {
+  flex: 0 0 auto;
+}
+
 /* ===== 无障碍：focus 可见 ===== */
 :focus-visible {
   outline: 2px solid var(--primary);
