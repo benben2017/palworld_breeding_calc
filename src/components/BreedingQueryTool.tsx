@@ -62,6 +62,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
   const byKey = useMemo(() => new Map(pals.map((p) => [p.key, p])), [pals]);
   const modeRef = useRef(mode);
   modeRef.current = mode;
+  const reverseRequestRef = useRef(0);
 
   // 正查结果
   const [forwardState, setForwardState] = useState<
@@ -160,15 +161,15 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
   // ---- 反查：选中目标后自动查询（PRD §10.6） ----
   const runReverse = useCallback(
     (child: Pal | null) => {
+      const requestId = ++reverseRequestRef.current;
       if (!child) {
         setReverseResult({ status: 'idle' });
         return;
       }
-      let cancelled = false;
       setReverseResult({ status: 'loading' });
       loadReverseIndex()
         .then((idx) => {
-          if (cancelled) return;
+          if (requestId !== reverseRequestRef.current) return;
           const combos = idx[child.key];
           if (combos && combos.length > 0) {
             setReverseResult({ status: 'success', combos });
@@ -180,13 +181,10 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           }
         })
         .catch(() => {
-          if (cancelled) return;
+          if (requestId !== reverseRequestRef.current) return;
           setLoadError('Failed to load breeding data. Check your connection and try again.');
           analytics.errorShown('load_fail', 'reverse');
         });
-      return () => {
-        cancelled = true;
-      };
     },
     [],
   );
@@ -245,9 +243,9 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
     return (
       <div
         key={i}
-        className="w-full max-w-full min-w-0 flex items-center justify-between gap-3 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors"
+        className="w-full max-w-full min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors [overflow-wrap:anywhere]"
       >
-        <div className="w-full max-w-full min-w-0 flex items-center gap-2 flex-wrap [overflow-wrap:anywhere]">
+        <span className="inline-flex min-w-0 max-w-full items-center gap-2">
           {a && (
             <img
               src={a.imageUrl}
@@ -262,7 +260,9 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           <a href={`/pals/${parts.aKey}`} className="min-w-0 max-w-full break-words font-semibold text-onSurface hover:text-primary transition-colors">
             {a?.name ?? parts.aKey}
           </a>
-          <span className="text-primary">+</span>
+        </span>
+        <span className="text-primary shrink-0" aria-hidden="true">+</span>
+        <span className="inline-flex min-w-0 max-w-full items-center gap-2">
           {b && (
             <img
               src={b.imageUrl}
@@ -277,14 +277,14 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           <a href={`/pals/${parts.bKey}`} className="min-w-0 max-w-full break-words font-semibold text-onSurface hover:text-primary transition-colors">
             {b?.name ?? parts.bKey}
           </a>
-          {genderNote && <span className="min-w-0 max-w-full break-words text-xs text-onSurface/50">{genderNote}</span>}
-        </div>
+        </span>
+        {genderNote && <span className="min-w-0 max-w-full break-words text-xs text-onSurface/50">{genderNote}</span>}
       </div>
     );
   }
 
   return (
-    <div className={compact ? '' : 'space-y-8'}>
+    <div className={compact ? 'min-w-0' : 'w-full max-w-full min-w-0 space-y-8'}>
       {/* Tab 切换 */}
       <div className={compact ? 'flex gap-6 mb-8 border-b border-border/50' : 'flex border-b border-border'}>
         <button
@@ -366,7 +366,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           </div>
 
           {/* 结果区 */}
-          <div className="bg-background/50 border border-border rounded-xl min-h-32 flex flex-col items-center justify-center gap-3 p-6 text-center">
+          <div className="w-full max-w-full min-w-0 bg-background/50 border border-border rounded-xl min-h-32 flex flex-col items-center justify-center gap-3 p-6 text-center">
             {forwardState.status === 'idle' && (
               <p className="text-sm text-onSurface/40 font-medium">
                 {palA && !palB
@@ -486,7 +486,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
 
       {/* ============ 反查模式 ============ */}
       {mode === 'reverse' && (
-        <div className="space-y-6">
+        <div className="w-full max-w-full min-w-0 space-y-6">
           <PalSelector
             id="pal-target"
             pals={pals}
@@ -503,7 +503,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
             <div className="relative z-10 bg-surface px-4 py-1 text-primary text-2xl">🛣️</div>
           </div>
 
-          <div className="bg-background/50 border border-border rounded-xl min-h-32 p-4">
+          <div className="w-full max-w-full min-w-0 bg-background/50 border border-border rounded-xl min-h-32 p-4 overflow-hidden">
             {reverseResult.status === 'idle' && (
               <div className="h-32 flex flex-col items-center justify-center gap-2">
                 <span className="text-4xl opacity-20">🐾</span>
@@ -534,7 +534,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                     {reverseResult.combos.length === 1 ? 'parent pair' : 'parent pairs'}:
                   </span>
                 </p>
-                <div className="space-y-2">
+                <div className="w-full max-w-full min-w-0 space-y-2">
                   {reverseResult.combos.slice(0, reverseExpanded ? undefined : 20).map((c, i) => renderComboRow(c, i))}
                 </div>
                 {reverseResult.combos.length > 20 && !reverseExpanded && (
