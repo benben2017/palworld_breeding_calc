@@ -1,0 +1,87 @@
+---
+// /data-sources — per-source attribution, licenses, and extraction metadata
+import BaseLayout from '../layouts/BaseLayout.astro';
+import passiveMeta from '../data/passives-META.json';
+import breedingVersion from '../data/version.json';
+
+const sources = [
+  {
+    name: 'tylercamp/palcalc',
+    purpose: 'Breeding combinations and Pal breeding data',
+    license: 'MIT License',
+    licenseUrl: 'https://opensource.org/licenses/MIT',
+    url: 'https://github.com/tylercamp/palcalc',
+    revision: breedingVersion.sourceCommit,
+    extracted: breedingVersion.generatedAt,
+  },
+  ...passiveMeta.sources.map((source) => ({
+    name: source.name,
+    purpose: source.used_for.join('; '),
+    license: source.license,
+    licenseUrl:
+      source.license === 'GNU GPL v3.0'
+        ? 'https://www.gnu.org/licenses/gpl-3.0.html'
+        : source.license === 'CC-BY-SA'
+          ? 'https://creativecommons.org/licenses/by-sa/4.0/'
+          : 'https://opensource.org/licenses/MIT',
+    url: source.repo,
+    revision: source.commit ?? 'See source page',
+    extracted: source.extracted,
+  })),
+];
+
+const sourcesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'PalBreed community data sources',
+  description: 'Attribution and licensing details for the community-maintained data used by PalBreed.',
+  url: 'https://palbreed.space/data-sources/',
+  isAccessibleForFree: true,
+  creator: { '@type': 'Organization', name: 'PalBreed', url: 'https://palbreed.space' },
+};
+---
+
+<BaseLayout
+  title="Data Sources and Attribution | PalBreed"
+  description="Source, license, revision, and extraction details for PalBreed breeding and passive skill data."
+  canonical="https://palbreed.space/data-sources/"
+  jsonLd={JSON.stringify(sourcesJsonLd)}
+>
+  <div class="max-w-4xl mx-auto px-6 pt-12 pb-8">
+    <header class="mb-10">
+      <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Transparency</p>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Data Sources and Attribution</h1>
+      <p class="text-lg text-onSurface/70 leading-relaxed">
+        PalBreed combines community-maintained game data with structured validation. This page records what each
+        source contributes, its license, and the revision used for the current dataset.
+      </p>
+    </header>
+
+    <div class="space-y-5">
+      {sources.map((source) => (
+        <section class="bg-surface border border-border rounded-2xl p-6" aria-labelledby={`source-${source.name}`}>
+          <h2 id={`source-${source.name}`} class="text-xl font-extrabold mb-3 text-onSurface">{source.name}</h2>
+          <dl class="grid sm:grid-cols-[auto_1fr] gap-x-5 gap-y-2 text-sm leading-relaxed">
+            <dt class="font-bold text-onSurface/60">Used for</dt>
+            <dd>{source.purpose}</dd>
+            <dt class="font-bold text-onSurface/60">License</dt>
+            <dd><a href={source.licenseUrl} class="text-primary underline">{source.license}</a></dd>
+            <dt class="font-bold text-onSurface/60">Revision</dt>
+            <dd class="font-mono text-xs break-all">{source.revision}</dd>
+            <dt class="font-bold text-onSurface/60">Extracted</dt>
+            <dd>{source.extracted}</dd>
+          </dl>
+          <p class="mt-4"><a href={source.url} class="text-primary underline break-all">View source project</a></p>
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-8 bg-surface/50 border border-border rounded-2xl p-6 text-sm text-onSurface/70 leading-relaxed">
+      <h2 class="text-lg font-extrabold text-onSurface mb-3">Game content notice</h2>
+      <p>
+        Palworld names, characters, images, and game-specific facts remain the property of Pocketpair, Inc. PalBreed
+        is a fan-made tool and is not affiliated with, endorsed by, or sponsored by Pocketpair, Inc.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
