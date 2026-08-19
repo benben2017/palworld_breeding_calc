@@ -176,7 +176,6 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
             analytics.reverseLookupCompleted({ result_count: combos.length > 20 ? '20+' : '1-20' });
           } else {
             setReverseResult({ status: 'no_result' });
-            analytics.reverseLookupCompleted({ result_count: '1-20' });
             analytics.errorShown('no_result', 'reverse');
           }
         })
@@ -546,7 +545,6 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                   <button
                     onClick={() => {
                       setReverseExpanded(true);
-                      analytics.reverseLookupCompleted({ result_count: '20+' });
                     }}
                     className="mt-4 w-full py-3 rounded-xl border border-primary/40 text-primary font-bold hover:bg-primary/10 transition-colors touch-target"
                   >
