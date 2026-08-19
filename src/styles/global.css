@@ -107,22 +107,64 @@ body {
 [data-theme="hc"] .border-border { border-width: 2px !important; }
 [data-theme="hc"] a { text-decoration: underline; }
 
-/* 反查父母组合行：结果卡片内任何长名称都必须在可用宽度内换行。 */
-.reverse-combo-row,
+.calculator-island {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Result panel and rows must size to the content box, never to an intrinsic child. */
+.reverse-results-panel,
+.reverse-results-panel > *,
+.reverse-results-panel a {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.reverse-combo-row {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .reverse-combo-row > *,
 .reverse-combo-row a {
+  box-sizing: border-box;
   min-width: 0;
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
+/* Do not let content-sized flex-basis recreate the old 408px intrinsic row. */
 .reverse-combo-row > span:not(.text-primary) {
-  flex: 1 1 auto;
+  flex: 1 1 0%;
 }
 
 .reverse-combo-row > .text-primary {
   flex: 0 0 auto;
+}
+
+@media (max-width: 639px) {
+  .reverse-combo-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .reverse-combo-row > span:not(.text-primary) {
+    width: 100%;
+    flex: 1 1 0%;
+  }
+
+  .reverse-combo-row > .text-primary {
+    align-self: center;
+  }
 }
 
 /* ===== 无障碍：focus 可见 ===== */
