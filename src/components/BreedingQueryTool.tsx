@@ -157,7 +157,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
     };
   }, [sexA, sexB, isSexDependent, palA, palB, mode]);
 
-  // ---- 反查：选中目标后查询（PRD §10.6） ----
+  // ---- 反查：选中目标后自动查询（PRD §10.6） ----
   const runReverse = useCallback(
     (child: Pal | null) => {
       if (!child) {
@@ -245,9 +245,9 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
     return (
       <div
         key={i}
-        className="flex items-center justify-between gap-3 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors"
+        className="w-full max-w-full min-w-0 flex items-center justify-between gap-3 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors"
       >
-        <div className="flex items-center gap-2 flex-wrap min-w-0">
+        <div className="w-full max-w-full min-w-0 flex items-center gap-2 flex-wrap [overflow-wrap:anywhere]">
           {a && (
             <img
               src={a.imageUrl}
@@ -259,7 +259,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
               }}
             />
           )}
-          <a href={`/pals/${parts.aKey}`} className="font-semibold text-onSurface hover:text-primary transition-colors">
+          <a href={`/pals/${parts.aKey}`} className="min-w-0 max-w-full break-words font-semibold text-onSurface hover:text-primary transition-colors">
             {a?.name ?? parts.aKey}
           </a>
           <span className="text-primary">+</span>
@@ -274,10 +274,10 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
               }}
             />
           )}
-          <a href={`/pals/${parts.bKey}`} className="font-semibold text-onSurface hover:text-primary transition-colors">
+          <a href={`/pals/${parts.bKey}`} className="min-w-0 max-w-full break-words font-semibold text-onSurface hover:text-primary transition-colors">
             {b?.name ?? parts.bKey}
           </a>
-          {genderNote && <span className="text-xs text-onSurface/50">{genderNote}</span>}
+          {genderNote && <span className="min-w-0 max-w-full break-words text-xs text-onSurface/50">{genderNote}</span>}
         </div>
       </div>
     );
@@ -520,7 +520,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
             )}
             {reverseResult.status === 'success' && reverseResult.combos && (
               <div>
-                <p className="text-sm text-onSurface/70 mb-4 flex items-center gap-2">
+                <p className="min-w-0 max-w-full text-sm text-onSurface/70 mb-4 flex items-center gap-2 [overflow-wrap:anywhere]">
                   {target && (
                     <img
                       src={target.imageUrl}
@@ -528,7 +528,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
                       className="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0"
                     />
                   )}
-                  <span>
+                  <span className="min-w-0 max-w-full break-words">
                     <strong className="text-primary">{target?.name}</strong> can be bred from{' '}
                     <strong>{reverseResult.combos.length}</strong>{' '}
                     {reverseResult.combos.length === 1 ? 'parent pair' : 'parent pairs'}:
