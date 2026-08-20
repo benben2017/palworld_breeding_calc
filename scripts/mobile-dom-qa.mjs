@@ -95,9 +95,14 @@ try {
       const calculator = document.querySelector('#calculator')?.getBoundingClientRect();
 
       const analytics = window.dataLayer || [];
-      const reverseEvents = analytics.filter((entry) =>
-        Array.isArray(entry) && entry[0] === 'event' && entry[1] === 'reverse_lookup_completed'
-      );
+      const toArgs = (entry) => {
+        if (Array.isArray(entry)) return entry;
+        if (entry && typeof entry.length === 'number') return Array.from(entry);
+        return [];
+      };
+      const reverseEvents = analytics
+        .map(toArgs)
+        .filter((entry) => entry[0] === 'event' && entry[1] === 'reverse_lookup_completed');
       const clarityLoaded = Boolean(document.getElementById('clarity-tag'));
 
       return {
