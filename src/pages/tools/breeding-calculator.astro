@@ -83,7 +83,7 @@ const faqJsonLd = {
     </section>
 
     {/* 内容模块：配种机制说明（冻结稿 §4 深度内容） */}
-    <section class="max-w-[800px] mx-auto mb-16">
+    <section class="w-full max-w-[800px] min-w-0 mx-auto mb-16">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-6">How Palworld breeding works</h2>
       <div class="space-y-4 text-onSurface/70 leading-relaxed">
         <p>
@@ -104,7 +104,7 @@ const faqJsonLd = {
     </section>
 
     {/* 常见组合列表（冻结稿 §4） */}
-    <section class="max-w-[800px] mx-auto">
+    <section class="w-full max-w-[800px] min-w-0 mx-auto">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Popular unique combos</h2>
       <div class="grid md:grid-cols-2 gap-4">
         {[
@@ -117,18 +117,18 @@ const faqJsonLd = {
           const pb = palsData.find((x) => x.name.toLowerCase() === b.toLowerCase());
           const pc = palsData.find((x) => x.name.toLowerCase() === c.toLowerCase());
           return (
-            <div class="bg-surface border border-border rounded-xl px-5 py-4 flex items-center justify-between gap-3">
-              <span class="flex items-center gap-2 min-w-0">
+            <div class="w-full min-w-0 max-w-full box-border bg-surface border border-border rounded-xl px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+              <span class="flex min-w-0 max-w-full flex-wrap items-center gap-2">
                 {pa && <img src={pa.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />}
-                <span class="text-sm font-semibold text-onSurface truncate">{a}</span>
-                <span class="text-primary">+</span>
+                <span class="text-sm font-semibold text-onSurface break-words">{a}</span>
+                <span class="text-primary shrink-0">+</span>
                 {pb && <img src={pb.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />}
-                <span class="text-sm font-semibold text-onSurface truncate">{b}</span>
+                <span class="text-sm font-semibold text-onSurface break-words">{b}</span>
               </span>
-              <span class="flex items-center gap-2 shrink-0">
+              <span class="flex min-w-0 max-w-full shrink items-center gap-2">
                 <span class="text-primary font-black text-sm">→</span>
                 {pc && <img src={pc.imageUrl} alt="" class="w-7 h-7 rounded-full object-cover bg-surface-elevated shrink-0" />}
-                <span class="text-primary font-black text-sm">{c}</span>
+                <span class="text-primary font-black text-sm break-words">{c}</span>
               </span>
             </div>
           );
