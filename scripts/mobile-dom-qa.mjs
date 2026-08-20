@@ -123,8 +123,6 @@ try {
         }),
         resultText: panel?.textContent?.trim().replace(/\s+/g, ' ').slice(0, 240),
         overflowNodes,
-        gaCollectRequests,
-        thirdPartyPageErrors,
         clarityLoaded,
         reverseEvents,
         pass: Boolean(
@@ -136,7 +134,14 @@ try {
       };
     });
 
-    report.viewports.push({ width, initial, pageErrors, ...result });
+    report.viewports.push({
+      width,
+      initial,
+      pageErrors,
+      gaCollectRequests,
+      thirdPartyPageErrors,
+      ...result,
+    });
     await page.close();
   }
 } finally {
