@@ -21,7 +21,11 @@ try {
     const thirdPartyPageErrors = [];
     page.on('request', (request) => {
       if (request.url().includes('/g/collect')) {
-        gaCollectRequests.push({ url: request.url(), method: request.method() });
+        gaCollectRequests.push({
+          url: request.url(),
+          method: request.method(),
+          postData: request.postData() || '',
+        });
       }
     });
     page.on('pageerror', (error) => {
@@ -53,6 +57,22 @@ try {
       const text = document.querySelector('.reverse-results-panel')?.textContent || '';
       return text.includes('234') && text.includes('parent pairs');
     }, { timeout: 30000 });
+
+    await page.waitForTimeout(3000);
+
+    const reverseLookupRequests = gaCollectRequests.filter((request) => {
+      const combined = `${request.url}&${request.postData}`;
+      return combined.includes('en=reverse_lookup_completed');
+    });
+    const reverseLookupRequestParams = reverseLookupRequests.map((request) => {
+      const combined = `${request.url}&${request.postData}`;
+      const params = new URLSearchParams(combined.replace(/^.*?\?/, ''));
+      return {
+        event: params.get('en'),
+        mode: params.get('ep.mode'),
+        result_count: params.get('ep.result_count'),
+      };
+    });
 
     const result = await page.evaluate(() => {
       const describe = (el) => {
@@ -140,6 +160,8 @@ try {
       pageErrors,
       gaCollectRequests,
       thirdPartyPageErrors,
+      reverseLookupRequests,
+      reverseLookupRequestParams,
       ...result,
     });
     await page.close();
