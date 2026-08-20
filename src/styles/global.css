@@ -120,15 +120,24 @@ body {
   min-width: 0;
 }
 
-@media (max-width: 639px) {
-  #calculator {
-    width: calc(100vw - 3rem);
-    max-width: calc(100vw - 3rem);
-  }
+#calculator,
+#calculator *,
+#calculator astro-island,
+#calculator astro-island > * {
+  box-sizing: border-box;
+  min-width: 0 !important;
+  max-width: 100%;
+}
+
+#calculator astro-island,
+#calculator astro-island > *,
+#calculator .calculator-island,
+#calculator .calculator-island > * {
+  display: block;
+  width: 100% !important;
 }
 
 
-/* Result panel and rows must size to the content box, never to an intrinsic child. */
 .reverse-results-panel,
 .reverse-results-panel > *,
 .reverse-results-panel a {
