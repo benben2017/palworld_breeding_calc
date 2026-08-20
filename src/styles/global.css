@@ -107,12 +107,26 @@ body {
 [data-theme="hc"] .border-border { border-width: 2px !important; }
 [data-theme="hc"] a { text-decoration: underline; }
 
-.calculator-island {
+#calculator,
+#calculator > div:not(.absolute),
+#calculator > div:not(.absolute) > div,
+#calculator .calculator-island,
+#calculator .calculator-island > astro-island,
+#calculator .calculator-island > astro-island > * {
   box-sizing: border-box;
+  display: block;
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
+
+@media (max-width: 639px) {
+  #calculator {
+    width: calc(100vw - 3rem);
+    max-width: calc(100vw - 3rem);
+  }
+}
+
 
 /* Result panel and rows must size to the content box, never to an intrinsic child. */
 .reverse-results-panel,

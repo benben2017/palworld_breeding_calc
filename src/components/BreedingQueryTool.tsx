@@ -242,9 +242,9 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
     return (
       <div
         key={i}
-        className="reverse-combo-row w-full max-w-full min-w-0 flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors [overflow-wrap:anywhere]"
+        className="reverse-combo-row w-full max-w-full min-w-0 box-border flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 px-3 sm:px-4 py-3 rounded-lg bg-background/40 border border-border/60 hover:border-primary/40 transition-colors [overflow-wrap:anywhere]"
       >
-        <span className="flex min-w-0 max-w-full shrink items-center gap-2">
+        <span className="flex w-full min-w-0 max-w-full shrink items-center gap-2 sm:w-auto">
           {a && (
             <img
               src={a.imageUrl}
@@ -261,7 +261,7 @@ export default function BreedingQueryTool({ pals, compact = false }: Props) {
           </a>
         </span>
         <span className="text-primary shrink-0" aria-hidden="true">+</span>
-        <span className="flex min-w-0 max-w-full shrink items-center gap-2">
+        <span className="flex w-full min-w-0 max-w-full shrink items-center gap-2 sm:w-auto">
           {b && (
             <img
               src={b.imageUrl}

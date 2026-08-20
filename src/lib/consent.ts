@@ -53,11 +53,34 @@ function injectScript(src: string, id: string, attrs: Record<string, string> = {
   document.head.appendChild(s);
 }
 
+function queueGtagEvent(name: string, params: Record<string, string | number | boolean>): void {
+  window.dataLayer = window.dataLayer || [];
+  const args: unknown[] = ['event', name, params];
+  window.dataLayer.push(args);
+}
+
+export function trackGtagEvent(name: string, params: Record<string, string | number | boolean>): void {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, params);
+    } else if (window.analyticsConsent === 'accepted') {
+      queueGtagEvent(name, params);
+    }
+  } catch {
+    /* analytics must never break the tool */
+  }
+}
 export function loadVendors(): void {
   // GA4（PRD §9.1: Cookie 2 年, IP 匿名化）
   const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
   if (gaId) {
     window.dataLayer = window.dataLayer || [];
+    // Install the queue immediately so feature events are valid gtag argument tuples
+    // even while the external gtag.js script is still loading.
+    window.gtag = window.gtag || ((...args: unknown[]) => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(args);
+    });
     // gtag.js 主体
     injectScript(`https://www.googletagmanager.com/gtag/js?id=${gaId}`, 'gtag-js');
     const inline = document.createElement('script');
