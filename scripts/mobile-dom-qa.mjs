@@ -30,6 +30,7 @@ try {
     await page.getByRole('button', { name: 'Target → Parents' }).click();
     const target = page.locator('#pal-target');
     await target.fill('Anubis');
+    await page.getByRole('option', { name: /Anubis/ }).first().click();
     await page.waitForFunction(() => {
       const text = document.querySelector('.reverse-results-panel')?.textContent || '';
       return text.includes('234') && text.includes('parent pairs');
