@@ -88,9 +88,12 @@ export function loadVendors(): void {
     inline.textContent = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`;
     document.head.appendChild(inline);
   }
-  // Clarity（PRD §9.1: Cookie 1 年）
+  // Clarity is optional: keep it disabled unless explicitly enabled in the deployment environment.
+  // This isolates the third-party runtime from PalBreed page errors while preserving the
+  // consent-gated integration for environments that intentionally opt in.
+  const clarityEnabled = (import.meta.env.PUBLIC_CLARITY_ENABLED as string | undefined) === 'true';
   const clarityId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID as string | undefined;
-  if (clarityId) {
+  if (clarityEnabled && clarityId) {
     injectScript('https://www.clarity.ms/tag/' + clarityId, 'clarity-tag');
   }
   try {

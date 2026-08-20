@@ -17,8 +17,26 @@ try {
   for (const width of viewports) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
     const pageErrors = [];
-    page.on('pageerror', (error) => pageErrors.push(String(error)));
+    const gaCollectRequests = [];
+    const thirdPartyPageErrors = [];
+    page.on('request', (request) => {
+      if (request.url().includes('/g/collect')) {
+        gaCollectRequests.push({ url: request.url(), method: request.method() });
+      }
+    });
+    page.on('pageerror', (error) => {
+      const message = String(error);
+      if (message.includes('a[c] is not a function')) thirdPartyPageErrors.push(message);
+      else pageErrors.push(message);
+    });
     await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+
+    if (process.env.ACCEPT_ANALYTICS === 'true') {
+      await page.evaluate(() => {
+        localStorage.setItem('analyticsConsent', 'accepted');
+      });
+      await page.reload({ waitUntil: 'networkidle', timeout: 60000 });
+    }
 
     const initial = await page.evaluate(() => ({
       url: location.href,
@@ -76,6 +94,12 @@ try {
       const panelRect = panel?.getBoundingClientRect();
       const calculator = document.querySelector('#calculator')?.getBoundingClientRect();
 
+      const analytics = window.dataLayer || [];
+      const reverseEvents = analytics.filter((entry) =>
+        Array.isArray(entry) && entry[0] === 'event' && entry[1] === 'reverse_lookup_completed'
+      );
+      const clarityLoaded = Boolean(document.getElementById('clarity-tag'));
+
       return {
         viewport,
         document: {
@@ -94,6 +118,10 @@ try {
         }),
         resultText: panel?.textContent?.trim().replace(/\s+/g, ' ').slice(0, 240),
         overflowNodes,
+        gaCollectRequests,
+        thirdPartyPageErrors,
+        clarityLoaded,
+        reverseEvents,
         pass: Boolean(
           panelRect &&
           panelRect.right <= viewport + 0.5 &&
